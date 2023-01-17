@@ -1,0 +1,46 @@
+.editorContainer {
+  counter-reset: line;
+  outline: none;
+  max-width: 100%;
+}
+
+.lineNumber:before {
+  color: #282a36;
+  position: absolute;
+  z-index: -1;
+  right: 100%;
+  margin-right: 10px;
+  text-align: right;
+  opacity: 0.8;
+  user-select: none;
+  counter-increment: line;
+  content: counter(line);
+}
+
+.lineNumberDark:before {
+  color: #f8f8f2;
+  position: absolute;
+  z-index: -1;
+  right: 100%;
+  margin-right: 10px;
+  text-align: right;
+  opacity: 0.3;
+  user-select: none;
+  counter-increment: line;
+  content: counter(line);
+}
+
+.canvas canvas {
+  width: 420px !important;
+  height: 420px !important;
+}
+
+.label {
+  color: #bd93f9;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.label:before {
+  content: '//';
+}

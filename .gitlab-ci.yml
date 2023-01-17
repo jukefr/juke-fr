@@ -1,0 +1,31 @@
+---
+include:
+  - template: Auto-DevOps.gitlab-ci.yml
+  - project: 'kay/ci-templates'
+    file:
+      - '/Semantic-Release.gitlab-ci.yml'
+
+variables:
+  # TEST_DISABLED: 'true'
+  # CODE_QUALITY_DISABLED: "true"
+  # LICENSE_MANAGEMENT_DISABLED: "true"
+  # BROWSER_PERFORMANCE_DISABLED: "true"
+  # LOAD_PERFORMANCE_DISABLED: "true"
+  # SAST_DISABLED: "true"
+  # SECRET_DETECTION_DISABLED: "true"
+  # DEPENDENCY_SCANNING_DISABLED: "true"
+  # CONTAINER_SCANNING_DISABLED: "true"
+  # DAST_DISABLED: "true"
+  # REVIEW_DISABLED: "true"
+  # CODE_INTELLIGENCE_DISABLED: "true"
+  # CLUSTER_IMAGE_SCANNING_DISABLED: "true"
+  POSTGRES_ENABLED: 'false'
+  NEXT_TELEMETRY_DISABLED: 1
+
+test:
+  variables:
+    BUILDPACK_URL: https://code.eutychia.org/kay/heroku-buildpack-nodejs-playwright
+
+production:
+  environment:
+    url: 'http://$KUBE_INGRESS_BASE_DOMAIN'

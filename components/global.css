@@ -1,0 +1,47 @@
+@font-face {
+  font-family: comic-code;
+  src: url('./fonts/Regular.eot'); /* IE9 */
+  src: url('./fonts/Regular.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('./fonts/Regular.woff2') format('woff2'),
+    /* chrome 36+, firefox 39+,iOS 10+, Android 67+ */
+      url('./fonts/Regular.woff') format('woff'),
+    /* chrome, firefox */ url('./fonts/Regular.ttf') format('truetype'),
+    /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+      url('./fonts/Regular.svg#comic-code') format('svg'); /* iOS 4.1- */
+  font-display: swap;
+}
+
+@font-face {
+  font-family: comic-code;
+  src: url('./fonts/Bold.eot'); /* IE9 */
+  src: url('./fonts/Bold.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('./fonts/Bold.woff2') format('woff2'),
+    /* chrome 36+, firefox 39+,iOS 10+, Android 67+ */ url('./fonts/Bold.woff')
+      format('woff'),
+    /* chrome, firefox */ url('./fonts/Bold.ttf') format('truetype'),
+    /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+      url('./fonts/Bold.svg#comic-code') format('svg'); /* iOS 4.1- */
+  font-display: swap;
+  font-weight: bold;
+  font-style: bold;
+}
+
+* {
+  font-family: comic-code !important;
+}
+
+.chakra-alert {
+  max-width: 80vw !important;
+}
+
+.token {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+}
+
+button[r3f-a11y='true'] {
+  pointer-events: none;
+}
