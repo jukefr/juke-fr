@@ -1,4 +1,4 @@
-import { Badge, Box, Text } from '@chakra-ui/react';
+import { Badge, Box, Text, Divider } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import ReactMarkdown from 'react-markdown';
@@ -34,7 +34,7 @@ const Project = ({
   return (
     <a
       key={project.id}
-      href={project.web_url}
+      href={project.html_url}
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -92,6 +92,7 @@ const Project = ({
             >
               {project.name}
             </Box>
+            <Divider mt="1" mb="1" />
             <Box>{projectDescription}</Box>
           </Box>
         </motion.div>

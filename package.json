@@ -1,7 +1,7 @@
 {
   "name": "@kay/juke-fr",
-  "version": "1.7.0",
-  "license": "SEE LICENSE IN LICENSE.CNPLv7+.md",
+  "version": "1.8.0",
+  "license": "SEE LICENSE IN LICENSE",
   "author": "k <site@juke.fr>",
   "bin": "./juke-fr",
   "files": [
@@ -22,7 +22,7 @@
     "@chakra-ui/utils": "^2.0.2",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
-    "@kay/komponents": "^1.0.7",
+    "@kay/komponents": "1.7.0",
     "@next/bundle-analyzer": "^12.1.6",
     "@next/eslint-plugin-next": "^12.1.6",
     "@playwright/test": "^1.22.2",

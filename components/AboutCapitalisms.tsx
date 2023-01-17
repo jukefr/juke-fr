@@ -13,7 +13,10 @@ const AboutCapitalisms = () => {
         <b>2019 to 2020</b>&ensp; Freelance work on Malt and Comet
       </Text>
       <Text>
-        <b>2020 to 2022</b>&ensp; Working for La Javaness
+        <b>2020 to 2022</b>&ensp; Worked for La Javaness
+      </Text>
+      <Text>
+        <b>2023</b>&ensp; Some more freelance work for now
       </Text>
     </Box>
   );

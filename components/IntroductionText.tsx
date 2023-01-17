@@ -14,9 +14,9 @@ const IntroductionHeader = () => {
 const IntroductionBody = () => {
   return (
     <Text mb={12}>
-      <b>K</b> is a <b>25 year-old non-binary/agender robo</b>. You can use any{' '}
-      <b>neutral pronouns</b> for them (english: they or it, french: iel ou
-      lea). It currently lives and works near <b>Paris</b>. They like anything
+      <b>Kay</b> is a <b>25 year-old non-binary/agender robo</b>. You can use any{' '}
+      <b>neutral pronouns</b> for them (english: they or it, french: ielle/iel ou
+      lae/lea ou ca/cela). It currently lives and works near <b>Paris</b>. They like anything
       that has to do with <b>technology</b> and hacking stuff (code, video,
       music, etc.). It creates mostly ephemeral, always <b>open source</b> pet
       projects. They are very much pro <b>data rights</b> and against rising
