@@ -1,5 +1,4 @@
 # [juke-fr](https://code.juke.fr/kay/juke-fr)
-
 site built in typescript with next.js, chakra ui, framer motion, three.js available on juke.fr
 
 ## install
@@ -14,6 +13,7 @@ $ git clone https://code.juke.fr/kay/juke-fr.git
 $ yarn
 ```
 
+
 ## License
 
 Most all of my work is now licensed under **a modified** [CC-BY-NC-SA 4.0 AFEdit](https://code.juke.fr/kay/license/raw/branch/main/LICENSE) plus accounting for states existing in our world on top of capitalism.
@@ -21,12 +21,10 @@ Most all of my work is now licensed under **a modified** [CC-BY-NC-SA 4.0 AFEdit
 This is a weird choice for code right?
 
 Here are a few key reasons:
-
 - my definition of "open" involves being able to share and modify, you are able to do such things, just not make money off of it, or oppress people
 - my definition of "free" involves being able to share and modify, you are able to do such things, not just make money off of it, or oppressing people
 
 So no, amongst other things, this list is not exhaustive,
-
 - you cannot have somebody work on my tool and redistribute it to your employees
 - you cannot resell copies of this because in this age distribution is not done with floppy disks and the internet is a thing
 - you cannot use it to generate revenue yourself
@@ -40,7 +38,6 @@ So no, amongst other things, this list is not exhaustive,
 - you cannot use it to injure, harm, kill, whether physically or psychologically
 
 You can, however,
-
 - change it to do whatever you please
 - share it to anyone you please with attribution and under the same license
 - use it as much as you please
@@ -65,9 +62,8 @@ $ git clone https://code.juke.fr/kay/juke-fr.git
 More to come later.
 
 ### Issues
-
 Open new issues by mailing [eutychia.gitlab+juke-fr-issue@gmail.com](mailto:eutychia.gitlab+juke-fr-issue@gmail.com)
 
 ---
-
 beep boop
+
