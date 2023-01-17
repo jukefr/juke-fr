@@ -12,10 +12,11 @@ export async function getStaticProps() {
     per_page: '50',
   };
   latestURL.search = new URLSearchParams(latestParams).toString();
-  const projects = (await (await fetch(latestURL.toString())).json())
-    .sort((a: any, b: any) => {
-      return Date.parse(b.updated_at) - Date.parse(a.updated_at)
-  });
+  const projects = (await (await fetch(latestURL.toString())).json()).sort(
+    (a: any, b: any) => {
+      return Date.parse(b.updated_at) - Date.parse(a.updated_at);
+    },
+  );
 
   return {
     props: {

@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "build": "yarn && NODE_ENV=production next build && cp -r ./.next/static ./.next/standalone/.next/ && cp -r public ./.next/standalone/",
+    "export": "yarn && next build && next export",
     "start": "NODE_ENV=production node ./.next/standalone/server.js",
     "dev": "next dev",
     "lint": "next lint",

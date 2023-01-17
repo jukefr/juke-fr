@@ -6,10 +6,10 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  i18n: {
-    locales: ['en'],
-    defaultLocale: 'en',
-  },
+  // i18n: {
+    // locales: ['en'],
+    // defaultLocale: 'en',
+  // },
   experimental: {
     outputStandalone: true,
   },
@@ -24,6 +24,15 @@ const nextConfig = {
     });
 
     return config;
+  },
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      '/': { page: '/' },
+      '/about': { page: '/about' },
+    }
   },
 };
 
