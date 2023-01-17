@@ -1,32 +1,32 @@
 import { Flex, Heading } from '@chakra-ui/react';
 import Projects from '../components/Projects';
+import { useState, useEffect } from 'react'
 
 interface IHomeProps {
   projects: any;
 }
 
-export async function getStaticProps() {
-  const latestURL = new URL('https://code.juke.fr/api/v1/users/kay/repos');
-  const latestParams = {
-    order_by: 'last_activity_at',
-    per_page: '50',
-  };
-  latestURL.search = new URLSearchParams(latestParams).toString();
-  const projects = (await (await fetch(latestURL.toString())).json()).sort(
+const HomePage = (): JSX.Element => {
+  const [projects, setProjects] = useState(null)
+  const [isLoading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setLoading(true)
+    fetch('https://code.juke.fr/api/v1/users/kay/repos')
+      .then((res) => res.json())
+      .then((res) => res.sort(
     (a: any, b: any) => {
       return Date.parse(b.updated_at) - Date.parse(a.updated_at);
     },
-  );
 
-  return {
-    props: {
-      projects,
-    },
-    revalidate: 60 * 60,
-  };
-}
-
-const HomePage = ({ projects }: IHomeProps): JSX.Element => {
+      ))
+      .then((projects) => {
+        setProjects(projects)
+        setLoading(false)
+      })
+  }, [])
+  if (isLoading) return <p>Loading...</p>
+  if (!projects) return <p>Error fetching projects</p>
   return (
     <Flex alignItems="center" justifyContent="center" direction="column">
       <Flex direction="column" rounded={6} mb={12}>
