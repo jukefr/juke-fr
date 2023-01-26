@@ -142,9 +142,9 @@ void main() {
 
       toast({
         id: `${jinxToastId}-${Date.now()}`,
-        title: 'Jinx My Beloved',
+        title: 'jinx my beloved',
         isClosable: true,
-        description: 'Click the Jinx to get a new random shader!',
+        description: 'click the jinx to get a new random shader!',
         duration: 15000,
         status: 'info',
         position: 'top',
@@ -155,12 +155,12 @@ void main() {
 
       toast({
         id: `${toastId}-${Date.now()}`,
-        title: 'Shader Editor Added',
+        title: 'shader editor added',
         isClosable: true,
         duration: 15000,
         status: 'info',
         description:
-          'Try it out! Feel free to share any cool results you want added to the site!',
+          'try it out! feel free to share any cool results you want added to the site!',
         position: 'top',
       });
     }

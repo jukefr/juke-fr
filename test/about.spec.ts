@@ -10,5 +10,5 @@ test('should be able able to navigate to about', async ({ page }) => {
     page.locator('text=about').click(),
   ]);
   await expect(page).toHaveURL('/about');
-  await expect(page.locator('h2').first()).toContainText('Capitalisms');
+  await expect(page.locator('h2').first()).toContainText('capitalisms');
 });

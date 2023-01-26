@@ -43,12 +43,13 @@ const config: PlaywrightTestConfig = {
         ...devices['Desktop Chrome'],
       },
     },
-    {
-      name: 'Desktop Firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-      },
-    },
+    // broken on arch idk
+    // {
+    //   name: 'Desktop Firefox',
+    //   use: {
+    //     ...devices['Desktop Firefox'],
+    //   },
+    // },
     // {
     //   name: 'Desktop Safari',
     //   use: {
@@ -62,12 +63,12 @@ const config: PlaywrightTestConfig = {
         ...devices['Pixel 5'],
       },
     },
-    {
-      name: 'Mobile Firefox',
-      use: {
-        ...devices['Pixel 5'],
-      },
-    },
+    // {
+    //   name: 'Mobile Firefox',
+    //   use: {
+    //     ...devices['Pixel 5'],
+    //   },
+    // },
     // {
     //   name: 'Mobile Safari',
     //   use: devices['iPhone 12'],

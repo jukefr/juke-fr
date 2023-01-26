@@ -41,7 +41,7 @@ const AboutLinks = ({ iconColor }: { iconColor: string }) => {
   return (
     <Box>
       <Heading mb={6} as="h2" size="md">
-        Hypertext references
+        hypertext references
       </Heading>
       <List spacing={3}>
         <AboutLink
