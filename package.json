@@ -15,7 +15,7 @@
     "dev": "next dev",
     "lint": "next lint",
     "test:setup": "npx playwright install",
-    "test": "yarn test:setup && playwright test"
+    "test": "yarn build && yarn test:setup && playwright test"
   },
   "devDependencies": {
     "@chakra-ui/icons": "^2.0.2",
