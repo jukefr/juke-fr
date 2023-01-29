@@ -5,8 +5,8 @@ import { selectShowEditor } from './store/showEditor';
 const IntroductionHeader = () => {
   return (
     <Text>
-      hello, i&apos;m <b>k</b>, a backend web developer (mostly, i have no clue
-      what i&apos;m doing)
+      hello, i&apos;m <b>k</b>, a web developer (mostly, i have no clue what
+      i&apos;m doing)
     </Text>
   );
 };

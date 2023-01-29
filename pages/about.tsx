@@ -1,5 +1,4 @@
 import { Container, Flex, useColorModeValue } from '@chakra-ui/react';
-import AboutCapitalisms from '../components/AboutCapitalisms';
 import AboutLinks from '../components/AboutLinks';
 
 const AboutPage = (): JSX.Element => {
@@ -12,7 +11,6 @@ const AboutPage = (): JSX.Element => {
       mb={12}
     >
       <Container>
-        <AboutCapitalisms />
         <AboutLinks iconColor={iconColor} />
       </Container>
     </Flex>

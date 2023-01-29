@@ -1,6 +1,6 @@
 {
   "name": "@kay/juke-fr",
-  "version": "1.8.0",
+  "version": "2.0.0",
   "license": "SEE LICENSE IN LICENSE",
   "author": "k <site@juke.fr>",
   "bin": "./juke-fr",
@@ -20,11 +20,11 @@
   },
   "devDependencies": {
     "@chakra-ui/icons": "^2.0.17",
-    "@chakra-ui/react": "^2.2.1",
+    "@chakra-ui/react": "^2.4.9",
     "@chakra-ui/utils": "^2.0.14",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "@kay/komponents": "1.7.0",
+    "@kay/komponents": "2.0.1",
     "@next/bundle-analyzer": "^13.1.6",
     "@next/eslint-plugin-next": "^13.1.6",
     "@playwright/test": "^1.30.0",
