@@ -11,6 +11,13 @@ export default class Document extends NextDocument {
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
           <NextScript />
+          <script
+            async
+            defer
+            src="https://stats.juke.fr/umami.js"
+            data-website-id="d527789c-8332-4b02-906c-9d629eb9e187"
+            data-do-not-track="true"
+          ></script>
         </body>
       </Html>
     );

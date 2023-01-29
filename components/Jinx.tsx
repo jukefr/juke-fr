@@ -142,10 +142,11 @@ void main() {
 
       toast({
         id: `${jinxToastId}-${Date.now()}`,
-        title: 'jinx my beloved',
+        title: 'this website uses analytics',
         isClosable: true,
-        description: 'click the jinx to get a new random shader!',
-        duration: 15000,
+        description:
+          'to get an idea of the traffic but i honor Do Not Track settings :D the stats are public on https://stats.juke.fr/share/3ZhRtUIe/juke.fr',
+        duration: 123000,
         status: 'info',
         position: 'top',
       });
@@ -155,12 +156,12 @@ void main() {
 
       toast({
         id: `${toastId}-${Date.now()}`,
-        title: 'shader editor added',
+        title: 'jinx my beloved',
         isClosable: true,
         duration: 15000,
         status: 'info',
         description:
-          'try it out! feel free to share any cool results you want added to the site!',
+          'click the jinx to get a new random shader! you can also live edit it! feel free to share any cool results you want added to the site!',
         position: 'top',
       });
     }
