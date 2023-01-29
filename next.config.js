@@ -7,12 +7,10 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig = {
   reactStrictMode: true,
   // i18n: {
-    // locales: ['en'],
-    // defaultLocale: 'en',
+  //   locales: ['en'],
+  //   defaultLocale: 'en',
   // },
-  experimental: {
-    outputStandalone: true,
-  },
+  output: 'standalone',
   webpack: (config, {}) => {
     config.module.rules.push({
       test: /\.(glsl|vs|fs|vert|frag)$/,
@@ -25,15 +23,15 @@ const nextConfig = {
 
     return config;
   },
-  exportPathMap: async function (
-    defaultPathMap,
-    { dev, dir, outDir, distDir, buildId }
-  ) {
-    return {
-      '/': { page: '/' },
-      '/about': { page: '/about' },
-    }
-  },
+  // exportPathMap: async function (
+  //   defaultPathMap,
+  //   { dev, dir, outDir, distDir, buildId },
+  // ) {
+  //   return {
+  //     '/': { page: '/' },
+  //     '/about': { page: '/about' },
+  //   };
+  // },
 };
 
 module.exports = withBundleAnalyzer(nextConfig);
