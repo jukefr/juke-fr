@@ -29,6 +29,11 @@ const Navbar = () => {
             </Heading>
           </Button>
         </NextLink>
+        <NextLink href="/boops" passHref scroll={false}>
+          <Button variant="ghost">
+            <Text>boops</Text>
+          </Button>
+        </NextLink>
         <NextLink href="/about" passHref scroll={false}>
           <Button variant="ghost">
             <Text>about</Text>

@@ -1,6 +1,6 @@
 {
   "name": "@kay/juke-fr",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "license": "SEE LICENSE IN LICENSE",
   "author": "k <site@juke.fr>",
   "bin": "./juke-fr",
@@ -46,6 +46,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.1",
     "framer-motion": "^8.5.4",
+    "gray-matter": "^4.0.3",
     "next": "^13.1.6",
     "npm-check-updates": "^16.6.3",
     "prettier": "^2.8.3",
