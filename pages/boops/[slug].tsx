@@ -59,7 +59,7 @@ export function getSortedPostsData(): any {
 }
 
 export async function getStaticProps({ params }: any) {
-  const boop = getPostById(params.slug);
+  const boop = getPostById(params.slug.replace('.html', ''));
 
   return {
     props: {
@@ -75,7 +75,7 @@ export async function getStaticPaths() {
     paths: boops.map((boop: any) => {
       return {
         params: {
-          slug: boop.id,
+          slug: `${boop.id}.html`,
         },
       };
     }),

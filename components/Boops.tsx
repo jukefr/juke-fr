@@ -48,7 +48,7 @@ const Boops = ({ boops }: any) => {
       <List spacing={3}>
         {boops.map(({ id, date, title }: any) => (
           <AboutLink
-            url={'/boops/' + id}
+            url={'/boops/' + id + '.html'}
             text={title}
             iconColor={iconColor}
             key={id}
