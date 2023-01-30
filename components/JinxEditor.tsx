@@ -149,7 +149,7 @@ const JinxEditor = ({
         }}
         textareaClassName={`foobar-maintaining-fun-1 ${styles.editorContainer}`}
         textareaId="vertex-editor"
-        className={styles.editorParent}
+        className={styles.editorContainer}
       />
       <Box
         className="statusBar"

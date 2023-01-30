@@ -1163,10 +1163,10 @@
   resolved "https://registry.yarnpkg.com/@isaacs/string-locale-compare/-/string-locale-compare-1.1.0.tgz#291c227e93fd407a96ecd59879a35809120e432b"
   integrity sha512-SQ7Kzhh9+D+ZW9MA0zkYv3VXhIDNx+LzM6EJ+/65I3QY+enU6Itte7E5XX7EWrqLW2FN4n06GWzBnPoC3th2aQ==
 
-"@kay/komponents@2.0.1":
-  version "2.0.1"
-  resolved "https://code.juke.fr/api/packages/kay/npm/%40kay%2Fkomponents/-/2.0.1/komponents-2.0.1.tgz#d26eedfbf0451831977e1f3410a5750bad36b6e5"
-  integrity sha512-PAIkV7WxIBprTF+4BtkK45o91O4Fbm4RgUZuZIAOC72/cdP6yRYXFtzao1J0wL4Kv1DOhhtuLvet706WSqStEQ==
+"@kay/komponents@2.0.2":
+  version "2.0.2"
+  resolved "https://code.juke.fr/api/packages/kay/npm/%40kay%2Fkomponents/-/2.0.2/komponents-2.0.2.tgz#8e5788ab29840418d2343fb71a6256104a4ae469"
+  integrity sha512-C1L1GFKO9x1pH2P+2s0kWUmib6Z9/LKnb8Xx1oz1+CpUz88t8GYcOI9a99WC1JSkKwdP89cttp4EQEgoAlsJog==
   dependencies:
     "@chakra-ui/icons" "^2.0.17"
     "@chakra-ui/react" "^2.4.9"
@@ -4730,10 +4730,10 @@ eslint-plugin-prettier@^4.2.1:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-eslint-plugin-react@^7.32.1:
-  version "7.32.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.32.1.tgz#88cdeb4065da8ca0b64e1274404f53a0f9890200"
-  integrity sha512-vOjdgyd0ZHBXNsmvU+785xY8Bfe57EFbTYYk8XrROzWpr9QBvpjITvAXt9xqcE6+8cjR/g1+mfumPToxsl1www==
+eslint-plugin-react@^7.32.2:
+  version "7.32.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.32.2.tgz#e71f21c7c265ebce01bcbc9d0955170c55571f10"
+  integrity sha512-t2fBMa+XzonrrNkyVirzKlvn5RXzzPwRHtMvLAtVZrt8oxgnTQaYbU6SXTOO1mwQgp1y5+toMSKInnzGr0Knqg==
   dependencies:
     array-includes "^3.1.6"
     array.prototype.flatmap "^1.3.1"
