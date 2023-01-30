@@ -1,5 +1,5 @@
 ---
-title: 'making linux look hackecore in 2023'
+title: 'making linux look hackercore in 2023 🔥'
 date: '2023-01-30'
 ---
 
