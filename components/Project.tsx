@@ -70,19 +70,6 @@ const Project = ({
           {/* /> */}
 
           <Box p="6">
-            {/* <Box alignItems="baseline"> */}
-            {/*   {project.topics.map((topic: string) => ( */}
-            {/*     <Badge */}
-            {/*       key={`${project.id}-${topic}`} */}
-            {/*       borderRadius="full" */}
-            {/*       px="2" */}
-            {/*       mr={1} */}
-            {/*       color={badgeColor} */}
-            {/*     > */}
-            {/*       {topic} */}
-            {/*     </Badge> */}
-            {/*   ))} */}
-            {/* </Box> */}
             <Box
               mt="1"
               fontWeight="semibold"
@@ -91,6 +78,19 @@ const Project = ({
               noOfLines={1}
             >
               {project.name}
+            </Box>
+            <Box alignItems="baseline">
+              {project.topics.map((topic: string) => (
+                <Badge
+                  key={`${project.id}-${topic}`}
+                  borderRadius="full"
+                  px="2"
+                  mr={1}
+                  color={badgeColor}
+                >
+                  {topic}
+                </Badge>
+              ))}
             </Box>
             <Divider mt="1" mb="1" />
             <Box>{projectDescription}</Box>
