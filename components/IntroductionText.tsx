@@ -14,14 +14,13 @@ const IntroductionHeader = () => {
 const IntroductionBody = () => {
   return (
     <Text mb={12}>
-      <b>kay</b> is a <b>25 year-old non-binary/agender robo</b>. you can use
-      any <b>neutral pronouns</b> for them (english: they or it, french:
-      ielle/iel ou lae/lea ou ca/cela). it currently lives and works near{' '}
-      <b>paris</b>. they like anything that has to do with <b>technology</b> and
-      hacking stuff (code, video, music, etc.). it creates mostly ephemeral,
-      always <b>open source</b> pet projects. they are very much pro{' '}
-      <b>data rights</b> and against rising worldwide fascistic ideology and
-      oppression.
+      im a <b>25 year-old trans non-binary robo</b>. you can use any{' '}
+      <b>neutral pronouns</b> for me (english: they or it, french: ielle/iel ou
+      lae/lea ou ca/cela). i currently live near <b>paris</b>. i like anything
+      that has to do with <b>technology</b> and hacking stuff (code, video,
+      music, games, electronics, etc.). i like to share what i make and learn
+      and teach stuff. i am very much pro <b>data rights</b> and more broadly
+      against rising worldwide fascistic ideology and oppression.
     </Text>
   );
 };
