@@ -136,21 +136,21 @@ void main() {
 
   useEffect(() => {
     const toastId = 'editor';
-    const jinxToastId = 'jinx';
-    if (!toasters.includes(jinxToastId)) {
-      dispatch(addToaster(jinxToastId));
+    // const jinxToastId = 'jinx';
+    // if (!toasters.includes(jinxToastId)) {
+    //   dispatch(addToaster(jinxToastId));
 
-      toast({
-        id: `${jinxToastId}-${Date.now()}`,
-        title: 'this website uses analytics',
-        isClosable: true,
-        description:
-          'to get an idea of the traffic but i honor Do Not Track settings :D the stats are public on https://stats.juke.fr/share/3ZhRtUIe/juke.fr',
-        duration: 123000,
-        status: 'info',
-        position: 'top',
-      });
-    }
+    //   toast({
+    //     id: `${jinxToastId}-${Date.now()}`,
+    //     title: 'this website uses analytics',
+    //     isClosable: true,
+    //     description:
+    //       'to get an idea of the traffic but i honor Do Not Track settings :D the stats are public on https://stats.juke.fr/share/3ZhRtUIe/juke.fr',
+    //     duration: 123000,
+    //     status: 'info',
+    //     position: 'top',
+    //   });
+    // }
     if (!toasters.includes(toastId)) {
       dispatch(addToaster(toastId));
 
