@@ -14,7 +14,7 @@ const IntroductionHeader = () => {
 const IntroductionBody = () => {
   return (
     <Text mb={12}>
-      im a <b>25 year-old trans 🏳️‍⚧️ non-binary robo 🤖</b>. you can use any{' '}
+      im a <b>26 year-old trans 🏳️‍⚧️ non-binary robo 🤖</b>. you can use any{' '}
       <b>neutral pronouns</b> for me (english: they or it, french: ielle/iel ou
       lae/lea ou ca/cela). i currently live near <b>paris</b>. i like anything
       that has to do with <b>technology</b> and hacking stuff (code, video,
