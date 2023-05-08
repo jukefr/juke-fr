@@ -70,6 +70,11 @@ const AboutLinks = ({ iconColor }: { iconColor: string }) => {
           text="donate on liberapay"
           iconColor={iconColor}
         />
+        <AboutLink
+          url="https://paypal.me/kaythn/"
+          text="donate on paypal"
+          iconColor={iconColor}
+        />
       </List>
     </Box>
   );
