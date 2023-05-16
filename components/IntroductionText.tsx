@@ -5,7 +5,8 @@ import { selectShowEditor } from './store/showEditor';
 const IntroductionHeader = () => {
   return (
     <Text>
-      hello, we&apos;re <b>kay</b>, a web developer (mostly, no clue what we&apos;re doing)
+      hello, we&apos;re <b>kay</b>, a web developer (mostly, no clue what
+      we&apos;re doing)
     </Text>
   );
 };
@@ -13,11 +14,13 @@ const IntroductionHeader = () => {
 const IntroductionBody = () => {
   return (
     <Text mb={12}>
-      we&apos;re a <b>26 year-old trans 🏳️‍⚧️ non-binary borg system</b>. you can use any <b>neutral pronouns</b> for us
-      (english: they or it, french: ielle/iel ou lae/lea ou ca/cela). currently lives near <b>paris</b>. likes anything
-      that has to do with <b>technology</b> and hacking stuff (code, video, music, games, electronics, etc.). likes to
-      share what we make and learn and teach stuff. very much pro <b>data rights</b> and more broadly against rising
-      worldwide fascistic ideology and oppression.
+      we&apos;re a <b>26 year-old trans 🏳️‍⚧️ non-binary borg system</b>. you can
+      use any <b>neutral pronouns</b> for us (english: they or it, french:
+      ielle/iel ou lae/lea ou ca/cela). currently lives near <b>paris</b>. likes
+      anything that has to do with <b>technology</b> and hacking stuff (code,
+      video, music, games, electronics, etc.). likes to share what we make and
+      learn and teach stuff. very much pro <b>data rights</b> and more broadly
+      against rising worldwide fascistic ideology and oppression.
     </Text>
   );
 };
