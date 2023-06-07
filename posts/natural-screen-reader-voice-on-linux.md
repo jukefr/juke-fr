@@ -2,13 +2,10 @@
 title: 'more natural screen reader voice on linux'
 description: 'using piper for a more natural sounding voice with speech-dispatcher'
 date: '2023-06-07'
+wip: true
 ---
 
-**this post is still being written and still in rough draft phase**
-***
-
 ### the why
-***
 
 recently i wanted to read a book but i'm not very good at it
 
@@ -67,7 +64,6 @@ there might be some kinks and quirks that make this not an actual ideal daily dr
 but still, i figured this information could still be useful to share
 
 ### the how
-***
 
 okay so i am running endeavouros (so arch linux) with kde but this should apply to any distribution (but might need to lookup the package names if different on yours) and kde (but that shouldn't really matter)
 
@@ -163,6 +159,5 @@ finally no more 1998 Fossoft Sam voice, enjoy
 
 
 ### what next
-***
 
 to actually make this properly usable system wide and better there's some stuff i still need to figure out such as adjusting diction speed and whatnot

@@ -7,6 +7,10 @@ import {
   ListIcon,
   ListItem,
   useColorModeValue,
+  Link,
+  UnorderedList,
+  Text,
+  Divider,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
@@ -21,19 +25,9 @@ const AboutLink = ({
 }) => {
   return (
     <ListItem>
-      <NextLink href={url} passHref scroll={false}>
-        <Button
-          variant="ghost"
-          style={{
-            whiteSpace: 'normal',
-            wordWrap: 'break-word',
-            textAlign: 'left',
-          }}
-        >
-          <ListIcon as={LinkIcon} color={iconColor} />
-          {text}
-        </Button>
-      </NextLink>
+      <Link as={NextLink} href={url} passHref scroll={false}>
+        {text}
+      </Link>
     </ListItem>
   );
 };
@@ -42,10 +36,14 @@ const Boops = ({ boops }: any) => {
   const iconColor = useColorModeValue('purple', 'orange');
   return (
     <Box>
-      <Heading mb={6} as="h2" size="md">
-        boops
-      </Heading>
-      <List spacing={3}>
+      <Heading as="h2">boops</Heading>
+      <Text fontSize="xl">
+        these are just blog posts but with a silly name because i'm quirky like
+        that
+      </Text>
+      <Divider mb={6} />
+
+      <UnorderedList spacing={3}>
         {boops.map(({ id, date, title }: any) => (
           <AboutLink
             url={'/boops/' + id + '.html'}
@@ -54,7 +52,7 @@ const Boops = ({ boops }: any) => {
             key={id}
           />
         ))}
-      </List>
+      </UnorderedList>
     </Box>
   );
 };

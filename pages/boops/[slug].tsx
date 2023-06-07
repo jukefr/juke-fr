@@ -1,14 +1,5 @@
-import { Container, Flex, useColorModeValue } from '@chakra-ui/react';
-import { LinkIcon } from '@chakra-ui/icons';
-import {
-  Box,
-  Button,
-  Heading,
-  List,
-  ListIcon,
-  ListItem,
-  Text,
-} from '@chakra-ui/react';
+import { Container, Flex } from '@chakra-ui/react';
+import { Box, Heading, Text, Divider, Highlight, Code } from '@chakra-ui/react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import Head from 'next/head';
@@ -87,6 +78,29 @@ export async function getStaticPaths() {
 }
 
 const BoopPage = ({ boop }: any): JSX.Element => {
+  const wipSentence = 'this post is still a work in progress';
+
+  const mdTheme = {
+    code: (props: any) => {
+      const { inline, children, className } = props;
+
+      if (inline) {
+        return <Code px={2} children={children} />;
+      }
+
+      return (
+        <Code
+          className={className}
+          whiteSpace="break-spaces"
+          display="block"
+          w="full"
+          p={2}
+          children={children}
+        />
+      );
+    },
+  };
+
   return (
     <Flex
       alignItems="center"
@@ -149,14 +163,31 @@ const BoopPage = ({ boop }: any): JSX.Element => {
           key="meta-twitter-image"
         />
       </Head>
-      <Container>
+      <Container className="boop">
         <Box>
-          <Heading mb={6} as="h2" size="md">
-            {boop.title}
-          </Heading>
+          {boop.wip && (
+            <Text align="center" mb={2}>
+              <Highlight
+                query={wipSentence}
+                styles={{
+                  px: '1',
+                  py: '1',
+                  bg: 'orange.100',
+                  whiteSpace: 'initial',
+                }}
+              >
+                {wipSentence}
+              </Highlight>
+            </Text>
+          )}
+          <Text>{boop.date}</Text>
+          <Heading as="h2">{boop.title}</Heading>
+          <Text fontSize="xl">{boop.description}</Text>
+          <Divider mb={6} />
+
           <ReactMarkdown
             rehypePlugins={[rehypeRaw]}
-            components={ChakraUIRenderer()}
+            components={ChakraUIRenderer(mdTheme)}
             skipHtml
           >
             {boop.content}
