@@ -10,6 +10,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 
 import fs from 'fs';
 import path from 'path';
@@ -96,7 +97,9 @@ const BoopPage = ({ boop }: any): JSX.Element => {
           <Heading mb={6} as="h2" size="md">
             {boop.title}
           </Heading>
-          <ReactMarkdown>{boop.content}</ReactMarkdown>
+          <ReactMarkdown rehypePlugins={[rehypeRaw]} className="boop">
+            {boop.content}
+          </ReactMarkdown>
         </Box>
       </Container>
     </Flex>

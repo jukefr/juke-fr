@@ -45,3 +45,15 @@
 button[r3f-a11y='true'] {
   pointer-events: none;
 }
+
+.boop h3 {
+  margin-top: 1em;
+}
+
+.boop p {
+  line-height: 2.5em;
+}
+
+.boop audio {
+  padding: 1em;
+}
