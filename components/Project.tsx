@@ -59,7 +59,7 @@ const Project = ({
             visible: { opacity: 1, scale: 1 },
             hidden: { opacity: 0, scale: prefersReducedMotion ? 1 : 0 },
           }}
-          className="imagineHavingJSDisabledIn2022"
+          className="jsDisabled"
           style={{}}
         >
           {/* <LazyLoadImage */}

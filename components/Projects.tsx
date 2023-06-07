@@ -21,7 +21,7 @@ const Projects = ({ projects }: any) => {
         <style>
           {
             '\
-          .imagineHavingJSDisabledIn2022 {\
+          .jsDisabled {\
             opacity: 1 !important;\
             transform: scale(1) !important;\
           }\
