@@ -40,7 +40,6 @@ const Layout = ({
           content="https://juke.fr/og.png"
           key="meta-og-image"
         />
-        <meta property="og:url" content="https://juke.fr" key="meta-og-url" />
         <meta property="og:type" content="website" key="meta-og-type" />
         <meta
           property="og:site_name"
