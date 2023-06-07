@@ -153,6 +153,7 @@ const BoopPage = ({ boop }: any): JSX.Element => {
           <Heading mb={6} as="h2" size="md">
             {boop.title}
           </Heading>
+          {/* TODO: make this use chakra styles somehow */}
           <ReactMarkdown rehypePlugins={[rehypeRaw]} className="boop">
             {boop.content}
           </ReactMarkdown>
