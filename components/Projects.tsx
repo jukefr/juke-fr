@@ -12,7 +12,11 @@ const Projects = ({ projects }: any) => {
   const prefersReducedMotion = useAppSelector(selectPrefersReducedMotion);
 
   return (
-    <SimpleGrid columns={[1, null, 3]} spacing={10} templateRows="masonry">
+    <SimpleGrid
+      columns={[1, null, 3]}
+      spacing={10}
+      templateRows="masonry" // won't work until 2050 or something
+    >
       <noscript>
         <style>
           {
