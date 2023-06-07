@@ -47,7 +47,7 @@ const HomePage = ({ projects }: IHomeProps): JSX.Element => {
   return (
     <Flex alignItems="center" justifyContent="center" direction="column">
       <Flex direction="column" rounded={6} mb={12}>
-        <Heading mb={6} as="h2" size="md">
+        <Heading mb={6} as="h2">
           random projects
         </Heading>
         <Projects projects={projects}></Projects>

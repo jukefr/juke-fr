@@ -6,33 +6,17 @@ import {
   List,
   ListIcon,
   ListItem,
+  Link,
+  UnorderedList,
 } from '@chakra-ui/react';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 
-const AboutLink = ({
-  url,
-  text,
-  iconColor,
-}: {
-  url: string;
-  text: string;
-  iconColor: string;
-}) => {
+const AboutLink = ({ url, text }: { url: string; text: string }) => {
   return (
     <ListItem>
-      <Button
-        href={url}
-        target="_blank"
-        as="a"
-        variant="ghost"
-        style={{
-          whiteSpace: 'normal',
-          wordWrap: 'break-word',
-          textAlign: 'left',
-        }}
-      >
-        <ListIcon as={LinkIcon} color={iconColor} />
-        {text}
-      </Button>
+      <Link href={url} isExternal>
+        {text} <ExternalLinkIcon mx="2px" />
+      </Link>
     </ListItem>
   );
 };
@@ -40,42 +24,30 @@ const AboutLink = ({
 const AboutLinks = ({ iconColor }: { iconColor: string }) => {
   return (
     <Box>
-      <Heading mb={6} as="h2" size="md">
+      <Heading mb={6} as="h2">
         hypertext references
       </Heading>
-      <List spacing={3}>
+      <UnorderedList spacing={3}>
         <AboutLink
           url="https://code.juke.fr/kay"
           text="code is hosted on code.juke.fr"
-          iconColor={iconColor}
         />
 
         <AboutLink
           url="https://matrix.to/#/@kay:juke.fr"
           text="chat via matrix at @kay:juke.fr"
-          iconColor={iconColor}
         />
         <AboutLink
           url="mailto:site[at]juke[dot]fr?subject=Make sure to replace the [at] and [dot] in the email"
           text="email is site[at]juke[dot]fr"
-          iconColor={iconColor}
         />
-        <AboutLink
-          url="https://ko-fi.com/kthnx/"
-          text="donate on ko-fi"
-          iconColor={iconColor}
-        />
+        <AboutLink url="https://ko-fi.com/kthnx/" text="donate on ko-fi" />
         <AboutLink
           url="https://liberapay.com/kthnx/"
           text="donate on liberapay"
-          iconColor={iconColor}
         />
-        <AboutLink
-          url="https://paypal.me/kaythn/"
-          text="donate on paypal"
-          iconColor={iconColor}
-        />
-      </List>
+        <AboutLink url="https://paypal.me/kaythn/" text="donate on paypal" />
+      </UnorderedList>
     </Box>
   );
 };
