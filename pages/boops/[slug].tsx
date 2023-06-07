@@ -85,7 +85,7 @@ const BoopPage = ({ boop }: any): JSX.Element => {
       const { inline, children, className } = props;
 
       if (inline) {
-        return <Code px={2} children={children} />;
+        return <Code px={2}>{children}</Code>;
       }
 
       return (
@@ -95,8 +95,9 @@ const BoopPage = ({ boop }: any): JSX.Element => {
           display="block"
           w="full"
           p={2}
-          children={children}
-        />
+        >
+          {children}
+        </Code>
       );
     },
   };
@@ -188,6 +189,7 @@ const BoopPage = ({ boop }: any): JSX.Element => {
           <ReactMarkdown
             rehypePlugins={[rehypeRaw]}
             components={ChakraUIRenderer(mdTheme)}
+            // TODO: for some reason blockquotes not working on half the refreshes
             skipHtml
           >
             {boop.content}
