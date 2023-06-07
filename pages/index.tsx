@@ -1,4 +1,4 @@
-import { Flex, Heading, Text, Divider } from '@chakra-ui/react';
+import { Flex, Heading, Text, Divider, Container } from '@chakra-ui/react';
 import Projects from '../components/Projects';
 
 interface IHomeProps {
@@ -45,17 +45,21 @@ export async function getStaticProps() {
 
 const HomePage = ({ projects }: IHomeProps): JSX.Element => {
   return (
-    <Flex alignItems="center" justifyContent="center" direction="column">
-      <Flex direction="column" rounded={6} mb={12}>
+    <>
+      <Container>
         <Heading as="h2">random projects</Heading>
         <Text fontSize="xl">
           i mean not so random, sorted by most recently worked on
         </Text>
         <Divider mb={6} />
+      </Container>
 
-        <Projects projects={projects}></Projects>
+      <Flex alignItems="center" justifyContent="center" direction="column">
+        <Flex direction="column" rounded={6} mb={12}>
+          <Projects projects={projects}></Projects>
+        </Flex>
       </Flex>
-    </Flex>
+    </>
   );
 };
 

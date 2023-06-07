@@ -70,7 +70,7 @@ const Project = ({
           {/* /> */}
 
           <Box p="6">
-            <Box mt="1" fontWeight="semibold" as="h3" lineHeight="tight">
+            <Box mt="1" fontWeight="semibold" as="h3" lineHeight="tight" mb={1}>
               {project.name}
             </Box>
             <Box alignItems="baseline">
@@ -80,6 +80,7 @@ const Project = ({
                   borderRadius="full"
                   px="2"
                   mr={1}
+                  mb={2}
                   color={badgeColor}
                 >
                   {topic}
