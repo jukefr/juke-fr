@@ -1,5 +1,6 @@
 ---
 title: 'more natural screen reader voice on linux'
+description: 'using piper for a more natural sounding voice with speech-dispatcher'
 date: '2023-06-07'
 ---
 

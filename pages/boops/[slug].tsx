@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import Head from 'next/head';
 
 import fs from 'fs';
 import path from 'path';
@@ -92,6 +93,61 @@ const BoopPage = ({ boop }: any): JSX.Element => {
       direction="column"
       mb={12}
     >
+      <Head>
+        <title>{boop.title}</title>
+        <meta
+          name="description"
+          content={boop.description}
+          key="meta-description"
+        />
+        <meta property="og:title" content={boop.title} key="meta-og-title" />
+        <meta
+          property="og:description"
+          content={boop.description}
+          key="meta-og-description"
+        />
+        <meta property="og:type" content="website" key="meta-og-type" />
+        <meta
+          property="og:url"
+          content={`https://juke.fr/boops/${boop.id}.html`}
+          key="meta-og-url"
+        />
+        <meta
+          property="og:image"
+          content="https://juke.fr/og.png"
+          key="meta-og-image"
+        />
+        <meta
+          property="twitter:card"
+          content="summary_large_image"
+          key="meta-twitter-card"
+        />
+        <meta
+          property="twitter:url"
+          content={`https://juke.fr/boops/${boop.id}.html`}
+          key="meta-twitter-url"
+        />
+        <meta
+          property="twitter:domain"
+          content="juke.fr"
+          key="meta-twitter-domain"
+        />
+        <meta
+          property="twitter:title"
+          content={boop.title}
+          key="meta-twitter-title"
+        />
+        <meta
+          property="twitter:description"
+          content={boop.description}
+          key="meta-twitter-description"
+        />
+        <meta
+          property="twitter:image"
+          content="https://juke.fr/og.png"
+          key="meta-twitter-image"
+        />
+      </Head>
       <Container>
         <Box>
           <Heading mb={6} as="h2" size="md">
