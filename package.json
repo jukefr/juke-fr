@@ -24,7 +24,7 @@
     "@chakra-ui/utils": "^2.0.14",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "@kay/komponents": "2.0.2",
+    "@kay/komponents": "2.0.3",
     "@next/bundle-analyzer": "^13.1.6",
     "@next/eslint-plugin-next": "^13.1.6",
     "@playwright/test": "^1.30.0",
