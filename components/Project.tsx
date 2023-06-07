@@ -70,13 +70,7 @@ const Project = ({
           {/* /> */}
 
           <Box p="6">
-            <Box
-              mt="1"
-              fontWeight="semibold"
-              as="h3"
-              lineHeight="tight"
-              noOfLines={1}
-            >
+            <Box mt="1" fontWeight="semibold" as="h3" lineHeight="tight">
               {project.name}
             </Box>
             <Box alignItems="baseline">
