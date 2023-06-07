@@ -8,6 +8,8 @@ import {
   ListItem,
   Link,
   UnorderedList,
+  Text,
+  Divider,
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 
@@ -24,9 +26,10 @@ const AboutLink = ({ url, text }: { url: string; text: string }) => {
 const AboutLinks = ({ iconColor }: { iconColor: string }) => {
   return (
     <Box>
-      <Heading mb={6} as="h2">
-        hypertext references
-      </Heading>
+      <Heading as="h2">hypertext references</Heading>
+      <Text fontSize="xl">just some links that relate to us</Text>
+      <Divider mb={6} />
+
       <UnorderedList spacing={3}>
         <AboutLink
           url="https://code.juke.fr/kay"
