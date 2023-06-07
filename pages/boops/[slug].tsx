@@ -12,6 +12,7 @@ import {
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import Head from 'next/head';
+import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 
 import fs from 'fs';
 import path from 'path';
@@ -153,8 +154,11 @@ const BoopPage = ({ boop }: any): JSX.Element => {
           <Heading mb={6} as="h2" size="md">
             {boop.title}
           </Heading>
-          {/* TODO: make this use chakra styles somehow */}
-          <ReactMarkdown rehypePlugins={[rehypeRaw]} className="boop">
+          <ReactMarkdown
+            rehypePlugins={[rehypeRaw]}
+            components={ChakraUIRenderer()}
+            skipHtml
+          >
             {boop.content}
           </ReactMarkdown>
         </Box>
