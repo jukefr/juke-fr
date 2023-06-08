@@ -13,7 +13,7 @@ jobs:
       - name: Deploy
         uses: https://github.com/wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-            username: "${{ secret.SFTP_USER }}"
+            username: "${{ secrets.SFTP_USER }}"
             server: "${{ secrets.SFTP_HOST }}"
             port: "${{ secrets.SFTP_PORT }}"
             password: "${{ secrets.SFTP_PASS }}"
