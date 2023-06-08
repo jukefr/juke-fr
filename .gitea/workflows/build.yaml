@@ -16,7 +16,7 @@ jobs:
             username: '${{ secret.SSH_USER }}'
             server: '${{ secrets.SSH_HOST }}'
             ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-            port: '${{ secret.SSH_PORT }}'
+            port: '${{ secrets.SSH_PORT }}'
             local_path: './out/*'
             remote_path: '/www'
             sftpArgs: '-o ConnectTimeout=5'
