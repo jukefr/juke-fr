@@ -11,7 +11,7 @@ jobs:
       - run: npm ci
       - run: npm run export --if-present
       - name: Deploy
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        uses: https://github.com/wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
             username: '${{ secret.SSH_USER }}'
             server: '${{ secrets.SSH_HOST }}'
