@@ -1,25 +1,22 @@
-name: Build
-run-name: ${{ gitea.actor }} is building 🚀
+name: Build And Deploy
 on: [push]
 
 jobs:
-  Explore-Gitea-Actions:
+  build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ gitea.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by Gitea!"
-      - run: echo "🔎 The name of your branch is ${{ gitea.ref }} and your repository is ${{ gitea.repository }}."
-      - name: Check out repository code
+      - name: Checkout
         uses: actions/checkout@v3
-      - run: echo "💡 The ${{ gitea.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls ${{ gitea.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
-      - name: Use Node.js
+      - name: Build
         uses: actions/setup-node@v3
-      - run: npm ci
-      - run: npm run export --if-present
-      # Fix .html.html silly thing
-      - run: ls ./out
+        run: npm ci && npm run export --if-present
+      - name: deploy file to server
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+            username: '${{ secret.SSH_USER }}'
+            server: '${{ secrets.SSH_HOST }}'
+            ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+            port: '${{ secret.SSH_PORT }}'
+            local_path: './out/*'
+            remote_path: '/www'
+            sftpArgs: '-o ConnectTimeout=5'
