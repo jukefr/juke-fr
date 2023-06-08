@@ -20,5 +20,5 @@ jobs:
             local_path: './out/*'
             remote_path: '/www'
             sftp_only: true
-            delete_remote_files: true
+            # delete_remote_files: true
             # sftpArgs: '-o ConnectTimeout=5'
