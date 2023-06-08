@@ -22,5 +22,4 @@ jobs:
       - run: npm ci
       - run: npm run export --if-present
       # Fix .html.html silly thing
-      - run: find ./out -maxdepth 2 -name "*.html.html" -exec bash -c 'mv "$1" "${1%.html.html}".html' - '{}' +
       - run: ls ./out

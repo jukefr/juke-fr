@@ -10,8 +10,8 @@
   ],
   "scripts": {
     "build": "NODE_ENV=production next build && cp -r ./.next/static ./.next/standalone/.next/ && cp -r public ./.next/standalone/",
-    "export": "next build && next export",
-    "start": "NODE_ENV=production node ./.next/standalone/server.js",
+    "export": "next build && next export && npm run fix-extensions",
+    "fix-extensions": "find ./out -maxdepth 2 -name \"*.html.html\" -exec sh -c 'mv \"$1\" \"${1%.html.html}.html\"' _ {} \\;",
     "dev": "next dev",
     "lint": "next lint",
     "test:setup": "npx playwright install",
