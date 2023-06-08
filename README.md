@@ -6,7 +6,7 @@ site built in typescript with next.js, chakra ui, framer motion, three.js availa
 
 ### repository
 
-the latest "automatic" (me copying over sftp manually) release is always on https://juke.fr
+the latest automatic release is always on https://juke.fr
 
 ```bash
 $ git clone https://code.juke.fr/kay/juke-fr.git
