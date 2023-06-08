@@ -9,14 +9,14 @@
     ".next/standalone"
   ],
   "scripts": {
-    "build": "pnpm i && NODE_ENV=production next build && cp -r ./.next/static ./.next/standalone/.next/ && cp -r public ./.next/standalone/",
-    "export": "pnpm i && next build && next export",
+    "build": "NODE_ENV=production next build && cp -r ./.next/static ./.next/standalone/.next/ && cp -r public ./.next/standalone/",
+    "export": "next build && next export",
     "start": "NODE_ENV=production node ./.next/standalone/server.js",
     "dev": "next dev",
     "lint": "next lint",
     "test:setup": "npx playwright install",
-    "test": "pnpm build && playwright test",
-    "tested-upgrade": "ncu -du --doctorInstall 'pnpm i' --doctorTest 'pnpm test'"
+    "test": "npm run build && playwright test",
+    "tested-upgrade": "ncu -du --doctorInstall 'npm i' --doctorTest 'npm test'"
   },
   "devDependencies": {
     "@chakra-ui/icons": "^2.0.17",
