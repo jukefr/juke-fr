@@ -13,10 +13,10 @@ jobs:
       - name: Deploy
         uses: https://github.com/wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-            username: ${{ secret.SSH_USER }}
-            server: ${{ secrets.SSH_HOST }}
-            port: ${{ secrets.SSH_PORT }}
-            password: ${{ secrets.SSH_PASS }}
+            username: "${{ secret.SFTP_USER }}"
+            server: "${{ secrets.SFTP_HOST }}"
+            port: "${{ secrets.SFTP_PORT }}"
+            password: "${{ secrets.SFTP_PASS }}"
             local_path: './out/*'
             remote_path: '/www'
             sftp_only: true
