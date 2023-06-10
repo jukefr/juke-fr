@@ -20,7 +20,7 @@ import {
 //
 // ERROR: 0:0: '#version 300 es' is not allowed.
 const vertexLine = 57;
-const magicNumber = 2; // WARN: if it breaks its probably here
+const magicNumber = 4; // WARN: if it breaks its probably here
 const parseLog = (log: string, vertexShader: string) => {
   const shaderType = log.includes('VERTEX') ? 'vertex' : 'fragment';
   const error = log
