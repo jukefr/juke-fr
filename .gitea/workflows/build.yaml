@@ -10,14 +10,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-      - name: Install pnpm
-        uses: https://github.com/pnpm/action-setup@v2
-        with:
-          version: latest
+      # - name: Install pnpm
+      #   uses: https://github.com/pnpm/action-setup@v2
+      #   with:
+      #     version: latest
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
       - name: Build Site
-        run: pnpm export
+        run: npm run export
       - name: Deploy
         uses: https://github.com/wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
