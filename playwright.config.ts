@@ -15,7 +15,7 @@ const config: PlaywrightTestConfig = {
   // Run your local dev server before starting the tests:
   // https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests
   webServer: {
-    command: 'yarn start',
+    command: 'npm run start',
     port: 3000,
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
@@ -43,19 +43,24 @@ const config: PlaywrightTestConfig = {
         ...devices['Desktop Chrome'],
       },
     },
-    // broken on arch idk
-    // {
-    //   name: 'Desktop Firefox',
-    //   use: {
-    //     ...devices['Desktop Firefox'],
-    //   },
-    // },
-    // {
-    //   name: 'Desktop Safari',
-    //   use: {
-    //     ...devices['Desktop Safari'],
-    //   },
-    // },
+    {
+      name: 'Desktop Firefox',
+      use: {
+        ...devices['Desktop Firefox'],
+      },
+    },
+    // on arch (thats what i get for using arch sigh can only blame myself)
+    // yay -S enchant1.6 icu66 libwebp052
+    // then clone 1312 random fucking github repositories and build them
+    // then manually link the libs to fuck knows where
+    // then do things that i cant say in comments because theres no content warnings to yourself
+    // i love foss
+    //    {
+    //      name: 'Desktop Safari',
+    //      use: {
+    //        ...devices['Desktop Safari'],
+    //      },
+    //    },
     // Test against mobile viewports.
     {
       name: 'Mobile Chrome',
@@ -63,12 +68,12 @@ const config: PlaywrightTestConfig = {
         ...devices['Pixel 5'],
       },
     },
-    // {
-    //   name: 'Mobile Firefox',
-    //   use: {
-    //     ...devices['Pixel 5'],
-    //   },
-    // },
+    {
+      name: 'Mobile Firefox',
+      use: {
+        ...devices['Pixel 5'],
+      },
+    },
     // {
     //   name: 'Mobile Safari',
     //   use: devices['iPhone 12'],
