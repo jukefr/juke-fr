@@ -1,4 +1,4 @@
-import { Container, Flex, useColorModeValue } from '@chakra-ui/react';
+import { Container, Flex } from '@chakra-ui/react';
 import Boops from '../components/Boops';
 
 import fs from 'fs';

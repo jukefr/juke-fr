@@ -1,10 +1,6 @@
-import { LinkIcon } from '@chakra-ui/icons';
 import {
   Box,
-  Button,
   Heading,
-  List,
-  ListIcon,
   ListItem,
   Link,
   UnorderedList,
@@ -23,7 +19,7 @@ const AboutLink = ({ url, text }: { url: string; text: string }) => {
   );
 };
 
-const AboutLinks = ({ iconColor }: { iconColor: string }) => {
+const AboutLinks = () => {
   return (
     <Box>
       <Heading as="h2">hypertext references</Heading>

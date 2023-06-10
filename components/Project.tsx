@@ -1,6 +1,6 @@
 import { Badge, Box, Text, Divider } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+// import { LazyLoadImage } from 'react-lazy-load-image-component';
 import ReactMarkdown from 'react-markdown';
 import { useEffect, useState } from 'react';
 import styles from './Project.module.css';

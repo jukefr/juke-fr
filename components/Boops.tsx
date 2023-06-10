@@ -1,12 +1,7 @@
-import { LinkIcon } from '@chakra-ui/icons';
 import {
   Box,
-  Button,
   Heading,
-  List,
-  ListIcon,
   ListItem,
-  useColorModeValue,
   Link,
   UnorderedList,
   Text,
@@ -14,15 +9,7 @@ import {
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
-const AboutLink = ({
-  url,
-  text,
-  iconColor,
-}: {
-  url: string;
-  text: string;
-  iconColor: string;
-}) => {
+const AboutLink = ({ url, text }: { url: string; text: string }) => {
   return (
     <ListItem>
       <Link as={NextLink} href={url} passHref scroll={false}>
@@ -33,7 +20,6 @@ const AboutLink = ({
 };
 
 const Boops = ({ boops }: any) => {
-  const iconColor = useColorModeValue('purple', 'orange');
   return (
     <Box>
       <Heading as="h2">boops</Heading>
@@ -44,13 +30,8 @@ const Boops = ({ boops }: any) => {
       <Divider mb={6} />
 
       <UnorderedList spacing={3}>
-        {boops.map(({ id, date, title }: any) => (
-          <AboutLink
-            url={'/boops/' + id + '.html'}
-            text={title}
-            iconColor={iconColor}
-            key={id}
-          />
+        {boops.map(({ id, title }: any) => (
+          <AboutLink url={'/boops/' + id + '.html'} text={title} key={id} />
         ))}
       </UnorderedList>
     </Box>
