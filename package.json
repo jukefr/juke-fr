@@ -46,7 +46,7 @@
     "@typescript-eslint/parser": "5.49.0",
     "babel-plugin-prismjs": "2.1.0",
     "chakra-ui-markdown-renderer": "4.1.0",
-    "console-feed": "3.4.3",
+    "console-feed": "3.5.0",
     "eslint": "8.33.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-prettier": "4.2.1",
