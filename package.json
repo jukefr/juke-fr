@@ -71,6 +71,6 @@
     "semantic-release-cli": "5.4.4",
     "sharp": "0.32.1",
     "three": "0.153.0",
-    "typescript": "4.9.4"
+    "typescript": "5.1.3"
   }
 }
