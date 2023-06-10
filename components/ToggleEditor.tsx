@@ -25,7 +25,7 @@ const ToggleEditor = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <AnimatePresence exitBeforeEnter initial={false} key={'editorToggleBtn'}>
+    <AnimatePresence mode="wait" initial={false} key={'editorToggleBtn'}>
       <motion.div
         style={{ display: 'inline-block' }}
         key={`editor-toggle-${showEditor}`}
