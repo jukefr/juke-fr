@@ -6,6 +6,13 @@ import sandbox from './sandbox.glsl';
 import spaghet from './spaghet.glsl';
 import wave from './wave.glsl';
 import zebra from './zebra.glsl';
+import glitch from './glitch.glsl';
+import anaglyph from './anaglyph.glsl';
+import checkered from './checkered.glsl';
+import blurdots from './blurdots.glsl';
+import water from './water.glsl';
+import scanline from './scanline.glsl'
+import random from './random.glsl'
 
 const allShaders = [
   {
@@ -13,6 +20,7 @@ const allShaders = [
   },
   {
     value: sandbox,
+    hasIncreasedMotion: true,
   },
   {
     value: wave,
@@ -29,10 +37,38 @@ const allShaders = [
   },
   {
     value: spaghet,
+    hasIncreasedMotion: true,
   },
   {
     value: zebra,
+    hasIncreasedMotion: true,
   },
+  {
+    value: glitch,
+    hasIncreasedMotion: true,
+  },
+  {
+    value: anaglyph
+  },
+  {
+    value: checkered
+  },
+  {
+    value: blurdots
+  },
+  {
+    value: water,
+    hasIncreasedMotion: true,
+  },
+  {
+    value: scanline,
+    hasIncreasedMotion: true,
+  },
+  {
+    value: random,
+    hasIncreasedMotion: true,
+  },
+
 ];
 
 export default function getRandomShader(

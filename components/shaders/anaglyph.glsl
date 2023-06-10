@@ -1,4 +1,4 @@
-// OUCH
+// ANAGLYPH
 uniform float u_time;
 uniform vec2 u_resolution;
 uniform sampler2D u_texture;
@@ -6,10 +6,11 @@ varying vec2 vUv;
 void main() {
   vec2 uv = vUv;
   float time = u_time;
-  time *= 0.2;
   vec4 color = texture2D(u_texture, uv);
-  color.r = sin(color.r * 100.0 + time * 10.0);
-  color.g = sin(color.g * 100.0 + time * 10.0);
-  color.b = sin(color.b * 100.0 + time * 10.0);
+  float offset = 0.03;
+  vec4 red = texture2D(u_texture, uv - vec2(offset, 0.0));
+  vec4 blue = texture2D(u_texture, uv + vec2(offset, 0.0));
+  color.r = red.r;
+  color.b = blue.b;
   gl_FragColor = color;
 }

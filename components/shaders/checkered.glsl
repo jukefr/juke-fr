@@ -1,4 +1,4 @@
-// OUCH
+// CHECKERED
 uniform float u_time;
 uniform vec2 u_resolution;
 uniform sampler2D u_texture;
@@ -6,10 +6,13 @@ varying vec2 vUv;
 void main() {
   vec2 uv = vUv;
   float time = u_time;
-  time *= 0.2;
   vec4 color = texture2D(u_texture, uv);
-  color.r = sin(color.r * 100.0 + time * 10.0);
-  color.g = sin(color.g * 100.0 + time * 10.0);
-  color.b = sin(color.b * 100.0 + time * 10.0);
+  if (color.a > 0.1) {
+    if (mod(floor(uv.x * 10.) + floor(uv.y * 10.), 2.) == 0.) {
+      color = vec4(0.5, 0., 0.5, 1.);
+    } else {
+      color = vec4(0., 0., 0., 1.);
+    }
+  }
   gl_FragColor = color;
 }

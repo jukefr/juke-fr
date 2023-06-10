@@ -1,3 +1,4 @@
+// RIPPLE
 uniform float u_time;
 uniform vec2 u_resolution;
 uniform sampler2D u_texture;

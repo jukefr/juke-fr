@@ -1,5 +1,6 @@
-//submitted by oatmealine
-//see https://www.shadertoy.com/view/ssGcWV for other version
+// ZEBRA
+// submitted by oatmealine
+// see https://www.shadertoy.com/view/ssGcWV for other version
 uniform float u_time;
 uniform vec2 u_resolution;
 uniform sampler2D u_texture;
