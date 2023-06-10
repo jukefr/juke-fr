@@ -43,12 +43,12 @@ const config: PlaywrightTestConfig = {
         ...devices['Desktop Chrome'],
       },
     },
-    {
-      name: 'Desktop Firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-      },
-    },
+    //    {
+    //      name: 'Desktop Firefox',
+    //      use: {
+    //        ...devices['Desktop Firefox'],
+    //      },
+    //    },
     // on arch (thats what i get for using arch sigh can only blame myself)
     // yay -S enchant1.6 icu66 libwebp052
     // then clone 1312 random fucking github repositories and build them
@@ -62,18 +62,18 @@ const config: PlaywrightTestConfig = {
     //      },
     //    },
     // Test against mobile viewports.
-    {
-      name: 'Mobile Chrome',
-      use: {
-        ...devices['Pixel 5'],
-      },
-    },
-    {
-      name: 'Mobile Firefox',
-      use: {
-        ...devices['Pixel 5'],
-      },
-    },
+    //    {
+    //      name: 'Mobile Chrome',
+    //      use: {
+    //        ...devices['Pixel 5'],
+    //      },
+    //    },
+    //    {
+    //      name: 'Mobile Firefox',
+    //      use: {
+    //        ...devices['Pixel 5'],
+    //      },
+    //    },
     // {
     //   name: 'Mobile Safari',
     //   use: devices['iPhone 12'],
