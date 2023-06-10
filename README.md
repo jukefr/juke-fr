@@ -11,9 +11,9 @@ the latest automatic release is always on https://juke.fr
 ```bash
 $ git clone https://code.juke.fr/kay/juke-fr.git
 
-$ pnpm i
+$ npm i
 
-$ pnpm dev
+$ npm run dev
 ```
 
 ### test suite
@@ -21,9 +21,9 @@ $ pnpm dev
 playwright is used for testing
 
 ```bash
-$ pnpm test:setup # only needed once to download the browsers
+$ npm run test:setup # only needed once to download the browsers
 
-$ pnpm test
+$ npm run test
 ```
 
 playwright is cool because it gives you traces with screenshots you can go through step by step so yeah
@@ -33,7 +33,7 @@ playwright is cool because it gives you traces with screenshots you can go throu
 the test suite can be used with npm-check-updates to mass upgrade the node modules and make sure stuff still (at least somewhat) works
 
 ```bash
-$ pnpm tested-upgrade
+$ npm run tested-upgrade
 ```
 
 it will upgrade all the packages then run the test and do them one by one incrementally if that fails and not do any of the ones that makes the tests fail
