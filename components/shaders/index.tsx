@@ -11,8 +11,8 @@ import anaglyph from './anaglyph.glsl';
 import checkered from './checkered.glsl';
 import blurdots from './blurdots.glsl';
 import water from './water.glsl';
-import scanline from './scanline.glsl'
-import random from './random.glsl'
+import scanline from './scanline.glsl';
+import random from './random.glsl';
 
 const allShaders = [
   {
@@ -48,13 +48,13 @@ const allShaders = [
     hasIncreasedMotion: true,
   },
   {
-    value: anaglyph
+    value: anaglyph,
   },
   {
-    value: checkered
+    value: checkered,
   },
   {
-    value: blurdots
+    value: blurdots,
   },
   {
     value: water,
@@ -68,7 +68,6 @@ const allShaders = [
     value: random,
     hasIncreasedMotion: true,
   },
-
 ];
 
 export default function getRandomShader(
