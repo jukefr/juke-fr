@@ -1,12 +1,13 @@
 import { Box, useToast, Text, Flex } from '@chakra-ui/react';
 import { A11y, A11yAnnouncer, useUserPreferences } from '@react-three/a11y';
-import { Canvas, useLoader } from '@react-three/fiber';
+import { Canvas } from '@react-three/fiber';
 import { useEffect, useRef, useState } from 'react';
 import { animated, useSpring } from 'react-spring';
 import {
   ACESFilmicToneMapping,
   PerspectiveCamera,
   sRGBEncoding,
+  Texture,
   Vector2,
 } from 'three';
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
@@ -104,9 +105,17 @@ void main() {
   const [clientSize, setClientSize] = useState(getWindowDimensions());
   const [hasWebGL, setHasWebGL] = useState(false);
 
+  // took me so much time debugger; calling line by line to find where the error was and
+  // thank fuck for https://github.com/pmndrs/react-three-fiber/issues/318#issuecomment-602812607
+  const [jinxTexture, setJinxTexture] = useState<Texture>();
+  useEffect(() => {
+    new TextureLoader().load(jinx.src, setJinxTexture);
+  }, [jinx.src]);
+  // debugger;
+  // const jinxTexture = useLoader(TextureLoader, jinx.src);
+
   // rendering
   const deltaMultiplier = prefersReducedMotion ? 1 : 5;
-  const jinxTexture = useLoader(TextureLoader, jinx.src);
   const shader = {
     uniforms: {
       u_time: { value: timer.getElapsedTime() * deltaMultiplier },
