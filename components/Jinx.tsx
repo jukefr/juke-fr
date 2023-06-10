@@ -107,7 +107,7 @@ void main() {
 
   // took me so much time debugger; calling line by line to find where the error was and
   // thank fuck for https://github.com/pmndrs/react-three-fiber/issues/318#issuecomment-602812607
-  const [jinxTexture, setJinxTexture] = useState<Texture>();
+  const [jinxTexture, setJinxTexture] = useState(new Texture());
   useEffect(() => {
     new TextureLoader().load(jinx.src, setJinxTexture);
   }, [jinx.src]);
