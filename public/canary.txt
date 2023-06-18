@@ -1,3 +1,5 @@
+this is a canary for juke.fr and all of its subdomains and various paths
+
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA512
 
