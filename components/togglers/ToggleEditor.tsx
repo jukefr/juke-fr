@@ -10,9 +10,9 @@ const getIcon = (showEditor?: boolean) => {
 
 const getColor = (showEditor?: boolean) => {
   if (showEditor) {
-    return 'red';
+    return useColorModeValue('blue', 'green');
   }
-  return useColorModeValue('blue', 'green');
+  return 'red';
 };
 
 const ToggleEditor = ({

@@ -23,8 +23,8 @@ const ToggleReducedMotion = ({
   return (
     <IconButton
       aria-label="Toggle Reduced Animations"
-      colorScheme={getColor(store.getter.prefersReducedMotion)}
-      icon={getIcon(store.getter.prefersReducedMotion)}
+      colorScheme={getColor(!store.getter.prefersReducedMotion)}
+      icon={getIcon(!store.getter.prefersReducedMotion)}
       onClick={() => {
         store.setter({
           ...store.getter,
