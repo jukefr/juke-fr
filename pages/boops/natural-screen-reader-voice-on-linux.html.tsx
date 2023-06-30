@@ -1,5 +1,13 @@
-import { Container, Divider, Heading, Highlight, Text } from '@chakra-ui/react';
+import {
+  Container,
+  Divider,
+  Heading,
+  Highlight,
+  Text,
+  Code,
+} from '@chakra-ui/react';
 import Head from 'next/head';
+import TerminalCodePreview from '../../components/TerminalCodePreview';
 
 export const title = 'more natural screen reader voice on linux';
 export const description =
@@ -205,7 +213,7 @@ const Boop = (): JSX.Element => {
       <Text>
         the first thing i did was check the &quot;accesibility tools&quot;
         packages installed by endeavouros and turns out all you really need to
-        do (screen reader wise) is grab <code>espeak-ng orca</code> and at least
+        do (screen reader wise) is grab <Code>espeak-ng orca</Code> and at least
         on arch that will pull all the other dependencies we need like
         speech-dispatcher (and should automatically integrate with stuff like
         gnome and kde)
@@ -215,9 +223,9 @@ const Boop = (): JSX.Element => {
         <a href="https://github.com/rhasspy/piper/releases/">
           https://github.com/rhasspy/piper/releases/
         </a>{' '}
-        and simply grab the <code>amd64</code> or <code>arm64</code> prebuilt
+        and simply grab the <Code>amd64</Code> or <Code>arm64</Code> prebuilt
         binaries depending on your architecture and one of the voices (i went
-        with <code>en-us-amy-low</code>, mainly because it was the first one in
+        with <Code>en-us-amy-low</Code>, mainly because it was the first one in
         order lol)
       </Text>
       <Text>
@@ -235,23 +243,19 @@ const Boop = (): JSX.Element => {
         you can test that speech dispatcher is working with all the defaults for
         now by running
       </Text>
-      <pre>
-        <code className="language-bash">
-          spd-say &quot;Hello world this is a test sentence&quot;
-        </code>
-      </pre>
+      <TerminalCodePreview lang="language-bash">
+        spd-say &quot;Hello world this is a test sentence&quot;
+      </TerminalCodePreview>
       <Text>
         and ideally you get some audio output (but for now with a terrible
         default voice), if not i&#39;m sorry but i blame foss devs for their
         support of accessibility features
       </Text>
       <Text>and you can test piper by going into the folder and running</Text>
-      <pre>
-        <code className="language-bash">
-          echo &quot;Hello world this is a test sentence&quot; | ./piper --model
-          en-us-amy-low.onnx --output_file - | paplay
-        </code>
-      </pre>
+      <TerminalCodePreview lang="language-bash">
+        echo &quot;Hello world this is a test sentence&quot; | ./piper --model
+        en-us-amy-low.onnx --output_file - | paplay
+      </TerminalCodePreview>
       <Text>
         the output file with a dash simply tells it to output to stdout and we
         pipe it directly in paplay which is just the pulseaudio version of aplay
@@ -270,37 +274,28 @@ const Boop = (): JSX.Element => {
       </Text>
       <Text>
         so we will be creating a new file{' '}
-        <code>/etc/speech-dispatcher/modules/piper-generic.conf</code>
+        <Code>/etc/speech-dispatcher/modules/piper-generic.conf</Code>
       </Text>
-      <pre>
-        <code className="language-bash">
-          sudo touch /etc/speech-dispatcher/modules/piper-generic.conf
-        </code>
-      </pre>
+      <TerminalCodePreview lang="language-bash">
+        sudo touch /etc/speech-dispatcher/modules/piper-generic.conf
+      </TerminalCodePreview>
       <Text>and edit it and fill it with these two following lines</Text>
-      <pre>
-        <code className="language-bash">
-          sudo $EDITOR /etc/speech-dispatcher/modules/piper-generic.conf
-        </code>
-      </pre>
+      <TerminalCodePreview lang="language-bash">
+        sudo $EDITOR /etc/speech-dispatcher/modules/piper-generic.conf
+      </TerminalCodePreview>
       <Text>and these are the two lines</Text>
-      <pre>
-        <code className="language-conf">
-          GenericExecuteSynth &quot;echo \&#39;$DATA\&#39; |
-          /home/user/Documents/piper/piper --model
-          /home/user/Documents/piper/en-us-amy-low.onnx --output_raw |
-          $PLAY_COMMAND&quot; AddVoice &quot;en&quot; &quot;FEMALE1&quot;
-          &quot;en_UK/apope_low&quot;
-        </code>
-      </pre>
+      <TerminalCodePreview lang="language-ini">
+        {`GenericExecuteSynth "echo \'$DATA\' | /home/user/Documents/piper/piper --model /home/user/Documents/piper/en-us-amy-low.onnx --output_raw | $PLAY_COMMAND"
+AddVoice "en" "FEMALE1" "en_UK/apope_low"`}
+      </TerminalCodePreview>
       <Text>
         so the first line is pretty much the piper one i made you run earlier
-        but with variables instead of harcoded values, <code>$DATA</code> is
-        handled by speech dispatcher and <code>$PLAY_COMMAND</code> should just
+        but with variables instead of harcoded values, <Code>$DATA</Code> is
+        handled by speech dispatcher and <Code>$PLAY_COMMAND</Code> should just
         default to aplay or paplay on most systems
       </Text>
       <Text>
-        the things you care about are mainly the actual <code>realpath</code>{' '}
+        the things you care about are mainly the actual <Code>realpath</Code>{' '}
         (so the full path) to the piper executable as well as the full path to
         the voice model
       </Text>
@@ -322,24 +317,21 @@ const Boop = (): JSX.Element => {
         speech-dispatcher to use the new module we just added
       </Text>
       <Text>
-        you want to edit <code>/etc/speech-dispatcher/speechd.conf</code> so
+        you want to edit <Code>/etc/speech-dispatcher/speechd.conf</Code> so
       </Text>
-      <pre>
-        <code className="language-bash">
-          sudo $EDITOR /etc/speech-dispatcher/speechd.conf
-        </code>
-      </pre>
+      <TerminalCodePreview lang="language-bash">
+        sudo $EDITOR /etc/speech-dispatcher/speechd.conf
+      </TerminalCodePreview>
       <Text>
         and you can either search for the commented lines i&#39;m about to give
         you and uncomment them and edit them manually or just add the 3
         following lines at the end of the file, same thing
       </Text>
-      <pre>
-        <code className="language-conf">
-          DefaultVoiceType &quot;FEMALE1&quot; DefaultLanguage &quot;en&quot;
-          DefaultModule piper-generic
-        </code>
-      </pre>
+      <TerminalCodePreview lang="language-ini">
+        {`DefaultVoiceType  "FEMALE1"
+DefaultLanguage "en"
+DefaultModule piper-generic`}
+      </TerminalCodePreview>
       <Text>
         if you edited any of the names in the previous module file on the second
         line for the voice then make sure to adjust accordingly
@@ -349,14 +341,12 @@ const Boop = (): JSX.Element => {
         done
       </Text>
       <Text>
-        you can now try running the <code>spd-say</code> command again and it
+        you can now try running the <Code>spd-say</Code> command again and it
         should just work
       </Text>
-      <pre>
-        <code className="language-bash">
-          spd-say &quot;Hello world this is a test sentence&quot;
-        </code>
-      </pre>
+      <TerminalCodePreview lang="language-bash">
+        spd-say &quot;Hello world this is a test sentence&quot;
+      </TerminalCodePreview>
       <Text>
         meaning that now anything that integrates with speech-dispatcher (which
         is a bunch of stuff on linux actually so that&#39;s nice) like firefox,

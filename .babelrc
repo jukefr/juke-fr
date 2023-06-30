@@ -4,7 +4,7 @@
     [
       "prismjs",
       {
-        "languages": ["glsl"]
+        "languages": ["glsl", "bash", "ini"]
       }
     ]
   ]
