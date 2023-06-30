@@ -14,7 +14,7 @@ const Layout = ({
   store: any; // TODO store type
 }) => {
   return (
-    <Container maxW="container.lg" style={{ overflowX: 'hidden' }}>
+    <>
       <Head>
         <title>{title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -68,7 +68,9 @@ const Layout = ({
           key="meta-twitter-image"
         />
       </Head>
-      <Navbar store={store} />
+      <Container maxW="container.lg">
+        <Navbar store={store} />
+      </Container>
       <main>
         <Container maxW="container.md" centerContent>
           {store.getter.showJinx && (
@@ -118,7 +120,7 @@ const Layout = ({
         </Container>
         {children}
       </main>
-    </Container>
+    </>
   );
 };
 

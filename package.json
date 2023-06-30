@@ -1,6 +1,6 @@
 {
   "name": "@kay/juke-fr",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "license": "SEE LICENSE IN LICENSE",
   "author": "kay <git@juke.fr>",
   "bin": "./juke-fr",

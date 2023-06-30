@@ -14,7 +14,7 @@ const TerminalCodePreview = ({ children, lang, noBG }: any) => {
     Prism.highlightAll();
   }, []);
   return (
-    <Box bg={getRandomColor({ noBG })} py={10} px={6} my={2}>
+    <Box bg={getRandomColor({ noBG })} py={6} px={6} my={2}>
       <Box p={6} borderRadius={6} as="pre" boxShadow="dark-lg">
         <Code className={lang} display="block" whiteSpace="pre-wrap">
           {children}
