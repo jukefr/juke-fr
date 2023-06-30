@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Editor from 'react-simple-code-editor';
 import Prism from 'prismjs';
 import 'prism-themes/themes/prism-dracula.css';
-import { Hook, Unhook } from 'console-feed';
-import { Message } from 'console-feed/lib/definitions/Console';
+import { Hook, Unhook } from '@kay/console-feed';
+import { Message } from '@kay/console-feed/lib/definitions/Console';
 import { Box, useBreakpointValue, useColorMode } from '@chakra-ui/react';
 
 import styles from './JinxEditor.module.css';
