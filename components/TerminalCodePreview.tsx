@@ -3,17 +3,18 @@ import Prism from 'prismjs';
 import 'prism-themes/themes/prism-dracula.css';
 import { useEffect } from 'react';
 
-const getRandomColor = () => {
+const getRandomColor = ({ noBG }: any) => {
   const colors = ['gray.100', 'cyan', 'pink'];
+  if (noBG) return 'transparent';
   return colors[Math.floor(Math.random() * colors.length)];
 };
 
-const TerminalCodePreview = ({ children, lang }: any) => {
+const TerminalCodePreview = ({ children, lang, noBG }: any) => {
   useEffect(() => {
     Prism.highlightAll();
   }, []);
   return (
-    <Box bg={getRandomColor()} py={10} px={6} my={2}>
+    <Box bg={getRandomColor({ noBG })} py={10} px={6} my={2}>
       <Box p={6} borderRadius={6} as="pre" boxShadow="dark-lg">
         <Code className={lang} display="block" whiteSpace="pre-wrap">
           {children}

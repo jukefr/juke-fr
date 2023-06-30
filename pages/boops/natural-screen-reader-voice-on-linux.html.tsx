@@ -6,6 +6,9 @@ import {
   Text,
   Code,
   Box,
+  Grid,
+  GridItem,
+  SimpleGrid,
 } from '@chakra-ui/react';
 import Head from 'next/head';
 import TerminalCodePreview from '../../components/TerminalCodePreview';
@@ -19,7 +22,7 @@ const Boop = (): JSX.Element => {
   const wipSentence = 'this post is still a work in progress';
 
   return (
-    <Container maxW="container.md">
+    <Container maxW="container.xl">
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} key="meta-description" />
@@ -85,37 +88,49 @@ const Boop = (): JSX.Element => {
         </Highlight>
       </Text>
       <Text>2023-06-07</Text>
-      <Heading as="h2">{title}</Heading>
+      <Heading as="h2" size="xl">
+        {title}
+      </Heading>
       <Text fontSize="xl">{description}</Text>
       <Divider mb={6} />
       <Box my={16}>
-        <Heading as="h3" id="the-why">
+        <Heading as="h3" size="lg">
           why
         </Heading>
-        <Text>
-          recently wanted to read a book but not very good at it. so tried to
-          setup a screen reader to do it. the default voices on linux are pretty
-          bad so we tried to find better ones.
-        </Text>
-        <Text>
-          we tried coqui-ai and piper but coqui-ai was too slow to be usable.
-        </Text>
-        <Text>here is a coqui-ai voice sample</Text>
-        <Text>
-          <audio src="/welcome_coqui.mp3" controls></audio>
-        </Text>
-        <Text>and here is a piper voice sample</Text>
-        <Text>
-          <audio src="/welcome_piper.mp3" controls></audio>
-        </Text>
-        <Text>
-          note that this is not in any way safe to run as daily driver. it is
-          not suitable if you rely on your text to speech to not break.
-        </Text>
+        <SimpleGrid columns={[1, null, 2]} spacing={6}>
+          <Box>
+            <Text>
+              recently wanted to read a book but not very good at it. so tried
+              to setup a screen reader to do it. the default voices on linux are
+              pretty bad so we tried to find better ones.
+            </Text>
+            <Text>
+              we tried coqui-ai and piper but coqui-ai was too slow to be
+              usable.
+            </Text>
+          </Box>
+          <Box>
+            <Text>here is a coqui-ai voice sample</Text>
+            <Text>
+              <audio src="/welcome_coqui.mp3" controls></audio>
+            </Text>
+            <Text>and here is a piper voice sample</Text>
+            <Text>
+              <audio src="/welcome_piper.mp3" controls></audio>
+            </Text>
+            <Text>
+              note that this is not in any way safe to run as daily driver. it
+              is not suitable if you rely on your text to speech to not break.
+            </Text>
+          </Box>
+        </SimpleGrid>
       </Box>
       <Box my={16}>
-        <Heading as="h3" id="the-how">
+        <Heading as="h3" size="lg">
           how
+        </Heading>
+        <Heading as="h4" size="md">
+          prerequisites
         </Heading>
         <Text>
           usually having <Code>espeak-ng orca</Code> packages installed should
@@ -176,17 +191,23 @@ const Boop = (): JSX.Element => {
         <Text>
           so the next step is to create a new module for speech-dispatcher
         </Text>
-        <Text>
-          so we will be creating a new file{' '}
-          <Code>/etc/speech-dispatcher/modules/piper-generic.conf</Code>
-        </Text>
-        <TerminalCodePreview lang="language-bash">
-          sudo touch /etc/speech-dispatcher/modules/piper-generic.conf
-        </TerminalCodePreview>
-        <Text>and edit it and fill it with these two following lines</Text>
-        <TerminalCodePreview lang="language-bash">
-          sudo $EDITOR /etc/speech-dispatcher/modules/piper-generic.conf
-        </TerminalCodePreview>
+        <SimpleGrid columns={[1, null, 2]} spacing={6}>
+          <Box>
+            <Text>
+              so we will be creating a new file{' '}
+              <Code>/etc/speech-dispatcher/modules/piper-generic.conf</Code>
+            </Text>
+            <TerminalCodePreview lang="language-bash" noBG={true}>
+              sudo touch /etc/speech-dispatcher/modules/piper-generic.conf
+            </TerminalCodePreview>
+          </Box>
+          <Box>
+            <Text>and edit it and fill it with these two following lines</Text>
+            <TerminalCodePreview lang="language-bash" noBG={true}>
+              sudo $EDITOR /etc/speech-dispatcher/modules/piper-generic.conf
+            </TerminalCodePreview>
+          </Box>
+        </SimpleGrid>
         <Text>and these are the two lines</Text>
         <TerminalCodePreview lang="language-ini">
           {`GenericExecuteSynth "echo \'$DATA\' | /home/user/Documents/piper/piper --model /home/user/Documents/piper/en-us-amy-low.onnx --output_raw | $PLAY_COMMAND"
@@ -217,26 +238,33 @@ AddVoice "en" "FEMALE1" "en_UK/apope_low"`}
           orca settings now to select piper-generic as speech engine and the
           default voice should automatically be the one we just added
         </Text>
-        <Text>
-          but in case here is how to also set the default settings for
-          speech-dispatcher to use the new module we just added
-        </Text>
-        <Text>
-          you want to edit <Code>/etc/speech-dispatcher/speechd.conf</Code> so
-        </Text>
-        <TerminalCodePreview lang="language-bash">
-          sudo $EDITOR /etc/speech-dispatcher/speechd.conf
-        </TerminalCodePreview>
-        <Text>
-          and you can either search for the commented lines i&#39;m about to
-          give you and uncomment them and edit them manually or just add the 3
-          following lines at the end of the file, same thing
-        </Text>
-        <TerminalCodePreview lang="language-ini">
-          {`DefaultVoiceType  "FEMALE1"
+        <SimpleGrid columns={[1, null, 2]} spacing={6}>
+          <Box>
+            <Text>
+              but in case here is how to also set the default settings for
+              speech-dispatcher to use the new module we just added
+            </Text>
+            <Text>
+              you want to edit <Code>/etc/speech-dispatcher/speechd.conf</Code>{' '}
+              so
+            </Text>
+            <TerminalCodePreview lang="language-bash" noBG={true}>
+              sudo $EDITOR /etc/speech-dispatcher/speechd.conf
+            </TerminalCodePreview>
+          </Box>
+          <Box>
+            <Text>
+              and you can either search for the commented lines i&#39;m about to
+              give you and uncomment them and edit them manually or just add the
+              3 following lines at the end of the file, same thing
+            </Text>
+            <TerminalCodePreview lang="language-ini" noBG={true}>
+              {`DefaultVoiceType  "FEMALE1"
 DefaultLanguage "en"
 DefaultModule piper-generic`}
-        </TerminalCodePreview>
+            </TerminalCodePreview>
+          </Box>
+        </SimpleGrid>
         <Text>
           if you edited any of the names in the previous module file on the
           second line for the voice then make sure to adjust accordingly
@@ -261,7 +289,7 @@ DefaultModule piper-generic`}
         <Text>finally no more 1998 Fossoft Sam voice, enjoy</Text>
       </Box>
       <Box my={16}>
-        <Heading as="h3" id="what-next">
+        <Heading as="h3" size="lg">
           what next
         </Heading>
         <Text>

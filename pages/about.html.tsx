@@ -21,7 +21,9 @@ const AboutPage = (): JSX.Element => {
     >
       <Container>
         <Box>
-          <Heading as="h2">hypertext references</Heading>
+          <Heading as="h2" size="xl">
+            hypertext references
+          </Heading>
           <Text fontSize="xl">just some links that relate to us</Text>
           <Divider mb={6} />
 

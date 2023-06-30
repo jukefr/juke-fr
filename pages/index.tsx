@@ -63,7 +63,9 @@ const HomePage = ({ projects, store }: IHomeProps): JSX.Element => {
   return (
     <>
       <Container>
-        <Heading as="h2">random projects</Heading>
+        <Heading as="h2" size="xl">
+          random projects
+        </Heading>
         <Text fontSize="xl">
           i mean not so random, sorted by most recently worked on
         </Text>

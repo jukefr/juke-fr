@@ -26,7 +26,9 @@ const BoopsPage = ({ boops }: any): JSX.Element => {
     >
       <Container>
         <Box>
-          <Heading as="h2">boops</Heading>
+          <Heading as="h2" size="xl">
+            boops
+          </Heading>
           <Text fontSize="xl">
             these are just blog posts but with a silly name because i&apos;m
             quirky like that
