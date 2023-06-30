@@ -15,16 +15,16 @@ jobs:
       #   with:
       #     version: latest
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       - name: Build Site
         run: npm run export
       - name: Deploy
         uses: https://github.com/wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-            username: "${{ secrets.SFTP_USER }}"
-            server: "${{ secrets.SFTP_HOST }}"
-            port: "${{ secrets.SFTP_PORT }}"
-            password: "${{ secrets.SFTP_PASS }}"
-            local_path: './out/*'
-            remote_path: '/www'
-            sftp_only: true
+          username: '${{ secrets.SFTP_USER }}'
+          server: '${{ secrets.SFTP_HOST }}'
+          port: '${{ secrets.SFTP_PORT }}'
+          password: '${{ secrets.SFTP_PASS }}'
+          local_path: './out/*'
+          remote_path: '/www'
+          sftp_only: true
