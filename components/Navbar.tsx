@@ -1,9 +1,9 @@
 import { Box, Button, Flex, Heading, Spacer, Text } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import ToggleEditor from './ToggleEditor';
-import ToggleJinx from './ToggleJinx';
-import ToggleReducedMotion from './ToggleReducedMotion';
-import ToggleColorMode from './ToggleColorMode';
+import ToggleEditor from './togglers/ToggleEditor';
+import ToggleJinx from './togglers/ToggleJinx';
+import ToggleReducedMotion from './togglers/ToggleReducedMotion';
+import ToggleColorMode from './togglers/ToggleColorMode';
 
 const NavbarButtons = ({
   store,

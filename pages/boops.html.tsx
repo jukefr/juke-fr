@@ -1,51 +1,20 @@
-import { Container, Flex } from '@chakra-ui/react';
-import Boops from '../components/Boops';
-
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-
-const postsDirectory = path.join(process.cwd(), 'posts');
-
-export function getSortedPostsData() {
-  // Get file names under /posts
-  const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map((fileName) => {
-    // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, '');
-
-    // Read markdown file as string
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-
-    // Use gray-matter to parse the post metadata section
-    const matterResult = matter(fileContents);
-
-    // Combine the data with the id
-    return {
-      id,
-      ...matterResult.data,
-    };
-  });
-  // Sort posts by date
-  return allPostsData.sort((a: any, b: any) => {
-    if (a.date < b.date) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
-}
-
-export async function getStaticProps() {
-  const boops = getSortedPostsData();
-
-  return {
-    props: {
-      boops,
-    },
-  };
-}
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Text,
+  Divider,
+  UnorderedList,
+  List,
+  ListItem,
+  Link,
+} from '@chakra-ui/react';
+import NextLink from 'next/link';
+import {
+  title as scrTitle,
+  id as scrId,
+} from './boops/natural-screen-reader-voice-on-linux.html';
 
 const BoopsPage = ({ boops }: any): JSX.Element => {
   return (
@@ -56,7 +25,27 @@ const BoopsPage = ({ boops }: any): JSX.Element => {
       mb={12}
     >
       <Container>
-        <Boops boops={boops} />
+        <Box>
+          <Heading as="h2">boops</Heading>
+          <Text fontSize="xl">
+            these are just blog posts but with a silly name because i&apos;m
+            quirky like that
+          </Text>
+          <Divider mb={6} />
+
+          <UnorderedList spacing={3}>
+            <ListItem key={scrId}>
+              <Link
+                as={NextLink}
+                href={`/boops/${scrId}.html`}
+                passHref
+                scroll={false}
+              >
+                {scrTitle}
+              </Link>
+            </ListItem>
+          </UnorderedList>
+        </Box>
       </Container>
     </Flex>
   );

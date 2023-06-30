@@ -10,11 +10,11 @@ import {
   Vector2,
 } from 'three';
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
-import jinx from './assets/jinx.png';
+import jinx from '../assets/jinx.png';
 import styles from './Jinx.module.css';
 import JinxEditor from './JinxEditor';
 import JinxMyBeloved from './JinxMyBeloved';
-import getRandomShader from './assets/shaders/index';
+import getRandomShader from '../assets/shaders/index';
 
 interface IScale {
   base: number;
@@ -154,7 +154,7 @@ void main() {
       });
 
       toast({
-        id: `${toastId}`,
+        id: `${toastId}-${Date.now()}`,
         title: 'jinx my beloved',
         isClosable: true,
         duration: 15000,
@@ -164,7 +164,7 @@ void main() {
         position: 'top',
       });
     }
-  }, []);
+  }, [store.getter.toasters]);
 
   useEffect(() => {
     setHoverV(

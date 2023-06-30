@@ -1,7 +1,7 @@
 import { useFrame } from '@react-three/fiber';
 import { useRef, useState } from 'react';
 import type { Clock, ShaderMaterial } from 'three';
-import sound from './assets/meow.mp3';
+import sound from '../assets/meow.mp3';
 
 const playAudio = (audio?: HTMLAudioElement): void => {
   setTimeout(() => {

@@ -1,6 +1,6 @@
 import { Container } from '@chakra-ui/react';
 import IntroductionText from './IntroductionText';
-import Jinx from './Jinx';
+import Jinx from '../jinx/Jinx';
 
 const Introduction = ({
   store,

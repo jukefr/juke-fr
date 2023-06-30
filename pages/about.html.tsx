@@ -1,5 +1,5 @@
 import { Container, Flex } from '@chakra-ui/react';
-import AboutLinks from '../components/AboutLinks';
+import AboutLinks from '../components/about/AboutLinks';
 
 const AboutPage = (): JSX.Element => {
   return (

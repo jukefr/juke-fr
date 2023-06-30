@@ -1,5 +1,5 @@
 import { Flex, Heading, Text, Divider, Container } from '@chakra-ui/react';
-import Projects from '../components/Projects';
+import Projects from '../components/projects/Projects';
 
 interface IHomeProps {
   projects: any;

@@ -2,7 +2,7 @@ import { Container } from '@chakra-ui/react';
 import Head from 'next/head';
 import React from 'react';
 import Navbar from './Navbar';
-import Introduction from './Introduction';
+import Introduction from './about/Introduction';
 
 const Layout = ({
   children,
