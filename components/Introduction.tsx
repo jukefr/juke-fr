@@ -1,24 +1,26 @@
 import { Container } from '@chakra-ui/react';
-import dynamic from 'next/dynamic';
 import IntroductionText from './IntroductionText';
+import Jinx from './Jinx';
 
-const Introduction = () => {
-  // we only want to render this component on the client (with webgl)
-  const Jinx = dynamic(() => import('./Jinx'), {
-    ssr: false,
-  });
-
+const Introduction = ({
+  store,
+}: {
+  store: any; //TODO: store type
+}) => {
   return (
     <Container maxW="container.md" centerContent>
-      <div
-        style={{
-          minHeight: 420,
-          width: '100%',
-        }}
-      >
-        <Jinx />
-      </div>
-      <IntroductionText />
+      {store.getter.showJinx && (
+        <div
+          style={{
+            minHeight: 420,
+            width: '100%',
+          }}
+        >
+          <Jinx store={store} />
+        </div>
+      )}
+
+      <IntroductionText store={store} />
     </Container>
   );
 };

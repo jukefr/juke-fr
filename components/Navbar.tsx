@@ -1,23 +1,43 @@
 import { Box, Button, Flex, Heading, Spacer, Text } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import ToggleEditor from './ToggleEditor';
-import { ColorModeToggle } from '@kay/komponents';
+import ToggleJinx from './ToggleJinx';
+import ToggleReducedMotion from './ToggleReducedMotion';
+import ToggleColorMode from './ToggleColorMode';
 
-const NavbarButtons = () => {
+const NavbarButtons = ({
+  store,
+}: {
+  store: any; // TODO: store type
+}) => {
   return (
     <>
       <Spacer></Spacer>
+      {store.getter.showJinx && (
+        <>
+          <Box>
+            <ToggleEditor store={store} />
+          </Box>
+          <Box>
+            <ToggleReducedMotion store={store} />
+          </Box>
+        </>
+      )}
       <Box>
-        <ToggleEditor />
+        <ToggleJinx store={store} />
       </Box>
-      <Box>
-        <ColorModeToggle />
+      <Box mr={3}>
+        <ToggleColorMode />
       </Box>
     </>
   );
 };
 
-const Navbar = () => {
+const Navbar = ({
+  store,
+}: {
+  store: any; // TODO: store type
+}) => {
   return (
     <nav>
       <Flex mt={6} mb={12} alignItems="bottom">
@@ -52,7 +72,7 @@ const Navbar = () => {
         >
           <Text>about</Text>
         </Button>
-        <NavbarButtons />
+        <NavbarButtons store={store} />
       </Flex>
     </nav>
   );

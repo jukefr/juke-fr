@@ -1,6 +1,6 @@
 {
   "name": "@kay/juke-fr",
-  "version": "2.4.0",
+  "version": "3.0.0",
   "license": "SEE LICENSE IN LICENSE",
   "author": "kay <git@juke.fr>",
   "bin": "./juke-fr",
@@ -26,7 +26,6 @@
     "@chakra-ui/utils": "2.0.14",
     "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
-    "@kay/komponents": "2.0.4",
     "@next/bundle-analyzer": "13.4.4",
     "@next/eslint-plugin-next": "13.4.4",
     "@playwright/test": "1.35.0",
@@ -62,6 +61,7 @@
     "prismjs": "1.29.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.10.1",
     "react-konami-code": "2.3.0",
     "react-lazy-load-image-component": "1.6.0",
     "react-markdown": "8.0.7",

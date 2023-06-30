@@ -63,7 +63,7 @@ const JinxMyBeloved = ({
 
   return (
     <mesh position={[0, 0, 0]} scale={[420, 420, 1]} onClick={meow}>
-      <planeBufferGeometry attach="geometry" args={[1, 1, 1, 1]} />
+      <planeGeometry attach="geometry" args={[1, 1, 1, 1]} />
       <shaderMaterial
         ref={ref}
         attach="material"

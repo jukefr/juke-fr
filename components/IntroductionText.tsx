@@ -1,6 +1,4 @@
 import { Flex, Text } from '@chakra-ui/react';
-import { useAppSelector } from './store/hooks';
-import { selectShowEditor } from './store/showEditor';
 
 const IntroductionHeader = () => {
   return (
@@ -25,25 +23,32 @@ const IntroductionBody = () => {
   );
 };
 
-const IntroductionText = () => {
-  const showEditor = useAppSelector(selectShowEditor);
+const IntroductionText = (
+  { store }: { store: any }, // TODO: store type
+) => {
   return (
     <>
-      <Flex
-        direction="column"
-        background={'purple.200'}
-        px={6}
-        py={4}
-        rounded={6}
-        roundedTop={showEditor ? 0 : 6}
-        mb={6}
-        mt={-6}
-        w="100%"
-        color="#2b2e3b"
-      >
-        <IntroductionHeader />
-      </Flex>
-      <IntroductionBody />
+      {store.getter.showJinx && (
+        <>
+          <Flex
+            direction="column"
+            background={'purple.200'}
+            px={6}
+            py={4}
+            rounded={6}
+            roundedTop={
+              store.getter.showEditor && store.getter.showJinx ? 0 : 6
+            }
+            mb={6}
+            mt={-6}
+            w="100%"
+            color="#2b2e3b"
+          >
+            <IntroductionHeader />
+          </Flex>
+          <IntroductionBody />
+        </>
+      )}
     </>
   );
 };

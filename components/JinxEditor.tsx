@@ -1,20 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Editor from 'react-simple-code-editor';
-import Konami from 'react-konami-code';
 import Prism from 'prismjs';
 import 'prism-themes/themes/prism-dracula.css';
 import { Hook, Unhook } from 'console-feed';
 import { Message } from 'console-feed/lib/definitions/Console';
 import { Box, useBreakpointValue, useColorMode } from '@chakra-ui/react';
 
-import { useAppDispatch, useAppSelector } from './store/hooks';
-import { selectShowEditor, toggleEditor } from './store/showEditor';
-
 import styles from './JinxEditor.module.css';
-import {
-  selectFragmentShader,
-  updateFragmentShader,
-} from './store/fragmentShader';
 
 // VERTEX | FRAGMENT
 //
@@ -42,9 +34,11 @@ const parseLog = (log: string, vertexShader: string) => {
 const JinxEditor = ({
   vertexShader,
   setVertexShader,
+  store,
 }: {
   vertexShader: string;
   setVertexShader: (shader: string) => void;
+  store: any; // TODO: type this
 }) => {
   const { colorMode } = useColorMode();
   const rPadding = useBreakpointValue({ base: '0', md: '10px' });
@@ -53,10 +47,6 @@ const JinxEditor = ({
   const [statusVertex, setStatusVertex] = useState<string>('');
   const [statusFragment, setStatusFragment] = useState<string>('');
 
-  // redux
-  const fragmentShader = useAppSelector(selectFragmentShader);
-  const showEditor = useAppSelector(selectShowEditor);
-  const dispatch = useAppDispatch();
   // effects
   useEffect(() => {
     // okay so basiaclly they dont emit any error or any event of any kind just log to the console 5head
@@ -84,12 +74,15 @@ const JinxEditor = ({
     return () => {
       Unhook(hooked);
     };
-  }, [vertexShader, dispatch]);
+  }, [vertexShader, store.getter.fragmentShader]);
 
   const keyHandler = (e: KeyboardEvent) => {
     switch (e.key) {
       case 'Escape':
-        dispatch(toggleEditor());
+        store.setter({
+          ...store.getter,
+          showEditor: !store.getter.showEditor,
+        });
         break;
       default:
         break;
@@ -108,8 +101,8 @@ const JinxEditor = ({
       mb={6}
       roundedTop={6}
       style={{
-        visibility: showEditor ? 'visible' : 'hidden',
-        display: showEditor ? 'block' : 'none',
+        visibility: store.getter.showEditor ? 'visible' : 'hidden',
+        display: store.getter.showEditor ? 'block' : 'none',
         width: '100%',
         gridRowStart: '1',
         gridColumnStart: '1',
@@ -166,9 +159,12 @@ const JinxEditor = ({
       </label>
       <Editor
         key="fragmentEditor"
-        value={fragmentShader} // no clue but hey it works :shrug:
+        value={store.getter.fragmentShader} // no clue but hey it works :shrug:
         onValueChange={(code) => {
-          dispatch(updateFragmentShader(code));
+          store.setter({
+            ...store.getter,
+            fragmentShader: code,
+          });
           setStatusFragment('');
         }}
         highlight={(code) =>
@@ -202,12 +198,6 @@ const JinxEditor = ({
       >
         {statusFragment}
       </Box>
-
-      <Konami
-        action={() => {
-          dispatch(toggleEditor());
-        }}
-      />
     </Box>
   );
 };

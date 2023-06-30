@@ -1,17 +1,18 @@
 import { Container } from '@chakra-ui/react';
 import Head from 'next/head';
 import React from 'react';
-import { useAppContext } from './AppWrapper';
 import Navbar from './Navbar';
+import Introduction from './Introduction';
 
 const Layout = ({
   children,
   title = 'juke.fr',
+  store,
 }: {
   children: React.ReactElement;
   title?: string;
+  store: any; // TODO store type
 }) => {
-  const context = useAppContext() as any;
   return (
     <Container maxW="container.lg" style={{ overflowX: 'hidden' }}>
       <Head>
@@ -67,9 +68,9 @@ const Layout = ({
           key="meta-twitter-image"
         />
       </Head>
-      <Navbar />
+      <Navbar store={store} />
       <main>
-        {context.appState.introInstance}
+        <Introduction store={store} />
         {children}
       </main>
     </Container>

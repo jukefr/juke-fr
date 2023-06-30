@@ -3,6 +3,7 @@ import Projects from '../components/Projects';
 
 interface IHomeProps {
   projects: any;
+  store: any; // TODO: store type
 }
 
 export async function getStaticProps() {
@@ -43,7 +44,7 @@ export async function getStaticProps() {
   };
 }
 
-const HomePage = ({ projects }: IHomeProps): JSX.Element => {
+const HomePage = ({ projects, store }: IHomeProps): JSX.Element => {
   return (
     <>
       <Container>
@@ -56,7 +57,7 @@ const HomePage = ({ projects }: IHomeProps): JSX.Element => {
 
       <Flex alignItems="center" justifyContent="center" direction="column">
         <Flex direction="column" rounded={6} mb={12}>
-          <Projects projects={projects}></Projects>
+          <Projects projects={projects} store={store}></Projects>
         </Flex>
       </Flex>
     </>

@@ -1,11 +1,11 @@
 import { IconButton, useColorModeValue } from '@chakra-ui/react';
-import { LuPanelTopOpen, LuPanelTopClose } from 'react-icons/lu';
+import { PiEyeBold, PiEyeClosedBold } from 'react-icons/pi';
 
 const getIcon = (showEditor?: boolean) => {
   if (showEditor) {
-    return <LuPanelTopClose />;
+    return <PiEyeClosedBold />;
   }
-  return <LuPanelTopOpen />;
+  return <PiEyeBold />;
 };
 
 const getColor = (showEditor?: boolean) => {
@@ -15,25 +15,22 @@ const getColor = (showEditor?: boolean) => {
   return useColorModeValue('blue', 'green');
 };
 
-const ToggleEditor = ({
+const ToggleJinx = ({
   store,
 }: {
   store: any; // TODO: store type
 }) => {
   return (
     <IconButton
-      aria-label="Toggle Editor"
-      colorScheme={getColor(store.getter.showEditor)}
-      icon={getIcon(store.getter.showEditor)}
+      aria-label="Toggle Jinx and Intro"
+      colorScheme={getColor(store.getter.showJinx)}
+      icon={getIcon(store.getter.showJinx)}
       onClick={() => {
-        store.setter({
-          ...store.getter,
-          showEditor: !store.getter.showEditor,
-        });
+        store.setter({ ...store.getter, showJinx: !store.getter.showJinx });
       }}
       mr={3}
     ></IconButton>
   );
 };
 
-export default ToggleEditor;
+export default ToggleJinx;

@@ -1,12 +1,11 @@
 import { Box, useToast, Text, Flex } from '@chakra-ui/react';
-import { A11y, A11yAnnouncer, useUserPreferences } from '@react-three/a11y';
+import { A11y, A11yAnnouncer } from '@react-three/a11y';
 import { Canvas } from '@react-three/fiber';
 import { useEffect, useRef, useState } from 'react';
 import { animated, useSpring } from 'react-spring';
 import {
   ACESFilmicToneMapping,
   PerspectiveCamera,
-  sRGBEncoding,
   Texture,
   Vector2,
 } from 'three';
@@ -15,18 +14,7 @@ import jinx from './assets/jinx.png';
 import styles from './Jinx.module.css';
 import JinxEditor from './JinxEditor';
 import JinxMyBeloved from './JinxMyBeloved';
-import getRandomShader from './shaders/index';
-import {
-  selectFragmentShader,
-  updateFragmentShader,
-} from './store/fragmentShader';
-import { useAppDispatch, useAppSelector } from './store/hooks';
-import {
-  selectPrefersReducedMotion,
-  update as updatePrefersReducedMotion,
-} from './store/prefersReducedMotion';
-import { selectTimer } from './store/timer';
-import { add as addToaster, selectToasters } from './store/toasters';
+import getRandomShader from './assets/shaders/index';
 
 interface IScale {
   base: number;
@@ -73,22 +61,18 @@ const getWindowDimensions = () => {
   };
 };
 
-export default function Jinx() {
+export default function Jinx({ store }: any) {
+  // TODO: type store
   const toast = useToast();
-  const { a11yPrefersState } = useUserPreferences();
 
-  // redux
-  const fragmentShader = useAppSelector(selectFragmentShader);
-  const toasters = useAppSelector(selectToasters);
-  const timer = useAppSelector(selectTimer);
-  const prefersReducedMotion = useAppSelector(selectPrefersReducedMotion);
-  const dispatch = useAppDispatch();
   const setRandomFragmentShader = () => {
-    dispatch(
-      updateFragmentShader(
-        getRandomShader(fragmentShader, prefersReducedMotion),
+    store.setter({
+      ...store.getter,
+      fragmentShader: getRandomShader(
+        store.getter.fragmentShader,
+        store.getter.prefersReducedMotion,
       ),
-    );
+    });
   };
   // refs
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -102,7 +86,7 @@ void main() {
   const [hoverV, setHoverV] = useState<number>(-30);
   const [springState, setSpringState] = useState(false);
   const [hoverState, setHoverState] = useState(false);
-  const [clientSize, setClientSize] = useState(getWindowDimensions());
+  const [clientSize, setClientSize] = useState({ width: 420, height: 420 });
   const [hasWebGL, setHasWebGL] = useState(false);
 
   // took me so much time debugger; calling line by line to find where the error was and
@@ -115,15 +99,17 @@ void main() {
   // const jinxTexture = useLoader(TextureLoader, jinx.src);
 
   // rendering
-  const deltaMultiplier = prefersReducedMotion ? 1 : 5;
+  const deltaMultiplier = store.getter.prefersReducedMotion ? 1 : 5;
   const shader = {
     uniforms: {
-      u_time: { value: timer.getElapsedTime() * deltaMultiplier },
+      u_time: {
+        value: store.getter.timer.getElapsedTime() * deltaMultiplier,
+      },
       u_resolution: { value: new Vector2(420, 420) },
       u_texture: { value: jinxTexture },
     },
     vertexShader,
-    fragmentShader: fragmentShader,
+    fragmentShader: store.getter.fragmentShader,
   };
   const perspective = 800;
   const fov = (180 * (2 * Math.atan(420 / 2 / perspective))) / Math.PI;
@@ -134,12 +120,12 @@ void main() {
     transform: hoverState ? `rotate(${hoverV}deg)` : 'rotate(0deg)',
     scale: hoverState
       ? springState
-        ? getScale(prefersReducedMotion).click
-        : getScale(prefersReducedMotion).hover
-      : getScale(prefersReducedMotion).base,
+        ? getScale(store.getter.prefersReducedMotion).click
+        : getScale(store.getter.prefersReducedMotion).hover
+      : getScale(store.getter.prefersReducedMotion).base,
     config: {
-      tension: prefersReducedMotion ? 100 : 300,
-      friction: prefersReducedMotion ? 10 : 10,
+      tension: store.getter.prefersReducedMotion ? 100 : 300,
+      friction: store.getter.prefersReducedMotion ? 10 : 10,
     },
   });
 
@@ -160,11 +146,15 @@ void main() {
     //     position: 'top',
     //   });
     // }
-    if (!toasters.includes(toastId)) {
-      dispatch(addToaster(toastId));
+    if (!store.getter.toasters.includes(toastId)) {
+      store.setter({
+        ...store.getter,
+        toasters: [...store.getter.toasters, toastId],
+        bruh: 123,
+      });
 
       toast({
-        id: `${toastId}-${Date.now()}`,
+        id: `${toastId}`,
         title: 'jinx my beloved',
         isClosable: true,
         duration: 15000,
@@ -174,22 +164,21 @@ void main() {
         position: 'top',
       });
     }
-  }, [dispatch, toasters]);
+  }, []);
 
   useEffect(() => {
     setHoverV(
-      prefersReducedMotion ? getRandomValue(-5, 5) : getRandomValue(-30, 30),
+      store.getter.prefersReducedMotion
+        ? getRandomValue(-5, 5)
+        : getRandomValue(-30, 30),
     );
-  }, [prefersReducedMotion]);
-
-  useEffect(() => {
-    dispatch(updatePrefersReducedMotion(a11yPrefersState.prefersReducedMotion));
-  }, [a11yPrefersState.prefersReducedMotion, prefersReducedMotion, dispatch]);
+  }, [store.getter.prefersReducedMotion]);
 
   useEffect(() => {
     const handleResize = () => {
       setClientSize(getWindowDimensions());
     };
+    handleResize(); // set initial size on load
     window.addEventListener('resize', handleResize);
     setHasWebGL(checkForWebGL());
     return () => {
@@ -239,7 +228,7 @@ void main() {
             onMouseUp={() => {
               setSpringState(false);
               setHoverV(
-                prefersReducedMotion
+                store.getter.prefersReducedMotion
                   ? getRandomValue(-5, 5)
                   : getRandomValue(-30, 30),
               );
@@ -252,7 +241,7 @@ void main() {
               setSpringState(false);
               setHoverState(false);
               setHoverV(
-                prefersReducedMotion
+                store.getter.prefersReducedMotion
                   ? getRandomValue(-5, 5)
                   : getRandomValue(-30, 30),
               );
@@ -264,7 +253,7 @@ void main() {
               setHoverState(false);
               setSpringState(false);
               setHoverV(
-                prefersReducedMotion
+                store.getter.prefersReducedMotion
                   ? getRandomValue(-5, 5)
                   : getRandomValue(-30, 30),
               );
@@ -275,7 +264,7 @@ void main() {
                 camera={camera}
                 onCreated={({ gl }) => {
                   gl.toneMapping = ACESFilmicToneMapping;
-                  gl.outputEncoding = sRGBEncoding;
+                  gl.outputColorSpace = 'srgb';
                 }}
                 className={styles.canvas}
                 ref={canvasRef}
@@ -293,8 +282,8 @@ void main() {
                   <JinxMyBeloved
                     shader={shader}
                     setRandomFragmentShader={setRandomFragmentShader}
-                    prefersReducedMotion={prefersReducedMotion}
-                    timer={timer}
+                    prefersReducedMotion={store.getter.prefersReducedMotion}
+                    timer={store.getter.timer}
                   />
                 </A11y>
               </Canvas>
@@ -310,6 +299,7 @@ void main() {
       <JinxEditor
         setVertexShader={setVertexShader}
         vertexShader={vertexShader}
+        store={store}
       />
     </div>
   );

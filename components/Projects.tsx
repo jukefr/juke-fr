@@ -1,16 +1,14 @@
 import { SimpleGrid, useColorModeValue } from '@chakra-ui/react';
 import Project from './Project';
-import { useAppSelector } from './store/hooks';
-import { selectPrefersReducedMotion } from './store/prefersReducedMotion';
 
-const Projects = ({ projects }: any) => {
+const Projects = (
+  { projects, store }: any, // TODO: store type
+) => {
   const badgeColor = useColorModeValue('purple', 'orange');
   const projectHoverBackground = useColorModeValue(
     'gray.100',
     'whiteAlpha.200',
   );
-  const prefersReducedMotion = useAppSelector(selectPrefersReducedMotion);
-
   return (
     <SimpleGrid
       columns={[1, null, 3]}
@@ -34,7 +32,7 @@ const Projects = ({ projects }: any) => {
           key={project.id}
           project={project}
           projectHoverBackground={projectHoverBackground}
-          prefersReducedMotion={prefersReducedMotion}
+          prefersReducedMotion={store.getter.prefersReducedMotion}
           badgeColor={badgeColor}
         />
       ))}
