@@ -1,32 +1,27 @@
 this is a canary for juke.fr and all of its subdomains and various paths
-
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA512
 
-hello this is the new canary starting on 18th june 2023
-i dont know what happened to the last one or my previous keys but thats up to you to decide ultimately
+hello this is 30th june 2023
 
 heres some links from around the time this canary was made
-- - https://www.mediapart.fr/journal/international/160623/pour-publication-samedi-17-partir-de-08h00les-gouvernements-europeens-s-appretent-donner-un-cheque 
-- - https://www.youtube.com/watch?v=r40XppnQ1-8 
-- - https://www.speedrun.com/outlast_trials/run/z1lxr2gm 
+- - https://www.mediapart.fr/journal/fil-dactualites/290623/mort-de-nahel-nuit-de-violences-rouen-alencon-brest-et-tours 
+- - https://www.youtube.com/watch?v=fOgEu9JeriI
+- - https://www.speedrun.com/only_up/run/y4oqv5dz
 
 i have not been asked by any feds (or fed associated entity or gvt etc etc) be they french or from anywhere else any data or anything
 i have never given any of my data to feds (etc etc) or it been seized
 no whatever the french equivalent to a subpoena has be served nor complied to
 no backdoors were installed by us
 
-from now on this canary will be signed with this new key, the fingerprint of which has been spread as best we could for now
 if there are any further changes in key we will use the old one to first sign the new ones fingerprint in a warning canary
 we might also find the old keys that we used to use and make a quick proof with it at some point in the near future
-
-that is all thank you
 -----BEGIN PGP SIGNATURE-----
 
-iHUEARYKAB0WIQQtMKGktE51M1er7o3sCEkUYFlk3AUCZI6cPgAKCRDsCEkUYFlk
-3AWIAQCoDaCHAX3zUZaZUapXHnNHXaF2cGFAfp8Ll2Wi4DvFKgD/YUPkELdTfdtr
-7MtvJ8HSGjZIibWQIhpCPyhKhwRDGgw=
-=RfA9
+iHUEARYKAB0WIQQtMKGktE51M1er7o3sCEkUYFlk3AUCZJ5gzAAKCRDsCEkUYFlk
+3D5sAQCv85Gcb3+bUTo5edEf7Lqw46AUvAim0X4II/Z66qIiywEA1dHAy9B+aKz+
+a1QgYO+wCsJ0mJ03NLX9QmUQge7X/AA=
+=2LCK
 -----END PGP SIGNATURE-----
 
 what have you stumbled uppon?
@@ -46,4 +41,3 @@ then you can verify the canary file by running
 gpg --verify canary.txt
 
 it should tell you that the signature is good, if not the thing was tampered with
-
