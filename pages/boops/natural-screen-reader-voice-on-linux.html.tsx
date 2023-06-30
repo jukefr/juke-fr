@@ -199,7 +199,7 @@ const Boop = (): JSX.Element => {
                 the defaults by running :
               </Text>
               <TerminalCodePreview lang="language-bash">
-                spd-say &quot;it's that shrimple&quot;
+                spd-say &quot;it&apos;s that shrimple&quot;
               </TerminalCodePreview>
               <Text>
                 ideally you get some audio output (with a terrible voice).
@@ -320,15 +320,15 @@ DefaultModule piper-generic`}
               </Heading>
               <br />
               <Text>
-                that's pretty much it. hopefully. if all of the various bricks
-                that make up linux decided to cooperate.
+                that&apos;s pretty much it. hopefully. if all of the various
+                bricks that make up linux decided to cooperate.
               </Text>
               <br />
               <Text>
                 you can now try running the <Code>spd-say</Code> command again :
               </Text>
               <TerminalCodePreview lang="language-bash">
-                spd-say &quot;it's that shrimple&quot;
+                spd-say &quot;it&apos;s that shrimple&quot;
               </TerminalCodePreview>
               <Text>
                 meaning now anything that <b>integrates</b> with

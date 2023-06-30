@@ -8,8 +8,24 @@ import {
   UnorderedList,
   Text,
   Divider,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
+
+const AboutLink = ({ href, children }: any): JSX.Element => {
+  return (
+    <ListItem>
+      <Link
+        href={href}
+        color={useColorModeValue('blue.500', 'blue.100')}
+        isExternal
+        fontSize="lg"
+      >
+        {children} <ExternalLinkIcon mx="2px" />
+      </Link>
+    </ListItem>
+  );
+};
 
 const AboutPage = (): JSX.Element => {
   return (
@@ -28,40 +44,24 @@ const AboutPage = (): JSX.Element => {
           <Divider mb={6} />
 
           <UnorderedList spacing={3}>
-            <ListItem>
-              <Link href="https://code.juke.fr/kay" isExternal>
-                code is hosted on code.juke.fr <ExternalLinkIcon mx="2px" />
-              </Link>
-            </ListItem>
-
-            <ListItem>
-              <Link href="https://matrix.to/#/@kay:juke.fr" isExternal>
-                chat via matrix at @kay:juke.fr <ExternalLinkIcon mx="2px" />
-              </Link>
-            </ListItem>
-            <ListItem>
-              <Link
-                href="mailto:site[at]juke[dot]fr?subject=Make sure to replace the [at] and [dot] in the email"
-                isExternal
-              >
-                email is site[at]juke[dot]fr <ExternalLinkIcon mx="2px" />
-              </Link>
-            </ListItem>
-            <ListItem>
-              <Link href="https://ko-fi.com/kthnx/" isExternal>
-                donate on ko-fi <ExternalLinkIcon mx="2px" />
-              </Link>
-            </ListItem>
-            <ListItem>
-              <Link href="https://liberapay.com/kthnx/" isExternal>
-                donate on liberapay <ExternalLinkIcon mx="2px" />
-              </Link>
-            </ListItem>
-            <ListItem>
-              <Link href="https://paypal.me/kaythn/" isExternal>
-                donate on paypal <ExternalLinkIcon mx="2px" />
-              </Link>
-            </ListItem>
+            <AboutLink href="https://code.juke.fr/kay">
+              code is hosted on code.juke.fr
+            </AboutLink>
+            <AboutLink href="https://matrix.to/#/@kay:juke.fr">
+              chat via matrix at @kay:juke.fr
+            </AboutLink>
+            <AboutLink href="mailto:site[at]juke[dot]fr?subject=Make sure to replace the [at] and [dot] in the email">
+              email is site[at]juke[dot]fr
+            </AboutLink>
+            <AboutLink href="https://ko-fi.com/kthnx/">
+              donate on ko-fi
+            </AboutLink>
+            <AboutLink href="https://liberapay.com/kthnx/">
+              donate on liberapay
+            </AboutLink>
+            <AboutLink href="https://paypal.me/kaythn/">
+              donate on paypal
+            </AboutLink>
           </UnorderedList>
         </Box>
       </Container>

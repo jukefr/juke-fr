@@ -9,12 +9,14 @@ import {
   List,
   ListItem,
   Link,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import {
   title as scrTitle,
   id as scrId,
 } from './boops/natural-screen-reader-voice-on-linux.html';
+import { use } from 'react';
 
 const BoopsPage = ({ boops }: any): JSX.Element => {
   return (
@@ -42,6 +44,8 @@ const BoopsPage = ({ boops }: any): JSX.Element => {
                 href={`/boops/${scrId}.html`}
                 passHref
                 scroll={false}
+                color={useColorModeValue('blue.500', 'blue.100')}
+                fontSize="lg"
               >
                 {scrTitle}
               </Link>
