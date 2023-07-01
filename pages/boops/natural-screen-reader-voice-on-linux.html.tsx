@@ -105,7 +105,7 @@ const Boop = (): JSX.Element => {
         <Text fontSize="xl">{description}</Text>
         <Divider mb={6} />
       </Container>
-      <Box bg="yellow.100" py={16} color="black">
+      <Box bg="yellow.100" py={24} color="black">
         <Container maxW="container.xl">
           <Box>
             <LightMode>
@@ -149,7 +149,7 @@ const Boop = (): JSX.Element => {
         </Container>
       </Box>
       <Container maxW="container.xl">
-        <Box my={16}>
+        <Box my={24}>
           <SimpleGrid columns={[1, null, 2]} spacing={6}>
             <Box>
               <Heading as="h3" size="lg">
@@ -173,24 +173,26 @@ const Boop = (): JSX.Element => {
                   isExternal
                   color={useColorModeValue('blue.500', 'blue.200')}
                 >
-                  grab a release of piper <ExternalLinkIcon mx="2px" />
+                  grab a release of piper and a voice for it{' '}
+                  <ExternalLinkIcon mx="2px" />
                 </Link>
                 . pick the <Code>amd64</Code> or <Code>arm64</Code> prebuilt
                 binaries depending on your architecture and one of the voices.
-                we went with <Code>en-us-amy-low</Code>, because it was the
-                first one in order.
+                the initial release has the voice download links. we went with{' '}
+                <Code>en-us-amy-low</Code>, because it was the first one in
+                order.
               </Text>
               <Text>
                 now extract the piper release anywhere you please, extract the
-                voice in the same folder. you can put it anywhere really but i
-                just put it in the same folder.
+                voice in the same folder. you can put it anywhere but we just
+                put it in the same folder.
               </Text>
               <Text>you are now done with the requirements part.</Text>
               <br />
               <Text>
-                i will assume you also went with the voice en-us-amy-low to make
-                commands that will come up <b>easier</b>. make sure to replace
-                this with the actual voice you picked if different.
+                we will assume you also went with the voice en-us-amy-low to
+                make commands that will come up <b>easier</b>. make sure to
+                replace this with the actual voice you picked if different.
               </Text>
             </Box>
             <Box>
@@ -224,7 +226,7 @@ const Boop = (): JSX.Element => {
         </Box>
       </Container>
       <br />
-      <Box bg="orange.100" py={16} color="black">
+      <Box bg="orange.100" py={24} color="black">
         <Container maxW="container.xl">
           <Box>
             <LightMode>
@@ -262,6 +264,7 @@ AddVoice "en" "FEMALE1" "en_UK/apope_low"`}
                     piper executable as well as the full path to the voice model
                     that you extracted earlier. make sure to replace those.
                   </Text>
+                  <br />
                   <Text>
                     the second line is because of how speech dispatcher is made
                     to handle a quantity of different <b>voices</b> so we tell
@@ -274,23 +277,20 @@ AddVoice "en" "FEMALE1" "en_UK/apope_low"`}
                   <Text>
                     you can probably (maybe after a reboot or a logout) already
                     just use a graphical interface like{' '}
-                    <Code>orca --setup</Code> now to select <b>piper-generic</b>{' '}
-                    as speech engine module and the voice we added.
+                    <Code>orca --setup</Code> to select <b>piper-generic</b> as
+                    speech engine <b>module</b> and the <b>voice</b> we added.
                   </Text>
                   <br />
                   <Text>
-                    but in case here is how to also set the default settings for
-                    speech-dispatcher to automatically use the new module we
-                    just added. you want to edit :
+                    another way is to set the default settings for
+                    speech-dispatcher <b>system wide</b> to automatically use
+                    the new module and voice. you want to edit :
                   </Text>
                   <TerminalCodePreview lang="language-bash" noBG={true}>
                     sudo $EDITOR /etc/speech-dispatcher/speechd.conf
                   </TerminalCodePreview>
                   <Text>
-                    and you can either search for the commented lines i&#39;m
-                    about to give you and uncomment them and edit them manually.
-                    or just add the 3 following lines at the end of the file,
-                    same thing :
+                    add the 3 following lines at the end of the file :
                   </Text>
                   <TerminalCodePreview lang="language-ini" noBG={true}>
                     {`DefaultVoiceType  "FEMALE1"
@@ -298,9 +298,9 @@ DefaultLanguage "en"
 DefaultModule piper-generic`}
                   </TerminalCodePreview>
                   <Text>
-                    if you edited any of the voice names in the previous module
-                    file on the second line for the voice then make sure to
-                    adjust accordingly.
+                    if you edited any of the <b>voice names</b> in the previous
+                    module file on the second line for the voice then make sure
+                    to adjust accordingly.
                   </Text>
                   <br />
                   <Text>save the file and exit.</Text>
@@ -312,7 +312,7 @@ DefaultModule piper-generic`}
         </Container>
       </Box>
       <Container maxW="container.xl">
-        <Box my={16}>
+        <Box my={24}>
           <SimpleGrid columns={[1, null, 2]} spacing={6}>
             <Box>
               <Heading as="h4" size="md">
@@ -347,7 +347,7 @@ DefaultModule piper-generic`}
               <br />
               <Text>
                 to actually make this properly usable system wide and better
-                there&#39;s some stuff i still need to figure out such as :
+                there&#39;s some stuff we still need to figure out such as :
               </Text>
               <br />
               <UnorderedList>
@@ -362,7 +362,7 @@ DefaultModule piper-generic`}
               <Text>and more generally adding more polish to this post.</Text>
               <br />
               <Text>
-                anyways <b>thank you</b> for your time reading this i hope some
+                anyways <b>thank you</b> for your time reading this we hope some
                 of the knowledge in here can be of use to you.
               </Text>
             </Box>
