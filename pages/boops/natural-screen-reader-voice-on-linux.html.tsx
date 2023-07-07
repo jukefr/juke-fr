@@ -6,8 +6,6 @@ import {
   Text,
   Code,
   Box,
-  Grid,
-  GridItem,
   SimpleGrid,
   useColorModeValue,
   Link,
@@ -18,6 +16,9 @@ import {
 import Head from 'next/head';
 import TerminalCodePreview from '../../components/TerminalCodePreview';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
+
+import coquiSample from '../../components/assets/boops/natural-screen-reader-voice-on-linux/welcome_coqui.mp3';
+import piperSample from '../../components/assets/boops/natural-screen-reader-voice-on-linux/welcome_piper.mp3';
 
 export const title = 'more natural screen reader voice on linux';
 export const description =
@@ -105,7 +106,7 @@ const Boop = (): JSX.Element => {
         <Text fontSize="xl">{description}</Text>
         <Divider mb={6} />
       </Container>
-      <Box bg="yellow.100" py={24} color="black">
+      <Box bg="purple.100" py={24} color="black">
         <Container maxW="container.xl">
           <Box>
             <LightMode>
@@ -130,11 +131,11 @@ const Boop = (): JSX.Element => {
                 <Box>
                   <Text>here is a coqui-ai voice sample</Text>
                   <Text>
-                    <audio src="/welcome_coqui.mp3" controls></audio>
+                    <audio src={coquiSample} controls></audio>
                   </Text>
                   <Text>and here is a piper voice sample</Text>
                   <Text>
-                    <audio src="/welcome_piper.mp3" controls></audio>
+                    <audio src={piperSample} controls></audio>
                   </Text>
                   <br />
                   <Text>
@@ -155,6 +156,7 @@ const Boop = (): JSX.Element => {
               <Heading as="h3" size="lg">
                 how
               </Heading>
+              <br />
               <Heading as="h4" size="md">
                 prerequisites and trying it out
               </Heading>
@@ -225,7 +227,6 @@ const Boop = (): JSX.Element => {
           </SimpleGrid>
         </Box>
       </Container>
-      <br />
       <Box bg="orange.100" py={24} color="black">
         <Container maxW="container.xl">
           <Box>

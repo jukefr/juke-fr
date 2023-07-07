@@ -12,7 +12,6 @@ const NavbarButtons = ({
 }) => {
   return (
     <>
-      <Spacer></Spacer>
       {store.getter.showJinx && (
         <>
           <Box>
@@ -26,7 +25,7 @@ const NavbarButtons = ({
       <Box>
         <ToggleJinx store={store} />
       </Box>
-      <Box mr={3}>
+      <Box mr={3} alignSelf="flex-end">
         <ToggleColorMode />
       </Box>
     </>
@@ -40,7 +39,7 @@ const Navbar = ({
 }) => {
   return (
     <nav>
-      <Flex mt={6} mb={12} alignItems="bottom">
+      <Flex mt={6} mb={12} alignItems="bottom" wrap="wrap">
         <Button
           variant="ghost"
           mr={3}
@@ -72,6 +71,7 @@ const Navbar = ({
         >
           <Text>about</Text>
         </Button>
+        <Spacer />
         <NavbarButtons store={store} />
       </Flex>
     </nav>

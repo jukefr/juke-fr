@@ -1,8 +1,8 @@
 import { Clock } from 'three';
 
 export default {
-  showJinx: true,
-  showEditor: true,
+  showJinx: false,
+  showEditor: false,
   prefersReducedMotion: true,
   fragmentShader: '',
   toasters: [],

@@ -9,6 +9,19 @@ import '../components/global.css';
 import { useEffect, useState } from 'react';
 import defaultStore from '../components/store';
 import getRandomShader from '../components/assets/shaders';
+import { dir } from 'console';
+
+const writeToLocalStorage = ({ timer, ...state }: any) => {
+  localStorage.setItem('state', JSON.stringify(state));
+};
+
+const getFromLocalStorage = () => {
+  const localState = localStorage.getItem('state');
+  if (localState) {
+    return JSON.parse(localState);
+  }
+  return undefined;
+};
 
 export default function AppTemplate({
   Component,
@@ -27,15 +40,32 @@ export default function AppTemplate({
     const hasUserSetReducedMotion = window.matchMedia(
       '(prefers-reduced-motion: reduce)',
     ).matches;
-    storeSetter({
-      // initialize making sure server and client state match
-      // (for dev reasons mainly but also allows for SSR in the future if needed)
-      ...storeGetter,
+    const localStorage = getFromLocalStorage();
+
+    let final = {
+      ...defaultStore,
+      showJinx: true, // only show the jinx client side
       prefersReducedMotion: hasUserSetReducedMotion,
       fragmentShader: getRandomShader(''),
       timer: new Clock(),
-    });
+    };
+
+    if (localStorage) {
+      final = {
+        ...final,
+        ...localStorage,
+      };
+    }
+
+    storeSetter(final);
   }, []);
+
+  useEffect(() => {
+    // so confused why this needs to be done
+    if (storeGetter.fragmentShader !== '') {
+      writeToLocalStorage(storeGetter);
+    }
+  }, [storeGetter]);
 
   return (
     <ChakraProvider theme={theme}>

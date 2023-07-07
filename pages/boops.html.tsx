@@ -6,7 +6,6 @@ import {
   Text,
   Divider,
   UnorderedList,
-  List,
   ListItem,
   Link,
   useColorModeValue,
@@ -16,9 +15,12 @@ import {
   title as scrTitle,
   id as scrId,
 } from './boops/natural-screen-reader-voice-on-linux.html';
-import { use } from 'react';
+import {
+  title as prvTitle,
+  id as prvId,
+} from './boops/better-privacy-when-browsing-online.html';
 
-const BoopsPage = ({ boops }: any): JSX.Element => {
+const BoopsPage = (): JSX.Element => {
   return (
     <Flex
       alignItems="center"
@@ -36,8 +38,19 @@ const BoopsPage = ({ boops }: any): JSX.Element => {
             quirky like that
           </Text>
           <Divider mb={6} />
-
           <UnorderedList spacing={3}>
+            <ListItem key={prvId}>
+              <Link
+                as={NextLink}
+                href={`/boops/${prvId}.html`}
+                passHref
+                scroll={false}
+                color={useColorModeValue('blue.500', 'blue.100')}
+                fontSize="lg"
+              >
+                {prvTitle}
+              </Link>
+            </ListItem>
             <ListItem key={scrId}>
               <Link
                 as={NextLink}

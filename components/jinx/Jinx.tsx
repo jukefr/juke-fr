@@ -150,7 +150,6 @@ void main() {
       store.setter({
         ...store.getter,
         toasters: [...store.getter.toasters, toastId],
-        bruh: 123,
       });
 
       toast({

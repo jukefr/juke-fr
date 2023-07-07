@@ -72,8 +72,13 @@ const Layout = ({
         <Navbar store={store} />
       </Container>
       <main>
-        <Container maxW="container.md" centerContent>
-          {store.getter.showJinx && (
+        {store.getter.showJinx && (
+          <Container
+            maxW="container.md"
+            centerContent
+            padding={8}
+            overflowX="hidden"
+          >
             <div
               style={{
                 minHeight: 420,
@@ -82,9 +87,7 @@ const Layout = ({
             >
               <Jinx store={store} />
             </div>
-          )}
 
-          {store.getter.showJinx && (
             <>
               <Flex
                 direction="column"
@@ -116,8 +119,8 @@ const Layout = ({
                 against rising worldwide fascistic ideology and oppression.
               </Text>
             </>
-          )}
-        </Container>
+          </Container>
+        )}
         {children}
       </main>
     </>
