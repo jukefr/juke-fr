@@ -19,6 +19,10 @@ import {
   title as prvTitle,
   id as prvId,
 } from './boops/better-privacy-when-browsing-online.html';
+import {
+  title as encTitle,
+  id as encId,
+} from './boops/in-place-encryption-raspberry-pi-yunohost';
 
 const BoopsPage = (): JSX.Element => {
   return (
@@ -39,6 +43,19 @@ const BoopsPage = (): JSX.Element => {
           </Text>
           <Divider mb={6} />
           <UnorderedList spacing={3}>
+            <ListItem key={encId}>
+              <Link
+                as={NextLink}
+                href={`/boops/${encId}.html`}
+                passHref
+                scroll={false}
+                color={useColorModeValue('blue.500', 'blue.100')}
+                fontSize="lg"
+              >
+                {encTitle}
+              </Link>
+            </ListItem>
+
             <ListItem key={prvId}>
               <Link
                 as={NextLink}
