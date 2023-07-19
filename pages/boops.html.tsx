@@ -22,7 +22,7 @@ import {
 import {
   title as encTitle,
   id as encId,
-} from './boops/in-place-encryption-raspberry-pi-yunohost';
+} from './boops/in-place-encryption-raspberry-pi-yunohost.html';
 
 const BoopsPage = (): JSX.Element => {
   return (
