@@ -53,10 +53,10 @@ const AboutPage = (): JSX.Element => {
             <AboutLink href="mailto:site[at]juke[dot]fr?subject=Make sure to replace the [at] and [dot] in the email">
               email is site[at]juke[dot]fr
             </AboutLink>
-            <AboutLink href="https://ko-fi.com/kthnx/">
+            <AboutLink href="https://ko-fi.com/memoryleak/">
               donate on ko-fi
             </AboutLink>
-            <AboutLink href="https://liberapay.com/kthnx/">
+            <AboutLink href="https://liberapay.com/memoryleak/">
               donate on liberapay
             </AboutLink>
             <AboutLink href="https://paypal.me/kaythn/">

@@ -2,12 +2,12 @@ this is a canary for juke.fr and all of its subdomains and various paths
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA512
 
-hello this is 15th july 2023
+hello this is 28th july 2023
 
 heres some links from around the time this canary was made
-- - https://www.mediapart.fr/journal/fil-dactualites/150723/violences-policieres-des-organisations-denoncent-l-interdiction-d-une-manifestation-paris
-- - https://www.youtube.com/watch?v=QjRnhlqC5ZM
-- - https://www.speedrun.com/only_up/run/mk00x3lz
+- - https://www.mediapart.fr/journal/fil-dactualites/280723/protestation-policiere-la-justice-besoin-de-respect-d-independance-estime-dupond-moretti
+- - https://www.youtube.com/watch?v=43dVc3PGWZI
+- - https://www.speedrun.com/celeste/runs/y98d6lkz
 
 i have not been asked by any feds (or fed associated entity or gvt etc etc) be they french or from anywhere else any data or anything
 i have never given any of my data to feds (etc etc) or it been seized
@@ -17,12 +17,13 @@ no backdoors were installed by us
 if there are any further changes in key we will use the old one to first sign the new ones fingerprint in a warning canary
 
 found the old key, signed new key, check https://keyserver.ubuntu.com/pks/lookup?search=juke.fr&fingerprint=on&op=index
+
 -----BEGIN PGP SIGNATURE-----
 
-iHUEARYKAB0WIQQtMKGktE51M1er7o3sCEkUYFlk3AUCZLJ2igAKCRDsCEkUYFlk
-3No4AQCiBcXFEK/olBzO8partz/S8+oIoiwdfJ3GGsZQ3Gk+TAD/XGoOadGr7z/U
-2SorKxrfai5wVAGdHCUhs8ZyhdMnQAM=
-=LOy2
+iHUEARYKAB0WIQQtMKGktE51M1er7o3sCEkUYFlk3AUCZMPEGAAKCRDsCEkUYFlk
+3EJ0AQCgBugrQL5PGBagpbsGyZcXqlsQ2AgDG8JGRpy++Ux6qwD/b6BmLNxpzf7T
+FrGvfb/HKxi2TJ2NKS2y0q86r8o3SwA=
+=739W
 -----END PGP SIGNATURE-----
 
 what have you stumbled uppon?
