@@ -26,7 +26,7 @@
     "@chakra-ui/utils": "2.0.14",
     "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
-    "@kay/console-feed": "^3.5.0",
+    "console-feed": "^3.5.0",
     "@next/bundle-analyzer": "13.4.9",
     "@next/eslint-plugin-next": "13.4.9",
     "@playwright/test": "1.35.1",
