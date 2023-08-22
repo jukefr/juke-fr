@@ -21,10 +21,15 @@ const Layout = ({
       console.log(res);
       return res;
     })
-    .then((res) => setFronter(
-//       res.members[0].name
-      res.members.reduce((acc, val) => `${val.name} (${val.pronouns}), ${acc}`, '')
-    ));
+    .then((res) =>
+      setFronter(
+        //       res.members[0].name
+        res.members.reduce(
+          (acc: string, val: any) => `${val.name} (${val.pronouns}), ${acc}`,
+          '',
+        ),
+      ),
+    );
   return (
     <>
       <Head>
@@ -116,8 +121,8 @@ const Layout = ({
                 color="#2b2e3b"
               >
                 <Text>
-                  hello, it&apos;s <b>{fronter}</b> web development mainly (mostly, no
-                  clue what we&apos;re doing)
+                  hello, it&apos;s <b>{fronter}</b> web development mainly
+                  (mostly, no clue what we&apos;re doing)
                 </Text>
               </Flex>
               <Text mb={12}>
@@ -153,8 +158,8 @@ const Layout = ({
               color="#2b2e3b"
             >
               <Text>
-                hello, it&apos;s <b>{fronter}</b> web development mainly (mostly, no
-                clue what we&apos;re doing)
+                hello, it&apos;s <b>{fronter}</b> web development mainly
+                (mostly, no clue what we&apos;re doing)
               </Text>
             </Flex>
           </Container>

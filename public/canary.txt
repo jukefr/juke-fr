@@ -1,13 +1,14 @@
 this is a canary for juke.fr and all of its subdomains and various paths
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA512
 
-hello this is 28th july 2023
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+hello this is 22nd august 2023
 
 heres some links from around the time this canary was made
-- - https://www.mediapart.fr/journal/fil-dactualites/280723/protestation-policiere-la-justice-besoin-de-respect-d-independance-estime-dupond-moretti
-- - https://www.youtube.com/watch?v=43dVc3PGWZI
-- - https://www.speedrun.com/celeste/runs/y98d6lkz
+- - https://www.mediapart.fr/journal/fil-dactualites/220823/une-ex-ministre-nigeriane-inculpee-au-royaume-uni-pour-corruption
+- - https://www.youtube.com/watch?v=wAwgZbUFiXs
+- - https://www.speedrun.com/only_up/runs/y2g62j9z
 
 i have not been asked by any feds (or fed associated entity or gvt etc etc) be they french or from anywhere else any data or anything
 i have never given any of my data to feds (etc etc) or it been seized
@@ -15,15 +16,12 @@ no whatever the french equivalent to a subpoena has be served nor complied to
 no backdoors were installed by us
 
 if there are any further changes in key we will use the old one to first sign the new ones fingerprint in a warning canary
-
-found the old key, signed new key, check https://keyserver.ubuntu.com/pks/lookup?search=juke.fr&fingerprint=on&op=index
-
 -----BEGIN PGP SIGNATURE-----
 
-iHUEARYKAB0WIQQtMKGktE51M1er7o3sCEkUYFlk3AUCZMPEGAAKCRDsCEkUYFlk
-3EJ0AQCgBugrQL5PGBagpbsGyZcXqlsQ2AgDG8JGRpy++Ux6qwD/b6BmLNxpzf7T
-FrGvfb/HKxi2TJ2NKS2y0q86r8o3SwA=
-=739W
+iHUEARYIAB0WIQQtMKGktE51M1er7o3sCEkUYFlk3AUCZOTBdAAKCRDsCEkUYFlk
+3AGTAQDCGivo4OENho5nXdTsLz0Ckb7WAJP92PKxe3Pjt5ojFwEAn9DbSGh885r3
+wtDhQp2AKlq7iUFKIytQ6m69XUvfIwQ=
+=+aI6
 -----END PGP SIGNATURE-----
 
 what have you stumbled uppon?
