@@ -17,10 +17,8 @@ interface IHomeProps {
 }
 
 export async function getStaticProps() {
-  const latestURL = new URL('https://code.juke.fr/api/v1/users/kay/repos');
-  latestURL.search = new URLSearchParams().toString();
   const projects = await (
-    await fetch(latestURL.toString())
+    await fetch('https://code.juke.fr/api/v1/users/kay/repos?limit=1312')
   )
     .json()
     .then((res) =>
