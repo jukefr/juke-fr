@@ -21,7 +21,10 @@ const Layout = ({
       console.log(res);
       return res;
     })
-    .then((res) => setFronter(res.members[0].name));
+    .then((res) => setFronter(
+//       res.members[0].name
+      res.members.reduce((acc, val) => `${val.name} (${val.pronouns}), ${acc}`, '')
+    ));
   return (
     <>
       <Head>
@@ -113,7 +116,7 @@ const Layout = ({
                 color="#2b2e3b"
               >
                 <Text>
-                  hello, it&apos;s <b>{fronter}</b>, a web developer (mostly, no
+                  hello, it&apos;s <b>{fronter}</b> web development mainly (mostly, no
                   clue what we&apos;re doing)
                 </Text>
               </Flex>
@@ -150,7 +153,7 @@ const Layout = ({
               color="#2b2e3b"
             >
               <Text>
-                hello, it&apos;s <b>{fronter}</b>, a web developer (mostly, no
+                hello, it&apos;s <b>{fronter}</b> web development mainly (mostly, no
                 clue what we&apos;re doing)
               </Text>
             </Flex>
