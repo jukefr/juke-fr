@@ -3,6 +3,7 @@ import Head from 'next/head';
 import React from 'react';
 import Navbar from './Navbar';
 import Jinx from './jinx/Jinx';
+import { useState } from 'react';
 
 const Layout = ({
   children,
@@ -13,6 +14,14 @@ const Layout = ({
   title?: string;
   store: any; // TODO store type
 }) => {
+  const [fronter, setFronter] = useState('kay');
+  fetch('https://api.pluralkit.me/v2/systems/wzylv/fronters')
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+      return res;
+    })
+    .then((res) => setFronter(res.members[0].name));
   return (
     <>
       <Head>
@@ -104,8 +113,8 @@ const Layout = ({
                 color="#2b2e3b"
               >
                 <Text>
-                  hello, we&apos;re <b>kay</b>, a web developer (mostly, no clue
-                  what we&apos;re doing)
+                  hello, it&apos;s <b>{fronter}</b>, a web developer (mostly, no
+                  clue what we&apos;re doing)
                 </Text>
               </Flex>
               <Text mb={12}>
@@ -119,6 +128,32 @@ const Layout = ({
                 against rising worldwide fascistic ideology and oppression.
               </Text>
             </>
+          </Container>
+        )}
+        {!store.getter.showJinx && (
+          <Container
+            maxW="container.md"
+            centerContent
+            padding={8}
+            overflowX="hidden"
+          >
+            <Flex
+              direction="column"
+              background={'purple.200'}
+              px={6}
+              py={4}
+              rounded={6}
+              roundedTop={6}
+              mb={6}
+              mt={-6}
+              w="100%"
+              color="#2b2e3b"
+            >
+              <Text>
+                hello, it&apos;s <b>{fronter}</b>, a web developer (mostly, no
+                clue what we&apos;re doing)
+              </Text>
+            </Flex>
           </Container>
         )}
         {children}
