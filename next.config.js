@@ -10,7 +10,7 @@ const nextConfig = {
   //   locales: ['en'],
   //   defaultLocale: 'en',
   // },
-  output: 'standalone',
+  // output: 'standalone',
   webpack: (config, {}) => {
     config.module.rules.push({
       test: /\.(glsl|vs|fs|vert|frag)$/,
