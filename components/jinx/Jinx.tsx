@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, useToast, Text, Flex } from '@chakra-ui/react';
 import { A11y, A11yAnnouncer } from '@react-three/a11y';
 import { Canvas } from '@react-three/fiber';

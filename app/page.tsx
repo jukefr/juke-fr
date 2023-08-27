@@ -145,6 +145,10 @@ export default function Page() {
       </Flex>
     </>
   ) : (
-    <h1>loading projects</h1>
+    <Container>
+      <Text fontSize="xl" textAlign={'center'}>
+        loading projects
+      </Text>
+    </Container>
   );
 }
