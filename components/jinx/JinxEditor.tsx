@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Editor from 'react-simple-code-editor';
-import Prism from 'prismjs';
-import 'prism-themes/themes/prism-dracula.css';
+// import Prism from 'prismjs';
+import hljs from 'highlight.js/lib/core';
+import glsl from 'highlight.js/lib/languages/glsl';
+hljs.registerLanguage('glsl', glsl);
+// import 'prism-themes/themes/prism-dracula.css';
 import { Hook, Unhook } from 'console-feed';
 import { Message } from 'console-feed/lib/definitions/Console';
 import { Box, useBreakpointValue, useColorMode } from '@chakra-ui/react';
 
 import styles from './JinxEditor.module.css';
-
+import './highlightjsDracula.css';
 // VERTEX | FRAGMENT
 //
 // ERROR: 0:0: '#version 300 es' is not allowed.
@@ -124,8 +127,9 @@ const JinxEditor = ({
           setStatusVertex('');
         }}
         highlight={(code) =>
-          Prism.highlight(code, Prism.languages.glsl, 'glsl')
-            .split('\n')
+          hljs
+            .highlight(code, { language: 'glsl' })
+            .value.split('\n')
             .map(
               (line) =>
                 `<span class="${
@@ -168,8 +172,9 @@ const JinxEditor = ({
           setStatusFragment('');
         }}
         highlight={(code) =>
-          Prism.highlight(code, Prism.languages.glsl, 'glsl')
-            .split('\n')
+          hljs
+            .highlight(code, { language: 'glsl' })
+            .value.split('\n')
             .map(
               (line) =>
                 `<span class="${
