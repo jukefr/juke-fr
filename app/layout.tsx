@@ -15,6 +15,7 @@ import Navbar from '../components/Navbar';
 import theme from '../components/assets/chakraTheme';
 import getRandomShader from '../components/assets/shaders';
 import '../components/global.css';
+import './globals.css';
 import Jinx from '../components/jinx/Jinx';
 import {
   store as defaultStore,

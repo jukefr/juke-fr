@@ -1,7 +1,8 @@
 .hljs {
   display: block;
-  overflow-x: auto;
-  padding: 0.5em;
+  overflow-x: scroll;
+  padding: 0;
+  white-space: unset;
 }
 
 .boop .hljs {
