@@ -1,7 +1,9 @@
+'use client';
+
 import { useColorModeValue, Code, Box, Text } from '@chakra-ui/react';
-import Prism from 'prismjs';
-import 'prism-themes/themes/prism-dracula.css';
 import { useEffect } from 'react';
+import hljs from 'highlight.js';
+import './assets/highlightjsDracula.css';
 
 const getRandomColor = ({ noBG }: any) => {
   const colors = ['gray.100', 'cyan', 'pink'];
@@ -11,7 +13,7 @@ const getRandomColor = ({ noBG }: any) => {
 
 const TerminalCodePreview = ({ children, lang, noBG }: any) => {
   useEffect(() => {
-    Prism.highlightAll();
+    hljs.highlightAll();
   }, []);
   return (
     <Box bg={getRandomColor({ noBG })} py={6} px={6} my={2}>

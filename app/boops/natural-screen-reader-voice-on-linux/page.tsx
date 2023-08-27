@@ -30,7 +30,7 @@ const Boop = (): JSX.Element => {
   const wipSentence = 'this post is still a work in progress';
 
   return (
-    <>
+    <div className="boop">
       <Container maxW="container.xl">
         <Head>
           <title>{title}</title>
@@ -371,7 +371,7 @@ DefaultModule piper-generic`}
           </SimpleGrid>
         </Box>
       </Container>
-    </>
+    </div>
   );
 };
 

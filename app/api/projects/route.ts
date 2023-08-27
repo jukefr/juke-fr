@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-export async function GET(request: Request) {
+export async function GET() {
   const rawProjects = await (
     await fetch('https://code.juke.fr/api/v1/users/kay/repos?limit=1312')
   ).json();

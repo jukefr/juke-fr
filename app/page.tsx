@@ -27,9 +27,9 @@ export default function Page() {
       });
   }, []);
 
-  const badgeColor = useColorModeValue('purple', 'orange');
+  const badgeColor = useColorModeValue('purple', 'purple.200');
   const projectHoverBackground = useColorModeValue(
-    'gray.100',
+    'purple.100',
     'whiteAlpha.200',
   );
 
