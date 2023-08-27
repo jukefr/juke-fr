@@ -36,6 +36,6 @@ yarn-error.log*
 out/
 
 test-results
-public/canary.sh
-public/canary_footer.txt
-public/canary_header.txt
+public/canary_head.txt
+public/canary_tail.txt
+public/canary.txt.asc
