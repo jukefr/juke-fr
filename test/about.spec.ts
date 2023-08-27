@@ -9,7 +9,7 @@ test('should be able able to navigate to about', async ({ page }) => {
     page.waitForNavigation(/*{ url: 'http://localhost:3000/about' }*/),
     page.locator('text=about').click(),
   ]);
-  await expect(page).toHaveURL('/about.html');
+  await expect(page).toHaveURL('/about');
   await expect(page.locator('h2').first()).toContainText(
     'hypertext references',
   );

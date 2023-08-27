@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Box,
   Container,
@@ -14,15 +16,15 @@ import NextLink from 'next/link';
 import {
   title as scrTitle,
   id as scrId,
-} from './boops/natural-screen-reader-voice-on-linux.html';
-import {
-  title as prvTitle,
-  id as prvId,
-} from './boops/better-privacy-when-browsing-online.html';
-import {
-  title as encTitle,
-  id as encId,
-} from './boops/in-place-encryption-raspberry-pi-yunohost.html';
+} from './natural-screen-reader-voice-on-linux/meta';
+// import {
+//   title as prvTitle,
+//   id as prvId,
+// } from './boops/better-privacy-when-browsing-online.html';
+// import {
+//   title as encTitle,
+//   id as encId,
+// } from './boops/in-place-encryption-raspberry-pi-yunohost.html';
 
 const BoopsPage = (): JSX.Element => {
   return (
@@ -43,7 +45,7 @@ const BoopsPage = (): JSX.Element => {
           </Text>
           <Divider mb={6} />
           <UnorderedList spacing={3}>
-            <ListItem key={encId}>
+            {/* <ListItem key={encId}>
               <Link
                 as={NextLink}
                 href={`/boops/${encId}.html`}
@@ -67,11 +69,11 @@ const BoopsPage = (): JSX.Element => {
               >
                 {prvTitle}
               </Link>
-            </ListItem>
+            </ListItem> */}
             <ListItem key={scrId}>
               <Link
                 as={NextLink}
-                href={`/boops/${scrId}.html`}
+                href={`/boops/${scrId}`}
                 passHref
                 scroll={false}
                 color={useColorModeValue('blue.500', 'blue.100')}

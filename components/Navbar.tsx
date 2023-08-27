@@ -56,7 +56,7 @@ const Navbar = ({
         <Button
           variant="ghost"
           as={NextLink}
-          href="/boops.html"
+          href="/boops"
           passHref
           scroll={false}
         >
@@ -65,7 +65,7 @@ const Navbar = ({
         <Button
           variant="ghost"
           as={NextLink}
-          href="/about.html"
+          href="/about"
           passHref
           scroll={false}
         >

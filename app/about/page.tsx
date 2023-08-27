@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Container,
   Flex,
@@ -26,7 +28,6 @@ const AboutLink = ({ href, children }: any): JSX.Element => {
     </ListItem>
   );
 };
-
 const AboutPage = (): JSX.Element => {
   return (
     <Flex

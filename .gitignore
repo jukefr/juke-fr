@@ -40,4 +40,5 @@ public/canary_head.txt
 public/canary_tail.txt
 public/canary.txt.asc
 
-.vscode
+/.vscode/
+.vscode/launch.json

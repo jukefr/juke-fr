@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Container,
   Divider,
@@ -14,16 +16,15 @@ import {
   ListItem,
 } from '@chakra-ui/react';
 import Head from 'next/head';
-import TerminalCodePreview from '../../components/TerminalCodePreview';
+import TerminalCodePreview from '../../../components/TerminalCodePreview';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 
-import coquiSample from '../../components/assets/boops/natural-screen-reader-voice-on-linux/welcome_coqui.mp3';
-import piperSample from '../../components/assets/boops/natural-screen-reader-voice-on-linux/welcome_piper.mp3';
+import coquiSample from '../../../components/assets/boops/natural-screen-reader-voice-on-linux/welcome_coqui.mp3';
+import piperSample from '../../../components/assets/boops/natural-screen-reader-voice-on-linux/welcome_piper.mp3';
 
-export const title = 'more natural screen reader voice on linux';
-export const description =
-  'using piper for a more natural sounding voice with speech-dispatcher';
-export const id = 'natural-screen-reader-voice-on-linux';
+import { title } from './meta';
+import { description } from './meta';
+import { id } from './meta';
 
 const Boop = (): JSX.Element => {
   const wipSentence = 'this post is still a work in progress';

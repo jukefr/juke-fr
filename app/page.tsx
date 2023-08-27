@@ -1,64 +1,39 @@
+'use client';
+
 import {
-  Flex,
-  Heading,
-  Text,
-  Divider,
-  Container,
-  SimpleGrid,
   useColorModeValue,
-  Box,
+  Container,
+  Heading,
+  Divider,
+  Flex,
+  SimpleGrid,
   Badge,
+  Box,
+  Text,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import { getFromLocalStorage } from './store';
 
-interface IHomeProps {
-  projects: any;
-  store: any; // TODO: store type
-}
+import { useEffect, useState } from 'react';
 
-export async function getStaticProps() {
-  const projects = await (
-    await fetch('https://code.juke.fr/api/v1/users/kay/repos?limit=1312')
-  )
-    .json()
-    .then((res) =>
-      res.sort((a: any, b: any) => {
-        return Date.parse(b.updated_at) - Date.parse(a.updated_at);
-      }),
-    )
-    // gitea is weird and doesnt seem to have a way to return tags without requesting the things
-    // one by one so ehhhh
-    .then(async (r) => {
-      return Promise.all(
-        r.map(async (project: any) => {
-          const { topics } = await (
-            await fetch(
-              `https://code.juke.fr/api/v1/repos/kay/${project.name}/topics`,
-            )
-          ).json();
-          return {
-            ...project,
-            topics,
-          };
-        }),
-      );
-    });
+// `app/page.tsx` is the UI for the `/` URL
+export default function Page() {
+  const [projects, setProjects] = useState([]);
+  useEffect(() => {
+    fetch('/api/projects')
+      .then((res) => res.json())
+      .then((res) => {
+        setProjects(res);
+      });
+  }, []);
 
-  return {
-    props: {
-      projects,
-    },
-    revalidate: 60 * 60,
-  };
-}
-
-const HomePage = ({ projects, store }: IHomeProps): JSX.Element => {
   const badgeColor = useColorModeValue('purple', 'orange');
   const projectHoverBackground = useColorModeValue(
     'gray.100',
     'whiteAlpha.200',
   );
-  return (
+
+  return projects.length ? (
     <>
       <Container>
         <Heading as="h2" size="xl">
@@ -89,7 +64,7 @@ const HomePage = ({ projects, store }: IHomeProps): JSX.Element => {
                 }
               </style>
             </noscript>
-            {projects.map((project: any) => (
+            {projects?.map((project: any) => (
               <a
                 key={project.id}
                 href={project.html_url}
@@ -117,7 +92,9 @@ const HomePage = ({ projects, store }: IHomeProps): JSX.Element => {
                       visible: { opacity: 1, scale: 1 },
                       hidden: {
                         opacity: 0,
-                        scale: store.getter.prefersReducedMotion ? 1 : 0,
+                        scale: getFromLocalStorage()?.prefersReducedMotion
+                          ? 1
+                          : 0,
                       },
                     }}
                     className="jsDisabled"
@@ -167,7 +144,7 @@ const HomePage = ({ projects, store }: IHomeProps): JSX.Element => {
         </Flex>
       </Flex>
     </>
+  ) : (
+    <h1>loading projects</h1>
   );
-};
-
-export default HomePage;
+}
