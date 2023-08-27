@@ -1,38 +1,30 @@
-import { IconButton, useColorModeValue } from '@chakra-ui/react';
 import { RiSlowDownFill, RiSpeedUpFill } from 'react-icons/ri';
-
-const getIcon = (prefersReducedMotion?: boolean) => {
-  if (prefersReducedMotion) {
-    return <RiSlowDownFill />;
-  }
-  return <RiSpeedUpFill />;
-};
-
-const getColor = (prefersReducedMotion?: boolean) => {
-  if (prefersReducedMotion) {
-    return useColorModeValue('blue', 'green');
-  }
-  return 'orange';
-};
+import { NavbarButton } from '../Navbar';
 
 const ToggleReducedMotion = ({
   store,
 }: {
   store: any; // TODO: store type
 }) => {
+  const getIcon = (prefersReducedMotion?: boolean) => {
+    if (prefersReducedMotion) {
+      return <RiSlowDownFill />;
+    }
+    return <RiSpeedUpFill />;
+  };
+
   return (
-    <IconButton
-      aria-label="Toggle Reduced Animations"
-      colorScheme={getColor(!store.getter.prefersReducedMotion)}
-      icon={getIcon(!store.getter.prefersReducedMotion)}
+    <NavbarButton
+      ariaLabel="Toggle Reduced Animations"
       onClick={() => {
         store.setter({
           ...store.getter,
           prefersReducedMotion: !store.getter.prefersReducedMotion,
         });
       }}
-      mr={3}
-    ></IconButton>
+    >
+      {getIcon(!store.getter.prefersReducedMotion)}
+    </NavbarButton>
   );
 };
 

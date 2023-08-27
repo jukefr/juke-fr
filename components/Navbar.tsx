@@ -1,9 +1,21 @@
-import { Box, Button, Flex, Heading, Spacer, Text } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import ToggleEditor from './togglers/ToggleEditor';
 import ToggleJinx from './togglers/ToggleJinx';
 import ToggleReducedMotion from './togglers/ToggleReducedMotion';
 import ToggleColorMode from './togglers/ToggleColorMode';
+
+export const NavbarButton = ({ ariaLabel, onClick, children }: any) => (
+  <button
+    aria-label={ariaLabel}
+    className={`p-3 ml-3 rounded-sm ring-2
+      hover:bg-gradient-to-r hover:from-blue-500 hover:via-purple-600 hover:to-purple-800
+      active:bg-gradient-to-r active:from-blue-600 active:via-purple-700 active:to-purple-900
+    text-black dark:text-white ring-black dark:ring-white hover:text-white active:text-white`}
+    onClick={onClick}
+  >
+    {children}
+  </button>
+);
 
 const NavbarButtons = ({
   store,
@@ -11,26 +23,39 @@ const NavbarButtons = ({
   store: any; // TODO: store type
 }) => {
   return (
-    <>
+    <div className="contents">
       {store.getter.showJinx && (
-        <>
-          <Box>
+        <div className="contents">
+          <div>
             <ToggleEditor store={store} />
-          </Box>
-          <Box>
+          </div>
+          <div>
             <ToggleReducedMotion store={store} />
-          </Box>
-        </>
+          </div>
+        </div>
       )}
-      <Box>
+      <div>
         <ToggleJinx store={store} />
-      </Box>
-      <Box mr={3} alignSelf="flex-end">
+      </div>
+      <div>
         <ToggleColorMode />
-      </Box>
-    </>
+      </div>
+    </div>
   );
 };
+
+const NavLink = ({ href, children }: any) => (
+  <NextLink href={href} passHref scroll={false}>
+    <button
+      className="flex mr-3 font-semibold rounded-sm ring-2 px-6 py-2 active:underline
+        hover:bg-gradient-to-r hover:from-blue-500 hover:via-purple-600 hover:to-purple-800
+        active:bg-gradient-to-r active:from-blue-600 active:via-purple-700 active:to-purple-900
+      text-black dark:text-white ring-black dark:ring-white hover:text-white active:text-white"
+    >
+      {children}
+    </button>
+  </NextLink>
+);
 
 const Navbar = ({
   store,
@@ -39,41 +64,15 @@ const Navbar = ({
 }) => {
   return (
     <nav>
-      <Flex mt={6} mb={12} alignItems="bottom" wrap="wrap">
-        <Button
-          variant="ghost"
-          mr={3}
-          as={NextLink}
-          href="/"
-          passHref
-          scroll={false}
-        >
-          {' '}
-          <Heading letterSpacing={'tighter'} size="md" as="h1">
-            {'juke'}
-          </Heading>
-        </Button>
-        <Button
-          variant="ghost"
-          as={NextLink}
-          href="/boops"
-          passHref
-          scroll={false}
-        >
-          <Text>boops</Text>
-        </Button>
-        <Button
-          variant="ghost"
-          as={NextLink}
-          href="/about"
-          passHref
-          scroll={false}
-        >
-          <Text>about</Text>
-        </Button>
-        <Spacer />
+      <div className="flex mt-6 mb-12 align-bottom flex-wrap">
+        <NavLink href="/">
+          <h1>{'juke'}</h1>
+        </NavLink>
+        <NavLink href="/boops">boops</NavLink>
+        <NavLink href="/about">about</NavLink>
+        <div className="grow" />
         <NavbarButtons store={store} />
-      </Flex>
+      </div>
     </nav>
   );
 };

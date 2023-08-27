@@ -1,16 +1,18 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { LuSun, LuMoon } from 'react-icons/lu';
+import { LuMoon, LuSun } from 'react-icons/lu';
+import { NavbarButton } from '../Navbar';
 
 export default function ToggleColorMode() {
-  const [colorMode, setColorMode] = useState(localStorage?.theme || 'light');
+  const [colorMode, setColorMode] = useState('light');
   const toggleColorMode = () => {
     colorMode === 'light' ? setColorMode('dark') : setColorMode('light');
   };
   useEffect(() => {
     // ! from https://tailwindcss.com/docs/dark-mode#supporting-system-preference-and-manual-selection
     localStorage.theme = colorMode;
+    localStorage['chakra-ui-color-mode'] = colorMode; // ! for backward compatibility while porting
     if (
       localStorage.theme === 'dark' ||
       (!('theme' in localStorage) &&
@@ -22,15 +24,13 @@ export default function ToggleColorMode() {
     }
   }, [colorMode]);
 
+  useEffect(() => {
+    setColorMode(localStorage?.theme || 'light'); // ! populate on render not before not after
+  }, []);
+
   return (
-    <button
-      aria-label="Toggle Color Theme"
-      className={`text-black p-3 rounded-lg
-        bg-gray-200 hover:bg-gray-300 active:bg-gray-400
-        dark:bg-orange-400 dark:hover:bg-orange-500 dark:active:bg-orange-600`}
-      onClick={toggleColorMode}
-    >
+    <NavbarButton ariaLabel="Toggle Color Theme" onClick={toggleColorMode}>
       {colorMode === 'light' ? <LuMoon /> : <LuSun />}
-    </button>
+    </NavbarButton>
   );
 }
