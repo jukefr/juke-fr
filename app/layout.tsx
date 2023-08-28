@@ -94,7 +94,7 @@ export default function Layout({
 
   return (
     <html>
-      <body>
+      <body className="bg-light-50 dark:bg-darker-900 text-darker-900 dark:text-light-50">
         {/* <Head>
           <title>juke.fr</title>
           <meta

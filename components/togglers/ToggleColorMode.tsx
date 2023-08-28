@@ -4,28 +4,34 @@ import { useEffect, useState } from 'react';
 import { LuMoon, LuSun } from 'react-icons/lu';
 import { NavbarButton } from '../Navbar';
 
+function addClassToDocument() {
+  if (
+    localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+}
+
 export default function ToggleColorMode() {
   const [colorMode, setColorMode] = useState('light');
+
   const toggleColorMode = () => {
-    colorMode === 'light' ? setColorMode('dark') : setColorMode('light');
+    const newColor = colorMode === 'light' ? 'dark' : 'light';
+    setColorMode(newColor);
+    // ! from https://tailwindcss.com/docs/dark-mode#supporting-system-preference-and-manual-selection
+    localStorage.theme = newColor;
+    localStorage['chakra-ui-color-mode'] = newColor; // ! for backward compatibility while porting
   };
   useEffect(() => {
-    // ! from https://tailwindcss.com/docs/dark-mode#supporting-system-preference-and-manual-selection
-    localStorage.theme = colorMode;
-    localStorage['chakra-ui-color-mode'] = colorMode; // ! for backward compatibility while porting
-    if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    addClassToDocument();
   }, [colorMode]);
 
   useEffect(() => {
-    setColorMode(localStorage?.theme || 'light'); // ! populate on render not before not after
+    addClassToDocument();
   }, []);
 
   return (

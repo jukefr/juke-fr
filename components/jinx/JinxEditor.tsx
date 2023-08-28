@@ -112,11 +112,9 @@ const JinxEditor = ({
         gridRowStart: '1',
         gridColumnStart: '1',
         padding: rPadding,
-        backgroundColor:
-          colorMode === 'light' ? 'rgba(40,42,54,0.85)' : 'rgba(40,42,54,0.15)',
         zIndex: '99',
       }}
-      className="jinx-editor"
+      className="jinx-editor bg-darker-900 bg-opacity-90 dark:bg-darker-900 dark:bg-opacity-20"
     >
       <label htmlFor="vertex-editor" className={styles.label}>
         vertex shader

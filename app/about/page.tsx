@@ -19,7 +19,6 @@ const AboutLink = ({ href, children }: any): JSX.Element => {
     <ListItem>
       <Link
         href={href}
-        color={useColorModeValue('blue.500', 'blue.100')}
         isExternal
         fontSize="lg"
       >

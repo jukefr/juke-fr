@@ -174,7 +174,6 @@ const Boop = (): JSX.Element => {
                 <Link
                   href="https://github.com/rhasspy/piper/releases/"
                   isExternal
-                  color={useColorModeValue('blue.500', 'blue.200')}
                 >
                   grab a release of piper and a voice for it{' '}
                   <ExternalLinkIcon mx="2px" />

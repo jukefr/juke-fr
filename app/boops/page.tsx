@@ -76,7 +76,6 @@ const BoopsPage = (): JSX.Element => {
                 href={`/boops/${scrId}`}
                 passHref
                 scroll={false}
-                color={useColorModeValue('blue.500', 'blue.100')}
                 fontSize="lg"
               >
                 {scrTitle}

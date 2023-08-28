@@ -1,6 +1,5 @@
 'use client';
 
-import { Box, useToast, Text, Flex } from '@chakra-ui/react';
 import { A11y, A11yAnnouncer } from '@react-three/a11y';
 import { Canvas } from '@react-three/fiber';
 import { useEffect, useRef, useState } from 'react';
@@ -65,7 +64,7 @@ const getWindowDimensions = () => {
 
 export default function Jinx({ store }: any) {
   // TODO: type store
-  const toast = useToast();
+  // const toast = useToast();
 
   const setRandomFragmentShader = () => {
     store.setter({
@@ -154,16 +153,16 @@ void main() {
         toasters: [...store.getter.toasters, toastId],
       });
 
-      toast({
-        id: `${toastId}-${Date.now()}`,
-        title: 'jinx my beloved',
-        isClosable: true,
-        duration: 15000,
-        status: 'info',
-        description:
-          'click the jinx to get a new random shader! you can also live edit it! feel free to share any cool results you want added to the site!',
-        position: 'top',
-      });
+      // toast({
+      //   id: `${toastId}-${Date.now()}`,
+      //   title: 'jinx my beloved',
+      //   isClosable: true,
+      //   duration: 15000,
+      //   status: 'info',
+      //   description:
+      //     'click the jinx to get a new random shader! you can also live edit it! feel free to share any cool results you want added to the site!',
+      //   position: 'top',
+      // });
     }
   }, [store.getter.toasters]);
 
@@ -188,28 +187,12 @@ void main() {
   }, []);
 
   return (
-    <div
-      style={{
-        width: '100%',
-        display: 'grid',
-        gridTemplateColumns: '1fr',
-        height: '100%',
-        minHeight: '420px',
-      }}
-    >
+    <div className="w-[100%] grid grid-cols-1 h-[100%] min-h-[420px]">
       {hasWebGL ? (
-        <Box
-          boxSize="sm"
-          mb={0}
-          style={{
-            gridRowStart: '1',
-            gridColumnStart: '1',
-            display: 'flex',
-            width: '100%',
-            justifyContent: 'center',
-            minHeight: '420px',
-            maxWidth: `${clientSize.width - 65}px`,
-          }}
+        <div
+          className={`row-start-1 col-start-1 flex w-[100%] min-h-[420px] justify-center max-w-[${
+            clientSize.width - 65
+          }px]`}
         >
           <animated.div
             style={{
@@ -291,11 +274,11 @@ void main() {
               <A11yAnnouncer />
             </div>
           </animated.div>
-        </Box>
+        </div>
       ) : (
-        <Flex w="100%" h="100%" align="center" justify="center">
-          <Text>sowwy you dont have webgl :(</Text>
-        </Flex>
+        <div className="text-center">
+          <p>sowwy you dont have webgl :(</p>
+        </div>
       )}
       <JinxEditor
         setVertexShader={setVertexShader}
