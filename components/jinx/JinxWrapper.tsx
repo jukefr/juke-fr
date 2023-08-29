@@ -1,37 +1,36 @@
 'use client';
 
-import { useState } from 'react';
-import {
-  getFromLocalStorage,
-  writeToLocalStorage,
-  store as defaultStore,
-} from '../../app/store';
-import Jinx from './Jinx';
+import { useEffect, useState } from 'react';
+import Jinx from './JinxCanvas';
 
 export default function JinxWrapper({ fronter }: any) {
-  const [storeGetter, storeSetter] = useState(defaultStore);
+  const [showJinx, setShowJinx] = useState('true');
+  const [showEditor, setShowEditor] = useState('false');
 
-  const store = {
-    getter: storeGetter,
-    setter: (newstate: any) => {
-      storeSetter(newstate);
-    },
-  };
-
-  
+  useEffect(() => {
+    // ! handle localStorage changes from
+    // ! - toggleJinx
+    // ! - toggleEditor
+    window.addEventListener('storage', () => {
+      setShowJinx(localStorage.showJinx);
+      setShowEditor(localStorage.showEditor);
+    });
+    setShowJinx(localStorage.showJinx);
+    setShowEditor(localStorage.showEditor);
+    return window.removeEventListener('storage', () => {});
+  }, []);
 
   return (
     <>
-      {localStorage.showJinx === 'true' && (
+      {showJinx === 'true' && (
         <div className="p-8 md:container md:mx-auto md:w-6/12 flex justify-center flex-col">
           <div className="min-h-[420px] w-full">
-            <Jinx store={store} />
+            <Jinx />
           </div>
           <div>
             <div
               className={`flex flex-col bg-purple-200 px-6 py-4 mb-6 mt--6 w-full text-black rounded-sm ${
-                localStorage.showEditor === 'true' &&
-                localStorage.showJinx === 'true'
+                showEditor === 'true' && showJinx === 'true'
                   ? 'rounded-t-0'
                   : 'rounded-t-sm'
               }`}
@@ -54,7 +53,7 @@ export default function JinxWrapper({ fronter }: any) {
           </div>
         </div>
       )}
-      {localStorage.showJinx === 'false' && (
+      {showJinx === 'false' && (
         <div className="p-8 md:container md:mx-auto md:w-6/12 flex justify-center flex-col">
           <div className="flex flex-col bg-purple-200 px-6 py-4 mb-6 mt--6 w-full text-black rounded-sm">
             <p>

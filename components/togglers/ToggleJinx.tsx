@@ -21,6 +21,7 @@ const ToggleJinx = () => {
       setIcon(getIcon());
     });
     setIcon(getIcon());
+    return window.removeEventListener('storage', () => {});
   }, []);
 
   return (

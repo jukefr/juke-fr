@@ -5,7 +5,7 @@ import { NavbarButton } from '../Links';
 import { useEffect, useState } from 'react';
 
 function getIcon() {
-  if (localStorage.prefersReducedMotion === 'true') {
+  if (localStorage.prefersReducedMotion === 'false') {
     return <RiSlowDownFill />;
   }
   return <RiSpeedUpFill />;
@@ -21,6 +21,7 @@ const ToggleReducedMotion = () => {
       setIcon(getIcon());
     });
     setIcon(getIcon());
+    return window.removeEventListener('storage', () => {});
   }, []);
 
   return (

@@ -16,6 +16,7 @@ const NavbarButtons = () => {
       setShowJinx(localStorage.showJinx);
     });
     setShowJinx(localStorage.showJinx);
+    return window.removeEventListener('storage', () => {});
   }, []);
 
   return (

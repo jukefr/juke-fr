@@ -12,6 +12,7 @@ export default function Projects({ projects }: any) {
       setPrefersReducedMotion(localStorage.prefersReducedMotion);
     });
     setPrefersReducedMotion(localStorage.prefersReducedMotion);
+    return window.removeEventListener('storage', () => {});
   }, []);
   return (
     <>

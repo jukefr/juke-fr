@@ -35,6 +35,7 @@ export default function ToggleColorMode() {
     });
     setIcon(getIcon());
     addClassToDocument();
+    return window.removeEventListener('storage', () => {});
   }, []);
 
   return (

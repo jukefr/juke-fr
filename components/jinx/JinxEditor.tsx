@@ -38,11 +38,9 @@ const parseLog = (log: string, vertexShader: string) => {
 const JinxEditor = ({
   vertexShader,
   setVertexShader,
-  store,
 }: {
   vertexShader: string;
   setVertexShader: (shader: string) => void;
-  store: any; // TODO: type this
 }) => {
   // state
   const [statusVertex, setStatusVertex] = useState<string>('');
@@ -53,7 +51,6 @@ const JinxEditor = ({
   // effects
   useEffect(() => {
     // okay so basiaclly they dont emit any error or any event of any kind just log to the console 5head
-
     const hooked = Hook(
       window.console,
       (log: Message) => {
@@ -94,12 +91,15 @@ const JinxEditor = ({
     // ! - toggleEditor
     window.addEventListener('storage', (e) => {
       setShowEditor(localStorage.showEditor);
+      SetFragmentShader(localStorage.fragmentShader);
     });
     setShowEditor(localStorage.showEditor);
+    SetFragmentShader(localStorage.fragmentShader);
     // ! keyboard handlers
     document.addEventListener('keydown', keyHandler);
     return () => {
       document.removeEventListener('keydown', keyHandler);
+      window.removeEventListener('storage', () => {});
     };
   }, []);
 
@@ -147,7 +147,6 @@ const JinxEditor = ({
         onValueChange={(code) => {
           localStorage.fragmentShader = code;
           window.dispatchEvent(new Event('storage'));
-          SetFragmentShader(code);
           setStatusFragment('');
         }}
         highlight={(code) =>
