@@ -4,6 +4,13 @@ import { useEffect, useState } from 'react';
 import { LuMoon, LuSun } from 'react-icons/lu';
 import { NavbarButton } from '../Links';
 
+function getIcon() {
+  if (localStorage.theme === 'light') {
+    return <LuMoon />;
+  }
+  return <LuSun />;
+}
+
 function addClassToDocument() {
   if (
     localStorage.theme === 'dark' ||
@@ -17,25 +24,28 @@ function addClassToDocument() {
 }
 
 export default function ToggleColorMode() {
-  const [colorMode, setColorMode] = useState('light');
+  const [Icon, setIcon] = useState(<LuMoon />);
 
-  const toggleColorMode = () => {
-    const newColor = colorMode === 'light' ? 'dark' : 'light';
-    setColorMode(newColor);
-    // ! from https://tailwindcss.com/docs/dark-mode#supporting-system-preference-and-manual-selection
-    localStorage.theme = newColor;
-  };
-  useEffect(() => {
-    addClassToDocument();
-  }, [colorMode]);
-
-  useEffect(() => {
+  // ! handle localStorage changes from
+  // ! - toggleColorMode
+  useEffect(function handleStorageChance() {
+    window.addEventListener('storage', () => {
+      setIcon(getIcon());
+      addClassToDocument();
+    });
+    setIcon(getIcon());
     addClassToDocument();
   }, []);
 
   return (
-    <NavbarButton ariaLabel="Toggle Color Theme" onClick={toggleColorMode}>
-      {colorMode === 'light' ? <LuMoon /> : <LuSun />}
+    <NavbarButton
+      ariaLabel="Toggle Color Theme"
+      onClick={() => {
+        localStorage.theme = localStorage.theme === 'light' ? 'dark' : 'light';
+        window.dispatchEvent(new Event('storage'));
+      }}
+    >
+      {Icon}
     </NavbarButton>
   );
 }

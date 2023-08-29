@@ -1,25 +1,38 @@
+'use client';
+
 import { PiEyeBold, PiEyeClosedBold } from 'react-icons/pi';
 import { NavbarButton } from '../Links';
+import { useState, useEffect } from 'react';
 
-const ToggleJinx = ({
-  store,
-}: {
-  store: any; // TODO: store type
-}) => {
-  const getIcon = (showEditor?: boolean) => {
-    if (showEditor) {
-      return <PiEyeClosedBold />;
-    }
-    return <PiEyeBold />;
-  };
+function getIcon() {
+  if (localStorage.showJinx === 'true') {
+    return <PiEyeClosedBold />;
+  }
+  return <PiEyeBold />;
+}
+
+const ToggleJinx = () => {
+  const [Icon, setIcon] = useState(<PiEyeBold />);
+
+  // ! handle localStorage changes from
+  // ! - toggleJinx
+  useEffect(function handleStorageChance() {
+    window.addEventListener('storage', () => {
+      setIcon(getIcon());
+    });
+    setIcon(getIcon());
+  }, []);
+
   return (
     <NavbarButton
       ariaLabel="Toggle Jinx and Intro"
       onClick={() => {
-        store.setter({ ...store.getter, showJinx: !store.getter.showJinx });
+        localStorage.showJinx =
+          localStorage.showJinx === 'true' ? 'false' : 'true';
+        window.dispatchEvent(new Event('storage'));
       }}
     >
-      {getIcon(store.getter.showJinx)}
+      {Icon}
     </NavbarButton>
   );
 };

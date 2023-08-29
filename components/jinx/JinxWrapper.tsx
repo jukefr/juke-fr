@@ -17,9 +17,12 @@ export default function JinxWrapper({ fronter }: any) {
       storeSetter(newstate);
     },
   };
+
+  
+
   return (
     <>
-      {store.getter.showJinx && (
+      {localStorage.showJinx === 'true' && (
         <div className="p-8 md:container md:mx-auto md:w-6/12 flex justify-center flex-col">
           <div className="min-h-[420px] w-full">
             <Jinx store={store} />
@@ -27,7 +30,8 @@ export default function JinxWrapper({ fronter }: any) {
           <div>
             <div
               className={`flex flex-col bg-purple-200 px-6 py-4 mb-6 mt--6 w-full text-black rounded-sm ${
-                store.getter.showEditor && store.getter.showJinx
+                localStorage.showEditor === 'true' &&
+                localStorage.showJinx === 'true'
                   ? 'rounded-t-0'
                   : 'rounded-t-sm'
               }`}
@@ -50,7 +54,7 @@ export default function JinxWrapper({ fronter }: any) {
           </div>
         </div>
       )}
-      {!store.getter.showJinx && (
+      {localStorage.showJinx === 'false' && (
         <div className="p-8 md:container md:mx-auto md:w-6/12 flex justify-center flex-col">
           <div className="flex flex-col bg-purple-200 px-6 py-4 mb-6 mt--6 w-full text-black rounded-sm">
             <p>

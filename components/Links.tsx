@@ -1,7 +1,7 @@
 'use client';
 
 import { LuExternalLink } from 'react-icons/lu';
-import NextLink from 'next/link'; // ! requires use client for some reason
+import NextLink from 'next/link'; // ! requires use client
 
 export default function Link({
   href,

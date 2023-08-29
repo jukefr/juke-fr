@@ -1,6 +1,6 @@
 'use client';
 
-import { A11yUserPreferences } from '@react-three/a11y';
+import { A11yUserPreferences } from '@react-three/a11y'; // ! requires use client
 import Navbar from './Navbar';
 import JinxWrapper from './jinx/JinxWrapper';
 

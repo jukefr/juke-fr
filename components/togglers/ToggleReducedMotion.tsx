@@ -1,29 +1,38 @@
+'use client';
+
 import { RiSlowDownFill, RiSpeedUpFill } from 'react-icons/ri';
 import { NavbarButton } from '../Links';
+import { useEffect, useState } from 'react';
 
-const ToggleReducedMotion = ({
-  store,
-}: {
-  store: any; // TODO: store type
-}) => {
-  const getIcon = (prefersReducedMotion?: boolean) => {
-    if (prefersReducedMotion) {
-      return <RiSlowDownFill />;
-    }
-    return <RiSpeedUpFill />;
-  };
+function getIcon() {
+  if (localStorage.prefersReducedMotion === 'true') {
+    return <RiSlowDownFill />;
+  }
+  return <RiSpeedUpFill />;
+}
+
+const ToggleReducedMotion = () => {
+  const [Icon, setIcon] = useState(<RiSpeedUpFill />);
+
+  // ! handle localStorage changes from
+  // ! - toggleReducedMotion
+  useEffect(function handleStorageChance() {
+    window.addEventListener('storage', () => {
+      setIcon(getIcon());
+    });
+    setIcon(getIcon());
+  }, []);
 
   return (
     <NavbarButton
       ariaLabel="Toggle Reduced Animations"
       onClick={() => {
-        store.setter({
-          ...store.getter,
-          prefersReducedMotion: !store.getter.prefersReducedMotion,
-        });
+        localStorage.prefersReducedMotion =
+          localStorage.prefersReducedMotion === 'true' ? 'false' : 'true';
+        window.dispatchEvent(new Event('storage'));
       }}
     >
-      {getIcon(!store.getter.prefersReducedMotion)}
+      {Icon}
     </NavbarButton>
   );
 };

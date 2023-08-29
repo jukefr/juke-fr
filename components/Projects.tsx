@@ -1,9 +1,18 @@
 'use client';
 
-import { getFromLocalStorage } from '../app/store';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Projects({ projects }: any) {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState('false');
+  useEffect(() => {
+    // ! handle localStorage changes from
+    // ! - toggleReducedMotion
+    window.addEventListener('storage', () => {
+      setPrefersReducedMotion(localStorage.prefersReducedMotion);
+    });
+    setPrefersReducedMotion(localStorage.prefersReducedMotion);
+  }, []);
   return (
     <>
       {projects?.map((project: any) => (
@@ -26,7 +35,7 @@ export default function Projects({ projects }: any) {
                 visible: { opacity: 1, scale: 1 },
                 hidden: {
                   opacity: 0,
-                  scale: getFromLocalStorage()?.prefersReducedMotion ? 1 : 0,
+                  scale: prefersReducedMotion === 'true' ? 1 : 0,
                 },
               }}
               className="jsDisabled"

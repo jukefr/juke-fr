@@ -47,6 +47,8 @@ const JinxEditor = ({
   // state
   const [statusVertex, setStatusVertex] = useState<string>('');
   const [statusFragment, setStatusFragment] = useState<string>('');
+  const [showEditor, setShowEditor] = useState<string>('false');
+  const [FragmentShader, SetFragmentShader] = useState<string>('');
 
   // effects
   useEffect(() => {
@@ -75,15 +77,12 @@ const JinxEditor = ({
     return () => {
       Unhook(hooked);
     };
-  }, [vertexShader, store.getter.fragmentShader]);
+  }, [vertexShader, FragmentShader]);
 
   const keyHandler = (e: KeyboardEvent) => {
     switch (e.key) {
       case 'Escape':
-        store.setter({
-          ...store.getter,
-          showEditor: !store.getter.showEditor,
-        });
+        showEditor === 'true' ? setShowEditor('false') : setShowEditor('true');
         break;
       default:
         break;
@@ -91,6 +90,13 @@ const JinxEditor = ({
   };
 
   useEffect(() => {
+    // ! handle localStorage changes from
+    // ! - toggleEditor
+    window.addEventListener('storage', (e) => {
+      setShowEditor(localStorage.showEditor);
+    });
+    setShowEditor(localStorage.showEditor);
+    // ! keyboard handlers
     document.addEventListener('keydown', keyHandler);
     return () => {
       document.removeEventListener('keydown', keyHandler);
@@ -102,7 +108,7 @@ const JinxEditor = ({
       className={`jinx-editor content
       bg-darker-900 bg-opacity-90 dark:bg-darker-900 dark:bg-opacity-20
       mb-6 rounded-t-sm w-full row-start-1 col-start-1 p-0 z-99
-      ${store.getter.showEditor ? 'block' : 'hidden'} `}
+      ${showEditor === 'true' ? 'block' : 'hidden'}`}
     >
       <label htmlFor="vertex-editor" className={styles.label}>
         vertex shader
@@ -137,12 +143,11 @@ const JinxEditor = ({
       </label>
       <Editor
         key="fragmentEditor"
-        value={store.getter.fragmentShader} // no clue but hey it works :shrug:
+        value={FragmentShader} // no clue but hey it works :shrug:
         onValueChange={(code) => {
-          store.setter({
-            ...store.getter,
-            fragmentShader: code,
-          });
+          localStorage.fragmentShader = code;
+          window.dispatchEvent(new Event('storage'));
+          SetFragmentShader(code);
           setStatusFragment('');
         }}
         highlight={(code) =>

@@ -6,33 +6,32 @@ import ToggleReducedMotion from './togglers/ToggleReducedMotion';
 import ToggleColorMode from './togglers/ToggleColorMode';
 import { NavLink } from './Links';
 import { useState, useEffect } from 'react';
-import { Clock } from 'three';
-import {
-  getFromLocalStorage,
-  writeToLocalStorage,
-  store as defaultStore,
-} from '../app/store';
-import getRandomShader from './assets/shaders';
 
-const NavbarButtons = ({
-  store,
-}: {
-  store: any; // TODO: store type
-}) => {
+const NavbarButtons = () => {
+  const [showJinx, setShowJinx] = useState('false');
+  useEffect(() => {
+    // ! handle localStorage changes from
+    // ! - toggleJinx
+    window.addEventListener('storage', (e) => {
+      setShowJinx(localStorage.showJinx);
+    });
+    setShowJinx(localStorage.showJinx);
+  }, []);
+
   return (
     <div className="contents">
-      {store.getter.showJinx && (
+      {showJinx === 'true' && (
         <div className="contents">
           <div>
-            <ToggleEditor store={store} />
+            <ToggleEditor />
           </div>
           <div>
-            <ToggleReducedMotion store={store} />
+            <ToggleReducedMotion />
           </div>
         </div>
       )}
       <div>
-        <ToggleJinx store={store} />
+        <ToggleJinx />
       </div>
       <div>
         <ToggleColorMode />
@@ -42,45 +41,6 @@ const NavbarButtons = ({
 };
 
 const Navbar = ({}) => {
-  const [storeGetter, storeSetter] = useState(defaultStore);
-
-  const store = {
-    getter: storeGetter,
-    setter: (newstate: any) => {
-      storeSetter(newstate);
-    },
-  };
-
-  useEffect(() => {
-    const hasUserSetReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)',
-    ).matches;
-    const localStorage = getFromLocalStorage();
-
-    let final = {
-      ...defaultStore,
-      showJinx: true, // only show the jinx client side
-      prefersReducedMotion: hasUserSetReducedMotion,
-      fragmentShader: getRandomShader(''),
-      timer: new Clock(),
-    };
-
-    if (localStorage) {
-      final = {
-        ...final,
-        ...localStorage,
-      };
-    }
-
-    storeSetter(final);
-  }, []);
-
-  useEffect(() => {
-    // so confused why this needs to be done
-    if (storeGetter.fragmentShader !== '') {
-      writeToLocalStorage(storeGetter);
-    }
-  }, [storeGetter]);
   return (
     <nav>
       <div className="flex mt-6 mb-12 align-bottom flex-wrap">
@@ -90,7 +50,7 @@ const Navbar = ({}) => {
         <NavLink href="/boops">boops</NavLink>
         <NavLink href="/about">about</NavLink>
         <div className="grow" />
-        <NavbarButtons store={store} />
+        <NavbarButtons />
       </div>
     </nav>
   );
