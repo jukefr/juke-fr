@@ -29,11 +29,12 @@ export default function JinxWrapper({ fronter }: any) {
           </div>
           <div>
             <div
-              className={`flex flex-col bg-purple-200 px-6 py-4 mb-6 mt--6 w-full text-black rounded-sm ${
+              className={`flex flex-col px-6 py-4 mb-6 mt--6 w-full text-white rounded-sm ${
                 showEditor === 'true' && showJinx === 'true'
                   ? 'rounded-t-0'
                   : 'rounded-t-sm'
-              }`}
+              }
+              bg-gradient-to-r from-indigo-500 via-purple-600 to-purple-800 shadow-lg`}
             >
               <p>
                 hello, it&apos;s <b>{fronter}</b> we do web development mainly
@@ -55,7 +56,10 @@ export default function JinxWrapper({ fronter }: any) {
       )}
       {showJinx === 'false' && (
         <div className="p-8 md:container md:mx-auto md:w-6/12 flex justify-center flex-col">
-          <div className="flex flex-col bg-purple-200 px-6 py-4 mb-6 mt--6 w-full text-black rounded-sm">
+          <div
+            className="flex flex-col px-6 py-4 mb-6 mt--6 w-full text-white rounded-sm
+          bg-gradient-to-r from-indigo-500 via-purple-600 to-purple-800"
+          >
             <p>
               hello, it&apos;s <b>{fronter}</b> we do web development mainly
               (mostly, no clue what we&apos;re doing)

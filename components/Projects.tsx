@@ -22,11 +22,13 @@ export default function Projects({ projects }: any) {
           href={project.html_url}
           target="_blank"
           rel="noopener noreferrer"
+          className="group"
         >
           <div
-            className="border-2 rounded-sm cursor-pointer h-full hover:bg-gradient-to-r hover:from-blue-500 hover:via-purple-600 hover:to-purple-800
-            active:bg-gradient-to-r active:from-blue-600 active:via-purple-700 active:to-purple-900
-          text-black dark:text-white border-black dark:border-white hover:!text-white active:!text-white"
+            className="shadow-md border-2 rounded-sm cursor-pointer h-full 
+            group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:via-purple-600 group-hover:to-purple-800
+             group-active:bg-gradient-to-r group-active:from-indigo-600 group-active:via-purple-700 group-active:to-purple-900
+          text-black dark:text-white border-black dark:border-white group-hover:!text-white group-active:!text-white"
           >
             <motion.div
               initial="hidden"
@@ -55,7 +57,7 @@ export default function Projects({ projects }: any) {
                   {project.topics.map((topic: string) => (
                     <div
                       key={`${project.id}-${topic}`}
-                      className="rounded-sm mr-3 mb-2 px-2 inline-block italic border-2 border-black dark:border-white rounded-sm"
+                      className="rounded-sm mr-3 mb-2 px-2 inline-block italic border-2 border-black dark:border-white group-hover:border-white rounded-sm"
                     >
                       {topic}
                     </div>
