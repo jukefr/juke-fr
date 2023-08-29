@@ -18,7 +18,7 @@ const BoopsPage = (): JSX.Element => {
         like that
       </p>
       <hr className="mb-6" />
-      <ul className="space-y-3">
+      <ul className="space-y-3 list-disc">
         <li key={scrId}>
           <Link href={`/boops/${scrId}`}>{scrTitle}</Link>
         </li>

@@ -9,7 +9,7 @@ const AboutPage = (): JSX.Element => {
       <p className="text-xl">just some links that relate to us</p>
       <hr className="mb-6" />
 
-      <ul className="space-y-3">
+      <ul className="space-y-3 list-disc">
         <li>
           <Link href="https://code.juke.fr/kay" isExternal>
             code is hosted on code.juke.fr
@@ -21,7 +21,10 @@ const AboutPage = (): JSX.Element => {
           </Link>
         </li>
         <li>
-          <Link href="mailto:site[at]juke[dot]fr?subject=Make sure to replace the [at] and [dot] in the email">
+          <Link
+            href="mailto:site[at]juke[dot]fr?subject=Make sure to replace the [at] and [dot] in the email"
+            isExternal
+          >
             email is site[at]juke[dot]fr
           </Link>
         </li>
