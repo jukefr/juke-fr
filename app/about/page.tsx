@@ -1,71 +1,47 @@
 'use client';
 
-import {
-  Container,
-  Flex,
-  Box,
-  Heading,
-  ListItem,
-  Link,
-  UnorderedList,
-  Text,
-  Divider,
-  useColorModeValue,
-} from '@chakra-ui/react';
-import { ExternalLinkIcon } from '@chakra-ui/icons';
+import Link from '../../components/Link';
 
-const AboutLink = ({ href, children }: any): JSX.Element => {
-  return (
-    <ListItem>
-      <Link
-        href={href}
-        isExternal
-        fontSize="lg"
-      >
-        {children} <ExternalLinkIcon mx="2px" />
-      </Link>
-    </ListItem>
-  );
-};
 const AboutPage = (): JSX.Element => {
   return (
-    <Flex
-      alignItems="center"
-      justifyContent="center"
-      direction="column"
-      mb={12}
-    >
-      <Container>
-        <Box>
-          <Heading as="h2" size="xl">
-            hypertext references
-          </Heading>
-          <Text fontSize="xl">just some links that relate to us</Text>
-          <Divider mb={6} />
+    <div className="flex align-center justify-center flex-col mb-12 md:container md:mx-auto">
+      <h2 className="text-2xl font-bold">hypertext references</h2>
+      <p className="text-xl">just some links that relate to us</p>
+      <hr className="mb-6" />
 
-          <UnorderedList spacing={3}>
-            <AboutLink href="https://code.juke.fr/kay">
-              code is hosted on code.juke.fr
-            </AboutLink>
-            <AboutLink href="https://matrix.to/#/@kay:juke.fr">
-              chat via matrix at @kay:juke.fr
-            </AboutLink>
-            <AboutLink href="mailto:site[at]juke[dot]fr?subject=Make sure to replace the [at] and [dot] in the email">
-              email is site[at]juke[dot]fr
-            </AboutLink>
-            <AboutLink href="https://ko-fi.com/memoryleak/">
-              donate on ko-fi
-            </AboutLink>
-            <AboutLink href="https://liberapay.com/memoryleak/">
-              donate on liberapay
-            </AboutLink>
-            <AboutLink href="https://paypal.me/kaythn/">
-              donate on paypal
-            </AboutLink>
-          </UnorderedList>
-        </Box>
-      </Container>
-    </Flex>
+      <ul className="space-y-3">
+        <li>
+          <Link href="https://code.juke.fr/kay" isExternal>
+            code is hosted on code.juke.fr
+          </Link>
+        </li>
+        <li>
+          <Link href="https://matrix.to/#/@kay:juke.fr" isExternal>
+            chat via matrix at @kay:juke.fr
+          </Link>
+        </li>
+        <li>
+          <Link href="mailto:site[at]juke[dot]fr?subject=Make sure to replace the [at] and [dot] in the email">
+            email is site[at]juke[dot]fr
+          </Link>
+        </li>
+        <li>
+          <Link href="https://ko-fi.com/memoryleak/" isExternal>
+            donate on ko-fi
+          </Link>
+        </li>
+        <li>
+          <Link href="https://liberapay.com/memoryleak/" isExternal>
+            donate on liberapay
+          </Link>
+        </li>
+        <li>
+          <Link href="https://paypal.me/kaythn/" isExternal>
+            donate on paypal
+          </Link>
+        </li>
+      </ul>
+    </div>
   );
 };
 

@@ -158,9 +158,9 @@ export default function Layout({
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <ChakraProvider theme={theme}>
           <A11yUserPreferences>
-            <Container maxW="container.lg">
+            <div className="md:container md:mx-auto">
               <Navbar store={store} />
-            </Container>
+            </div>
             <main>
               {store.getter.showJinx && (
                 <Container
