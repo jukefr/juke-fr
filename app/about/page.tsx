@@ -2,7 +2,7 @@ import Link from '../../components/Links';
 
 const AboutPage = (): JSX.Element => {
   return (
-    <div className="flex align-center justify-center flex-col mb-12 md:container md:mx-auto">
+    <div className="flex align-center justify-center flex-col mb-12 px-4 md:container md:mx-auto">
       <h2 className="text-2xl font-bold">hypertext references</h2>
       <p className="text-xl">just some links that relate to us</p>
       <hr className="mb-6" />

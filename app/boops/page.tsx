@@ -9,7 +9,7 @@ import {
 
 const BoopsPage = (): JSX.Element => {
   return (
-    <div className="flex align-center justify-center flex-col mb-12 md:container md:mx-auto">
+    <div className="flex align-center justify-center flex-col mb-12 px-4 md:container md:mx-auto">
       <h2 className="text-2xl font-bold">boops</h2>
       <p className="text-xl">
         these are just blog posts but with a silly name because i&apos;m quirky

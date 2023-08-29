@@ -6,7 +6,7 @@ export default async function Page() {
   const projects = await getProjects().then((res) => res.json());
 
   return projects.length ? (
-    <div className="flex align-center justify-center flex-col mb-12 md:container md:mx-auto">
+    <div className="flex align-center justify-center flex-col mb-12 px-4 md:container md:mx-auto">
       <h2 className="text-2xl font-bold">random projects</h2>
       <p className="text-xl">
         i mean not so random, sorted by most recently worked on (mostly,
@@ -18,7 +18,7 @@ export default async function Page() {
       </div>
     </div>
   ) : (
-    <div className="flex align-center justify-center flex-col mb-12 md:container md:mx-auto">
+    <div className="flex align-center justify-center flex-col mb-12 px-4 md:container md:mx-auto">
       <p className="text-xl text-center">loading projects</p>
     </div>
   );

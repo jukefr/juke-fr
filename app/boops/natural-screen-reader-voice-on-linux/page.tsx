@@ -22,7 +22,7 @@ const Boop = (): JSX.Element => {
   const wipSentence = 'this post is still a work in progress';
 
   return (
-    <div className="boop md:container md:mx-auto">
+    <div className="boop  px-4 md:container md:mx-auto">
       {/* WIP SENTENCE */}
       <div className="grid place-content-center">
         <p className="bg-orange-100 mb-2 text-black inline-block px-2">
