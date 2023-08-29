@@ -24,7 +24,6 @@ export default function ToggleColorMode() {
     setColorMode(newColor);
     // ! from https://tailwindcss.com/docs/dark-mode#supporting-system-preference-and-manual-selection
     localStorage.theme = newColor;
-    localStorage['chakra-ui-color-mode'] = newColor; // ! for backward compatibility while porting
   };
   useEffect(() => {
     addClassToDocument();

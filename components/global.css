@@ -32,10 +32,6 @@
   font-family: comic-code !important;
 }
 
-.chakra-alert {
-  max-width: 80vw !important;
-}
-
 .token {
   overflow-wrap: break-word;
   word-wrap: break-word;

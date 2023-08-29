@@ -21,7 +21,7 @@ const Boop = (): JSX.Element => {
       <p className="text-xl">{description}</p>
       <hr className="mb-6" />
       {/* CONTENT */}
-      <div className="bg-purple-100 py-24 text-black px-4 grid grid-cols-2 gap-4 place-content-evenly">
+      <div className="bg-purple-100 py-24 text-black px-4 grid grid-cols-1 md:grid-cols-2 gap-4 place-content-evenly">
         <div>
           <h3 className="text-xl font-bold">why?</h3>
           <br />
@@ -53,7 +53,7 @@ const Boop = (): JSX.Element => {
           </p>
         </div>
       </div>
-      <div className="py-24 px-4 grid grid-cols-2 gap-4 place-content-evenly">
+      <div className="py-24 px-4 grid grid-cols-1 md:grid-cols-2 gap-4 place-content-evenly">
         <div>
           <h3 className="text-xl font-bold">how?</h3>
           <br />
@@ -119,7 +119,7 @@ const Boop = (): JSX.Element => {
           </p>
         </div>
       </div>
-      <div className="bg-orange-100 py-24 text-black px-4 grid grid-cols-2 gap-4 place-content-evenly">
+      <div className="bg-orange-100 py-24 text-black px-4 grid grid-cols-1 md:grid-cols-2 gap-4 place-content-evenly">
         <div>
           <h4 className="text-lg font-bold">system configuration</h4>
           <br />
@@ -190,7 +190,7 @@ DefaultModule piper-generic`}
         </div>
         <br />
       </div>
-      <div className="py-24 px-4 grid grid-cols-2 gap-4 place-content-evenly">
+      <div className="py-24 px-4 grid grid-cols-1 md:grid-cols-2 gap-4 place-content-evenly">
         <div>
           <h4 className="text-lg font-bold">trying it out and wrapping up</h4>
           <br />

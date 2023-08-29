@@ -1,6 +1,6 @@
 'use client';
 
-import { ExternalLinkIcon } from '@chakra-ui/icons';
+import { LuExternalLink } from 'react-icons/lu';
 import NextLink from 'next/link'; // ! requires use client for some reason
 
 export default function Link({
@@ -20,7 +20,7 @@ export default function Link({
       passHref
       scroll={false}
     >
-      {children} {isExternal && <ExternalLinkIcon mx="2px" />}
+      {children} {isExternal && <LuExternalLink className="inline" />}
     </NextLink>
   );
 }

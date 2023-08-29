@@ -1,5 +1,5 @@
 # [juke-fr](https://code.juke.fr/kay/juke-fr)
-site built in typescript with next.js, chakra ui, framer motion, three.js available on juke.fr
+site built in typescript with next.js, tailwind css, framer motion, three.js available on juke.fr
 ## instructioms
 
 ![jinx the cat my beolved](components/assets/jinx.png)
