@@ -20,6 +20,10 @@ const ToggleReducedMotion = () => {
     window.addEventListener('storage', () => {
       setIcon(getIcon());
     });
+    // ! default logic
+    if (!('prefersReducedMotion' in localStorage)) {
+      localStorage.prefersReducedMotion = 'true';
+    }
     setIcon(getIcon());
     return window.removeEventListener('storage', () => {});
   }, []);

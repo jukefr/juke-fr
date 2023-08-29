@@ -20,6 +20,10 @@ const ToggleEditor = () => {
     window.addEventListener('storage', () => {
       setIcon(getIcon());
     });
+    // ! default logic
+    if (!('showEditor' in localStorage)) {
+      localStorage.showEditor = 'false';
+    }
     setIcon(getIcon());
     return window.removeEventListener('storage', () => {});
   }, []);

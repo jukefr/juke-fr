@@ -14,12 +14,16 @@ function getIcon() {
 const ToggleJinx = () => {
   const [Icon, setIcon] = useState(<PiEyeBold />);
 
-  // ! handle localStorage changes from
-  // ! - toggleJinx
   useEffect(function handleStorageChance() {
+    // ! handle localStorage changes from
+    // ! - toggleJinx
     window.addEventListener('storage', () => {
       setIcon(getIcon());
     });
+    // ! default logic
+    if (!('showJinx' in localStorage)) {
+      localStorage.showJinx = 'true';
+    }
     setIcon(getIcon());
     return window.removeEventListener('storage', () => {});
   }, []);
