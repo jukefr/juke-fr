@@ -1,11 +1,11 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import { NavLink } from './Links';
+import ToggleColorMode from './togglers/ToggleColorMode';
 import ToggleEditor from './togglers/ToggleEditor';
 import ToggleJinx from './togglers/ToggleJinx';
 import ToggleReducedMotion from './togglers/ToggleReducedMotion';
-import ToggleColorMode from './togglers/ToggleColorMode';
-import { NavLink } from './Links';
-import { useState, useEffect } from 'react';
 
 const NavbarButtons = () => {
   const [showJinx, setShowJinx] = useState('false');

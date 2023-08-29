@@ -1,6 +1,6 @@
-import './globals.css';
 import Layout from '../components/Layout';
 import { GET as getFronters } from './api/fronters/route';
+import './globals.css';
 
 // export const metadata: Metadata = {
 //   title: 'My Page Title',

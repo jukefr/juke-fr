@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
 import hljs from 'highlight.js';
+import { useEffect } from 'react';
 import './assets/highlightjsDracula.css';
 
 const getRandomColor = ({ noBG }: any) => {

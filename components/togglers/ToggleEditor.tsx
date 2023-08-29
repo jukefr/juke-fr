@@ -1,8 +1,8 @@
 'use client';
 
-import { LuPanelTopOpen, LuPanelTopClose } from 'react-icons/lu';
+import { useEffect, useState } from 'react';
+import { LuPanelTopClose, LuPanelTopOpen } from 'react-icons/lu';
 import { NavbarButton } from '../Links';
-import { useState, useEffect } from 'react';
 
 function getIcon() {
   if (localStorage.showEditor === 'true') {

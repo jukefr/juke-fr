@@ -1,17 +1,15 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import Editor from 'react-simple-code-editor';
-// import Prism from 'prismjs';
-import hljs from 'highlight.js/lib/core';
-import glsl from 'highlight.js/lib/languages/glsl';
-hljs.registerLanguage('glsl', glsl);
-// import 'prism-themes/themes/prism-dracula.css';
 import { Hook, Unhook } from 'console-feed';
 import { Message } from 'console-feed/lib/definitions/Console';
-
+import hljs from 'highlight.js/lib/core';
+import glsl from 'highlight.js/lib/languages/glsl';
+import React, { useEffect, useState } from 'react';
+import Editor from 'react-simple-code-editor';
 import styles from './JinxEditor.module.css';
 import './highlightjsDracula.css';
+hljs.registerLanguage('glsl', glsl);
+
 // VERTEX | FRAGMENT
 //
 // ERROR: 0:0: '#version 300 es' is not allowed.

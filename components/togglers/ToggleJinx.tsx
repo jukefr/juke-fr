@@ -1,8 +1,8 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { PiEyeBold, PiEyeClosedBold } from 'react-icons/pi';
 import { NavbarButton } from '../Links';
-import { useState, useEffect } from 'react';
 
 function getIcon() {
   if (localStorage.showJinx === 'true') {

@@ -1,8 +1,8 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { RiSlowDownFill, RiSpeedUpFill } from 'react-icons/ri';
 import { NavbarButton } from '../Links';
-import { useEffect, useState } from 'react';
 
 function getIcon() {
   if (localStorage.prefersReducedMotion === 'false') {
