@@ -26,15 +26,16 @@ export default function Link({
 }
 
 export const NavLink = ({ href, children }: any) => (
-  <NextLink href={href} passHref scroll={false}>
-    <button
-      className="flex mr-3 font-semibold rounded-sm ring-2 px-6 py-2 active:underline
-        hover:bg-gradient-to-r hover:from-blue-500 hover:via-purple-600 hover:to-purple-800
-        active:bg-gradient-to-r active:from-blue-600 active:via-purple-700 active:to-purple-900
-      text-black dark:text-white ring-black dark:ring-white hover:text-white active:text-white"
-    >
-      {children}
-    </button>
+  <NextLink
+    href={href}
+    passHref
+    scroll={false}
+    className="flex mr-3 font-semibold rounded-sm ring-2 px-6 py-2 active:underline
+  hover:bg-gradient-to-r hover:from-blue-500 hover:via-purple-600 hover:to-purple-800
+  active:bg-gradient-to-r active:from-blue-600 active:via-purple-700 active:to-purple-900
+text-black dark:text-white ring-black dark:ring-white hover:text-white active:text-white"
+  >
+    {children}
   </NextLink>
 );
 
