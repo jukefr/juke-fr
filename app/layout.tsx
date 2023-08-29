@@ -4,6 +4,7 @@ import { GET as getFronters } from './api/fronters/route';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://juke.fr'),
   title: 'juke.fr',
   description:
     'creates mostly ephemeral, always open source pet projects, sometimes.',
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     title: 'juke.fr',
     description:
       'creates mostly ephemeral, always open source pet projects, sometimes.',
-    images: ['https://juke.fr/og.png'],
+    images: ['/og.png'],
   },
   openGraph: {
     title: 'juke.fr',
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     siteName: 'juke.fr',
     images: [
       {
-        url: 'https://juke.fr/og.png',
+        url: '/og.png',
         width: 1200,
         height: 630,
         alt: 'juke.fr screenshot',
