@@ -1,5 +1,5 @@
 import { PiEyeBold, PiEyeClosedBold } from 'react-icons/pi';
-import { NavbarButton } from '../Navbar';
+import { NavbarButton } from '../Links';
 
 const ToggleJinx = ({
   store,

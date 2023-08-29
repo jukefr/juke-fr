@@ -1,5 +1,5 @@
 import { LuPanelTopOpen, LuPanelTopClose } from 'react-icons/lu';
-import { NavbarButton } from '../Navbar';
+import { NavbarButton } from '../Links';
 
 const ToggleEditor = ({
   store,

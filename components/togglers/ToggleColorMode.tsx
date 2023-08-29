@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { LuMoon, LuSun } from 'react-icons/lu';
-import { NavbarButton } from '../Navbar';
+import { NavbarButton } from '../Links';
 
 function addClassToDocument() {
   if (

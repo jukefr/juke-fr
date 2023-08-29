@@ -1,22 +1,13 @@
 'use client';
 
-import {
-  ChakraProvider,
-  ColorModeScript,
-  Container,
-  Flex,
-  Text,
-} from '@chakra-ui/react';
 import { A11yUserPreferences } from '@react-three/a11y';
-import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { Clock } from 'three';
 import Navbar from '../components/Navbar';
-import theme from '../components/assets/chakraTheme';
 import getRandomShader from '../components/assets/shaders';
 import '../components/global.css';
-import './globals.css';
 import Jinx from '../components/jinx/Jinx';
+import './globals.css';
 import {
   store as defaultStore,
   getFromLocalStorage,
@@ -155,94 +146,57 @@ export default function Layout({
             key="meta-twitter-image"
           />
         </Head> */}
-        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-        <ChakraProvider theme={theme}>
-          <A11yUserPreferences>
-            <div className="md:container md:mx-auto">
-              <Navbar store={store} />
-            </div>
-            <main>
-              {store.getter.showJinx && (
-                <Container
-                  maxW="container.md"
-                  centerContent
-                  padding={8}
-                  overflowX="hidden"
-                >
+        <A11yUserPreferences>
+          <div className="md:container md:mx-auto">
+            <Navbar store={store} />
+          </div>
+          <main>
+            {store.getter.showJinx && (
+              <div className="p-8 md:container md:mx-auto md:w-6/12 flex justify-center flex-col">
+                <div className="min-h-[420px] w-full">
+                  <Jinx store={store} />
+                </div>
+                <div>
                   <div
-                    style={{
-                      minHeight: 420,
-                      width: '100%',
-                    }}
+                    className={`flex flex-col bg-purple-200 px-6 py-4 mb-6 mt--6 w-full text-black rounded-sm ${
+                      store.getter.showEditor && store.getter.showJinx
+                        ? 'rounded-t-0'
+                        : 'rounded-t-sm'
+                    }`}
                   >
-                    <Jinx store={store} />
+                    <p>
+                      hello, it&apos;s <b>{fronter}</b> we do web development
+                      mainly (mostly, no clue what we&apos;re doing)
+                    </p>
                   </div>
-
-                  <>
-                    <Flex
-                      direction="column"
-                      background={'purple.200'}
-                      px={6}
-                      py={4}
-                      rounded={6}
-                      roundedTop={
-                        store.getter.showEditor && store.getter.showJinx ? 0 : 6
-                      }
-                      mb={6}
-                      mt={-6}
-                      w="100%"
-                      color="#2b2e3b"
-                    >
-                      <Text>
-                        hello, it&apos;s <b>{fronter}</b> web development mainly
-                        (mostly, no clue what we&apos;re doing)
-                      </Text>
-                    </Flex>
-                    <Text mb={12}>
-                      we&apos;re a{' '}
-                      <b>26 year-old trans 🏳️‍⚧️ non-binary borg system</b>. you
-                      can use any <b>neutral pronouns</b> for us (english: they
-                      or it, french: ielle/iel ou lae/lea ou ca/cela). currently
-                      lives near <b>paris</b>. likes anything that has to do
-                      with <b>technology</b> and hacking stuff (code, video,
-                      music, games, electronics, etc.). likes to share what we
-                      make and learn and teach stuff. very much pro{' '}
-                      <b>data rights</b> and more broadly against rising
-                      worldwide fascistic ideology and oppression.
-                    </Text>
-                  </>
-                </Container>
-              )}
-              {!store.getter.showJinx && (
-                <Container
-                  maxW="container.md"
-                  centerContent
-                  padding={8}
-                  overflowX="hidden"
-                >
-                  <Flex
-                    direction="column"
-                    background={'purple.200'}
-                    px={6}
-                    py={4}
-                    rounded={6}
-                    roundedTop={6}
-                    mb={6}
-                    mt={-6}
-                    w="100%"
-                    color="#2b2e3b"
-                  >
-                    <Text>
-                      hello, it&apos;s <b>{fronter}</b> web development mainly
-                      (mostly, no clue what we&apos;re doing)
-                    </Text>
-                  </Flex>
-                </Container>
-              )}
-              {children}
-            </main>
-          </A11yUserPreferences>
-        </ChakraProvider>
+                  <p className="mb-12">
+                    we&apos;re a{' '}
+                    <b>26 year-old trans 🏳️‍⚧️ non-binary borg system</b>. you can
+                    use any <b>neutral pronouns</b> for us (english: they or it,
+                    french: ielle/iel ou lae/lea ou ca/cela). currently lives
+                    near <b>paris</b>. likes anything that has to do with{' '}
+                    <b>technology</b> and hacking stuff (code, video, music,
+                    games, electronics, etc.). likes to share what we make and
+                    learn and teach stuff. very much pro <b>data rights</b> and
+                    more broadly against rising worldwide fascistic ideology and
+                    oppression.
+                  </p>
+                </div>
+              </div>
+            )}
+            {!store.getter.showJinx && (
+              <div className="p-8 md:container md:mx-auto md:w-6/12 flex justify-center flex-col">
+                <div className="flex flex-col bg-purple-200 px-6 py-4 mb-6 mt--6 w-full text-black rounded-sm">
+                  <p>
+                    hello, it&apos;s <b>{fronter}</b> we do web development
+                    mainly (mostly, no clue what we&apos;re doing)
+                  </p>
+                </div>
+              </div>
+            )}
+            {children}
+          </main>
+        </A11yUserPreferences>
       </body>
     </html>
   );

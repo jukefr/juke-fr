@@ -9,7 +9,6 @@ hljs.registerLanguage('glsl', glsl);
 // import 'prism-themes/themes/prism-dracula.css';
 import { Hook, Unhook } from 'console-feed';
 import { Message } from 'console-feed/lib/definitions/Console';
-import { Box, useBreakpointValue, useColorMode } from '@chakra-ui/react';
 
 import styles from './JinxEditor.module.css';
 import './highlightjsDracula.css';
@@ -45,9 +44,6 @@ const JinxEditor = ({
   setVertexShader: (shader: string) => void;
   store: any; // TODO: type this
 }) => {
-  const { colorMode } = useColorMode();
-  const rPadding = useBreakpointValue({ base: '0', md: '10px' });
-
   // state
   const [statusVertex, setStatusVertex] = useState<string>('');
   const [statusFragment, setStatusFragment] = useState<string>('');
@@ -102,19 +98,11 @@ const JinxEditor = ({
   }, []);
 
   return (
-    <Box
-      mb={6}
-      roundedTop={6}
-      style={{
-        visibility: store.getter.showEditor ? 'visible' : 'hidden',
-        display: store.getter.showEditor ? 'block' : 'none',
-        width: '100%',
-        gridRowStart: '1',
-        gridColumnStart: '1',
-        padding: rPadding,
-        zIndex: '99',
-      }}
-      className="jinx-editor bg-darker-900 bg-opacity-90 dark:bg-darker-900 dark:bg-opacity-20"
+    <div
+      className={`jinx-editor content
+      bg-darker-900 bg-opacity-90 dark:bg-darker-900 dark:bg-opacity-20
+      mb-6 rounded-t-sm w-full row-start-1 col-start-1 p-0 z-99
+      ${store.getter.showEditor ? 'block' : 'hidden'} `}
     >
       <label htmlFor="vertex-editor" className={styles.label}>
         vertex shader
@@ -130,34 +118,20 @@ const JinxEditor = ({
           hljs
             .highlight(code, { language: 'glsl' })
             .value.split('\n')
-            .map(
-              (line) =>
-                `<span class="${
-                  colorMode === 'light'
-                    ? styles.lineNumber
-                    : styles.lineNumberDark
-                }">${line}</span>`,
-            )
+            .map((line) => `<span class="${styles.lineNumber}">${line}</span>`)
             .join('\n')
         }
         style={{
-          color: colorMode === 'light' ? '#f8f8f2' : '#f8f8f2',
+          color: '#f8f8f2',
           overflow: 'initial',
         }}
         textareaClassName={`foobar-maintaining-fun-1 ${styles.editorContainer}`}
         textareaId="vertex-editor"
         className={styles.editorContainer}
       />
-      <Box
-        className="statusBar"
-        backgroundColor={'red.200'}
-        style={{
-          width: '100%',
-          color: '#2b2e3b',
-        }}
-      >
+      <div className="statusBar bg-red-200 w-full text-black">
         {statusVertex}
-      </Box>
+      </div>
       <label htmlFor="fragment-editor" className={styles.label}>
         fragment shader
       </label>
@@ -175,35 +149,21 @@ const JinxEditor = ({
           hljs
             .highlight(code, { language: 'glsl' })
             .value.split('\n')
-            .map(
-              (line) =>
-                `<span class="${
-                  colorMode === 'light'
-                    ? styles.lineNumber
-                    : styles.lineNumberDark
-                }">${line}</span>`,
-            )
+            .map((line) => `<span class="${styles.lineNumber}">${line}</span>`)
             .join('\n')
         }
         style={{
-          color: colorMode === 'light' ? '#f8f8f2' : '#f8f8f2',
+          color: '#f8f8f2',
           overflow: 'initial',
         }}
         textareaClassName={`foobar-maintaining-fun-2 ${styles.editorContainer}`}
         textareaId="fragment-editor"
         className={styles.editorParent}
       />
-      <Box
-        className="statusBar"
-        backgroundColor={'red.200'}
-        style={{
-          width: '100%',
-          color: '#2b2e3b',
-        }}
-      >
+      <div className="statusBar bg-red-200 w-full text-black">
         {statusFragment}
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 };
 

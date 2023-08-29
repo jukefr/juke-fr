@@ -1,5 +1,5 @@
 import { RiSlowDownFill, RiSpeedUpFill } from 'react-icons/ri';
-import { NavbarButton } from '../Navbar';
+import { NavbarButton } from '../Links';
 
 const ToggleReducedMotion = ({
   store,
