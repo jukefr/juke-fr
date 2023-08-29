@@ -1,13 +1,9 @@
 'use client';
 
-import { Heading } from '@chakra-ui/react';
-
 function FourOFour() {
   return (
     <>
-      <Heading pt={24} mb={6} as="h2" size="md" textAlign="center">
-        404 :S
-      </Heading>
+      <h2 className="pt-24 mb-6 text-2xl font-bold text-center">404 :S</h2>
     </>
   );
 }
