@@ -142,12 +142,18 @@ void main() {
   }, [prefersReducedMotion]);
 
   useEffect(() => {
+    if (!localStorage.fragmentShader || localStorage.fragmentShader === '') {
+      setRandomFragmentShader();
+    }
     // ! handle localStorage changes from
     // ! - prefersReducedMotion
+    // ! - fragmentShader
     window.addEventListener('storage', () => {
       setPrefersReducedMotion(localStorage.prefersReducedMotion);
+      SetFragmentShader(localStorage.fragmentShader);
     });
     setPrefersReducedMotion(localStorage.prefersReducedMotion);
+    SetFragmentShader(localStorage.fragmentShader);
 
     const handleResize = () => {
       setClientSize(getWindowDimensions());
@@ -157,6 +163,7 @@ void main() {
     setHasWebGL(checkForWebGL());
     return () => {
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('storage', () => {});
     };
   }, []);
 
@@ -252,6 +259,10 @@ void main() {
       ) : (
         <div className="text-center">
           <p>sowwy you dont have webgl :(</p>
+          <p>
+            or the client side is just loading i&apos;ll implement a proper
+            check someday :^)
+          </p>
         </div>
       )}
       <JinxEditor
