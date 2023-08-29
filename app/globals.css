@@ -3,43 +3,44 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: comic-code;
-    src: url('../components/assets/fonts/Regular.eot');
-    /* IE9 */
-    src:
-        url('../components/assets/fonts/Regular.eot?#iefix') format('embedded-opentype'),
-        /* IE6-IE8 */
-        url('../components/assets/fonts/Regular.woff2') format('woff2'),
-        /* chrome 36+, firefox 39+,iOS 10+, Android 67+ */
-        url('../components/assets/fonts/Regular.woff') format('woff'),
-        /* chrome, firefox */
-        url('../components/assets/fonts/Regular.ttf') format('truetype'),
-        /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-        url('../components/assets/fonts/Regular.svg#comic-code') format('svg');
-    /* iOS 4.1- */
-    font-display: swap;
+  font-family: comic-code;
+  src: url('../components/assets/fonts/Regular.eot');
+  /* IE9 */
+  src:
+    url('../components/assets/fonts/Regular.eot?#iefix')
+      format('embedded-opentype'),
+    /* IE6-IE8 */ url('../components/assets/fonts/Regular.woff2')
+      format('woff2'),
+    /* chrome 36+, firefox 39+,iOS 10+, Android 67+ */
+      url('../components/assets/fonts/Regular.woff') format('woff'),
+    /* chrome, firefox */ url('../components/assets/fonts/Regular.ttf')
+      format('truetype'),
+    /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+      url('../components/assets/fonts/Regular.svg#comic-code') format('svg');
+  /* iOS 4.1- */
+  font-display: swap;
 }
 
 @font-face {
-    font-family: comic-code;
-    src: url('../components/assets/fonts/Bold.eot');
-    /* IE9 */
-    src:
-        url('../components/assets/fonts/Bold.eot?#iefix') format('embedded-opentype'),
-        /* IE6-IE8 */
-        url('../components/assets/fonts/Bold.woff2') format('woff2'),
-        /* chrome 36+, firefox 39+,iOS 10+, Android 67+ */
-        url('../components/assets/fonts/Bold.woff') format('woff'),
-        /* chrome, firefox */
-        url('../components/assets/fonts/Bold.ttf') format('truetype'),
-        /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-        url('../components/assets/fonts/Bold.svg#comic-code') format('svg');
-    /* iOS 4.1- */
-    font-display: swap;
-    font-weight: bold;
-    font-style: bold;
+  font-family: comic-code;
+  src: url('../components/assets/fonts/Bold.eot');
+  /* IE9 */
+  src:
+    url('../components/assets/fonts/Bold.eot?#iefix')
+      format('embedded-opentype'),
+    /* IE6-IE8 */ url('../components/assets/fonts/Bold.woff2') format('woff2'),
+    /* chrome 36+, firefox 39+,iOS 10+, Android 67+ */
+      url('../components/assets/fonts/Bold.woff') format('woff'),
+    /* chrome, firefox */ url('../components/assets/fonts/Bold.ttf')
+      format('truetype'),
+    /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+      url('../components/assets/fonts/Bold.svg#comic-code') format('svg');
+  /* iOS 4.1- */
+  font-display: swap;
+  font-weight: bold;
+  font-style: bold;
 }
 
 * {
-    font-family: comic-code !important;
+  font-family: comic-code !important;
 }
