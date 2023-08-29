@@ -24,9 +24,9 @@ export default function Projects({ projects }: any) {
           rel="noopener noreferrer"
         >
           <div
-            className="border-2 rounded-sm cursor-pointer hover:bg-gradient-to-r hover:from-blue-500 hover:via-purple-600 hover:to-purple-800
+            className="border-2 rounded-sm cursor-pointer h-full hover:bg-gradient-to-r hover:from-blue-500 hover:via-purple-600 hover:to-purple-800
             active:bg-gradient-to-r active:from-blue-600 active:via-purple-700 active:to-purple-900
-          text-black dark:text-white ring-black dark:ring-white hover:!text-white active:!text-white"
+          text-black dark:text-white border-black dark:border-white hover:!text-white active:!text-white"
           >
             <motion.div
               initial="hidden"
@@ -55,7 +55,7 @@ export default function Projects({ projects }: any) {
                   {project.topics.map((topic: string) => (
                     <div
                       key={`${project.id}-${topic}`}
-                      className="rounded-sm mr-3 mb-2 inline italic"
+                      className="rounded-sm mr-3 mb-2 px-2 inline-block italic border-2 border-black dark:border-white rounded-sm"
                     >
                       {topic}
                     </div>
