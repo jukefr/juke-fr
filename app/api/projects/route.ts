@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   const rawProjects = await (
-    await fetch('https://code.juke.fr/api/v1/users/kay/repos?limit=1312')
+    await fetch('https://codeberg.org/api/v1/users/juke/repos?limit=1312')
   ).json();
 
   const sorted = rawProjects.sort(
@@ -13,7 +13,7 @@ export async function GET() {
     sorted.map(async (project: any) => {
       const { topics } = await (
         await fetch(
-          `https://code.juke.fr/api/v1/repos/kay/${project.name}/topics`,
+          `https://codeberg.org/api/v1/repos/juke/${project.name}/topics`,
         )
       ).json();
       return {
