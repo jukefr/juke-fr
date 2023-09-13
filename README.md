@@ -9,7 +9,7 @@ site built in typescript with next.js, tailwind css, framer motion, three.js ava
 the latest automatic release is always on https://juke.fr
 
 ```bash
-$ git clone https://code.juke.fr/kay/juke-fr.git
+$ git clone https://codeberg.org/juke/juke-fr.git
 
 $ npm i
 
