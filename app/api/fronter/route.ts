@@ -5,15 +5,15 @@ export interface Fronter {
   pronouns: string;
 }
 
-export interface FrontersResponse {
+export interface Fronters {
   members: Fronter[];
 }
 
-export async function getFronters() {
+export async function getFronter() {
   const frontersRequest = await fetch(
     'https://api.pluralkit.me/v2/systems/wzylv/fronters',
   );
-  const frontersResponse: FrontersResponse = await frontersRequest.json();
+  const frontersResponse: Fronters = await frontersRequest.json();
   const fronter = frontersResponse.members.reduce(
     (acc: string, val) => `${val.name} (${val.pronouns}), ${acc}`,
     '',
@@ -22,7 +22,7 @@ export async function getFronters() {
 }
 
 export async function GET() {
-  const fronter = await getFronters();
+  const fronter = await getFronter();
 
   return NextResponse.json(fronter);
 }
