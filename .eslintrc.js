@@ -17,16 +17,7 @@ module.exports = {
   rules: {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
-    'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
-
-    'react/no-unknown-property': 'off',
-    // https://github.com/emotion-js/emotion/issues/2878
-    // https://github.com/jsx-eslint/eslint-plugin-react/issues/3384
-    // so apparently the fact threejs react thing uses non-imported dynamic components in lowercase name is illegal or something idk,
-
-    '@typescript-eslint/no-explicit-any': 'warn',
-    '@typescript-eslint/no-unused-vars': 'warn',
   },
   settings: {
     react: {

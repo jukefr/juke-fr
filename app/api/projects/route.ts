@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export interface Topics {
-  topics: string[]
+  topics: string[];
 }
 
 export interface Project {
@@ -14,28 +14,32 @@ export interface Project {
 
 export interface ProjectWithTopics extends Project, Topics {}
 
-export async function GET() {
-  const rawProjects = await (
-    await fetch('https://codeberg.org/api/v1/users/juke/repos?limit=1312')
-  ).json() as Project[];
-
-  const sorted = rawProjects.sort(
-    (a, b) => Date.parse(b.updated_at) - Date.parse(a.updated_at),
+export async function getProjects() {
+  const projectsRequest = await fetch(
+    'https://codeberg.org/api/v1/users/juke/repos?limit=1312',
   );
-
-  const withTopics = await Promise.all(
-    sorted.map(async (project: Project) => {
-      const { topics } = await (
+  const projectsResponse: Project[] = await projectsRequest.json();
+  const projectsSortedByDate = projectsResponse.sort(
+    (a, b) => Date.parse(a.updated_at) - Date.parse(b.updated_at),
+  );
+  const projectsWithTopics: ProjectWithTopics[] = await Promise.all(
+    projectsSortedByDate.map(async (project: Project) => {
+      const { topics } = (await (
         await fetch(
           `https://codeberg.org/api/v1/repos/juke/${project.name}/topics`,
         )
-      ).json() as Topics;
+      ).json()) as Topics;
       return {
         ...project,
         topics,
       };
     }),
   );
+  return projectsWithTopics;
+}
 
-  return NextResponse.json(withTopics);
+export async function GET() {
+  const projects = await getProjects();
+
+  return NextResponse.json(projects);
 }

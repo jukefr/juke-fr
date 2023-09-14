@@ -4,7 +4,11 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { ProjectWithTopics } from '../app/api/projects/route';
 
-export default function Projects({ projects }: {projects:  ProjectWithTopics[]}) {
+export default function Projects({
+  projects,
+}: {
+  projects: ProjectWithTopics[];
+}) {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState('false');
   useEffect(() => {
     // ! handle localStorage changes from

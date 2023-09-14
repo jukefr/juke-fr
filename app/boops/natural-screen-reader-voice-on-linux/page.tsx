@@ -3,7 +3,7 @@ import Link from '../../../components/Links';
 import TerminalCodePreview from '../../../components/TerminalCodePreview';
 import coquiSample from '../../../components/assets/boops/natural-screen-reader-voice-on-linux/welcome_coqui.mp3';
 import piperSample from '../../../components/assets/boops/natural-screen-reader-voice-on-linux/welcome_piper.mp3';
-import { description, id, title } from './meta';
+import { description, title } from './meta';
 
 export const metadata: Metadata = {
   title,

@@ -87,7 +87,7 @@ const JinxEditor = ({
   useEffect(() => {
     // ! handle localStorage changes from
     // ! - toggleEditor
-    window.addEventListener('storage', (e) => {
+    window.addEventListener('storage', () => {
       setShowEditor(localStorage.showEditor);
       SetFragmentShader(localStorage.fragmentShader);
     });

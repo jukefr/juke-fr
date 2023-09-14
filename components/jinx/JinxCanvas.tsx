@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 'use client';
 
 import { A11y, A11yAnnouncer } from '@react-three/a11y';
@@ -66,8 +67,8 @@ const getWindowDimensions = () => {
 export default function Jinx() {
   const [FragmentShader, SetFragmentShader] = useState<string>('');
   const [prefersReducedMotion, setPrefersReducedMotion] = useState('false');
-  const [deltaMultiplier, setDeltaMultiplier] = useState(1);
-  const [timer, setTimer] = useState(new Clock());
+  const [deltaMultiplier] = useState(1);
+  const [timer] = useState(new Clock());
 
   const [vertexShader, setVertexShader] = useState<string>(`varying vec2 vUv;
 void main() {

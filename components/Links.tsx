@@ -1,6 +1,7 @@
 'use client';
 
 import NextLink from 'next/link'; // ! requires use client
+import { ReactNode } from 'react';
 import { LuExternalLink } from 'react-icons/lu';
 
 export default function Link({
@@ -8,7 +9,12 @@ export default function Link({
   children,
   isExternal,
   className,
-}: any): JSX.Element {
+}: {
+  href: string;
+  children: ReactNode;
+  isExternal: boolean;
+  className: string;
+}): JSX.Element {
   return (
     <NextLink
       href={href}
@@ -25,7 +31,13 @@ export default function Link({
   );
 }
 
-export const NavLink = ({ href, children }: any) => (
+export const NavLink = ({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) => (
   <NextLink
     href={href}
     passHref
@@ -39,7 +51,15 @@ text-black dark:text-white ring-black dark:ring-white hover:text-white active:te
   </NextLink>
 );
 
-export const NavbarButton = ({ ariaLabel, onClick, children }: any) => (
+export const NavbarButton = ({
+  ariaLabel,
+  onClick,
+  children,
+}: {
+  ariaLabel: string;
+  onClick(): void;
+  children: ReactNode;
+}) => (
   <button
     aria-label={ariaLabel}
     className={`p-3 ml-3 rounded-sm ring-2 shadow-md

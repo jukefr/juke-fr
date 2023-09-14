@@ -12,7 +12,7 @@ const NavbarButtons = () => {
   useEffect(() => {
     // ! handle localStorage changes from
     // ! - toggleJinx
-    window.addEventListener('storage', (e) => {
+    window.addEventListener('storage', () => {
       setShowJinx(localStorage.showJinx);
     });
     setShowJinx(localStorage.showJinx);

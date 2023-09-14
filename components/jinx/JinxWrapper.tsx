@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Jinx from './JinxCanvas';
 
-export default function JinxWrapper({ fronter }: any) {
+export default function JinxWrapper({ fronter }: { fronter: string }) {
   const [showJinx, setShowJinx] = useState('true');
   const [showEditor, setShowEditor] = useState('false');
 
