@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Layout from '../components/Layout';
-import { getFronter } from './api/fronter/route';
+import { getFronter } from './api/fronter/service';
 import './globals.css';
 
 export const metadata: Metadata = {

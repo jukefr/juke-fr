@@ -1,5 +1,5 @@
 import Projects from '../components/Projects';
-import { getProjects } from './api/projects/route';
+import { getProjects } from './api/projects/service';
 
 // `app/page.tsx` is the UI for the `/` URL
 export default async function Page() {
