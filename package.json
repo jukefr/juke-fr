@@ -5,7 +5,7 @@
   "author": "kay <git@juke.fr>",
   "files": [],
   "scripts": {
-    "start": "next build && next start -p 3333",
+    "start": "next start",
     "build": "next build",
     "dev": "next dev",
     "debug": "cross-env NODE_OPTIONS='--inspect' next dev",
