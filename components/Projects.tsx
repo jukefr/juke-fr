@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { ProjectWithTopics } from '../app/api/projects/route';
+import { ProjectWithTopics } from '../app/api/projects/service';
 
 export default function Projects({
   projects,
