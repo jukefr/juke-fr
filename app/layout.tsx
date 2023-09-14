@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Layout from '../components/Layout';
-import { GET as getFronter } from './api/fronter/route';
+import { getFronter } from './api/fronter/route';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -51,13 +51,12 @@ export default async function LayoutC({
 }: {
   children: React.ReactNode;
 }) {
-  const fronterRequest = await getFronter();
-  const fronterResponse: string = await fronterRequest.json();
+  const fronter = await getFronter();
 
   return (
     <html>
       <body className="bg-light-50 dark:bg-darker-900 text-darker-900 dark:text-light-50">
-        <Layout fronter={fronterResponse}></Layout>
+        <Layout fronter={fronter}></Layout>
         {children}
       </body>
     </html>
