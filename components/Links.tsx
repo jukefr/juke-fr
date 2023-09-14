@@ -12,8 +12,8 @@ export default function Link({
 }: {
   href: string;
   children: ReactNode;
-  isExternal: boolean;
-  className: string;
+  isExternal?: boolean;
+  className?: string;
 }): JSX.Element {
   return (
     <NextLink
