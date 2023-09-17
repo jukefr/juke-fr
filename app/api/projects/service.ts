@@ -26,7 +26,6 @@ export async function getProjects() {
       const { topics } = (await (
         await fetch(
           `https://codeberg.org/api/v1/repos/juke/${project.name}/topics`,
-          { next: { revalidate: 3600 } },
         )
       ).json()) as Topics;
       return {
