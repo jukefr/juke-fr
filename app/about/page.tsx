@@ -9,13 +9,13 @@ const AboutPage = (): JSX.Element => {
 
       <ul className="space-y-3 list-disc">
         <li>
-          <Link href="https://code.juke.fr/kay" isExternal>
-            code is hosted on code.juke.fr
+          <Link href="https://codeberg.org/juke" isExternal>
+            code is hosted on codeberg.org/juke
           </Link>
         </li>
         <li>
-          <Link href="https://matrix.to/#/@kay:juke.fr" isExternal>
-            chat via matrix at @kay:juke.fr
+          <Link href="https://matrix.to/#/@jukefr:matrix.org" isExternal>
+            chat via matrix at @kay:matrix.org
           </Link>
         </li>
         <li>
