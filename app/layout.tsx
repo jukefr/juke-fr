@@ -58,9 +58,6 @@ export default async function LayoutC({
       <body className="bg-light-50 dark:bg-darker-900 text-darker-900 dark:text-light-50">
         <Layout fronter={fronter}></Layout>
         {children}
-        <a hidden={true} rel="me" href="https://octodon.social/@memoryleak">
-          for verification of mastodon
-        </a>
       </body>
     </html>
   );
