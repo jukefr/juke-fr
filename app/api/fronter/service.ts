@@ -14,6 +14,7 @@ export async function getFronter() {
       { next: { revalidate: 3600 } },
     );
     const frontersResponse: Fronters = await frontersRequest.json();
+
     const fronter = frontersResponse.members.reduceRight(
       (acc: string, val) => `${val.name} (${val.pronouns}), ${acc}`,
       '',

@@ -17,6 +17,7 @@
   "dependencies": {
     "@react-three/a11y": "3.0.0",
     "@react-three/fiber": "8.14.1",
+    "bluebird": "^3.7.2",
     "console-feed": "^3.5.0",
     "cross-env": "^7.0.3",
     "framer-motion": "10.16.4",
@@ -33,6 +34,7 @@
     "@next/bundle-analyzer": "13.4.19",
     "@next/eslint-plugin-next": "13.4.19",
     "@playwright/test": "1.38.0",
+    "@types/bluebird": "^3.5.39",
     "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",

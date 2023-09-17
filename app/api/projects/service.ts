@@ -1,3 +1,5 @@
+import { map as PromiseMap } from 'bluebird';
+
 export interface Topics {
   topics: string[];
 }
@@ -12,6 +14,30 @@ export interface Project {
 
 export interface ProjectWithTopics extends Project, Topics {}
 
+export async function getTopics(project: Project): Promise<ProjectWithTopics> {
+  try {
+    const topicsRequest = await fetch(
+      `https://codeberg.org/api/v1/repos/juke/${project.name}/topics`,
+      { next: { revalidate: 3600 } },
+    );
+    const topicsResponse: Topics = await topicsRequest.json();
+
+    return {
+      ...project,
+      topics: topicsResponse.topics,
+    };
+  } catch (err) {
+    console.error(
+      `Something went wrong fetching topics for ${project.name}...`,
+    );
+    if (err instanceof Error) console.error(err.message);
+  }
+  return {
+    ...project,
+    topics: [],
+  };
+}
+
 export async function getProjects() {
   try {
     const projectsRequest = await fetch(
@@ -23,30 +49,10 @@ export async function getProjects() {
     const projectsSortedByDate = projectsResponse.sort(
       (a, b) => Date.parse(b.updated_at) - Date.parse(a.updated_at),
     );
-
-    const projectsWithTopics: ProjectWithTopics[] = await Promise.all(
-      projectsSortedByDate.map(async (project: Project) => {
-        try {
-          const { topics } = (await (
-            await fetch(
-              `https://codeberg.org/api/v1/repos/juke/${project.name}/topics`,
-            )
-          ).json()) as Topics;
-          return {
-            ...project,
-            topics,
-          };
-        } catch (err) {
-          console.error(
-            `Something went wrong fetching topics for ${project.name}...`,
-          );
-          if (err instanceof Error) console.error(err.message);
-        }
-        return {
-          ...project,
-          topics: [],
-        };
-      }),
+    const projectsWithTopics = PromiseMap(
+      projectsSortedByDate,
+      (project: Project) => getTopics(project),
+      { concurrency: 5 },
     );
     return projectsWithTopics;
   } catch (err) {
