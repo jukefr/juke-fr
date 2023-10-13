@@ -1,5 +1,6 @@
-# [juke-fr](https://code.juke.fr/kay/juke-fr)
-site built in typescript with next.js, tailwind css, framer motion, three.js available on juke.fr
+# [juke-fr](https://codeberg.org/juke/juke-fr)
+site built in typescript with next.js, tailwind css, framer motion, three.js available on juke.fr 
+
 ## instructioms
 
 ![jinx the cat my beolved](components/assets/jinx.png)
@@ -46,7 +47,7 @@ it will upgrade all the packages then run the test and do them one by one increm
 To clone the repository locally:
 
 ```bash
-$ git clone https://code.juke.fr/kay/juke-fr.git
+$ git clone https://codeberg.org/juke/juke-fr.git
 ```
 
 ## Contributing
