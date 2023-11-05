@@ -14,6 +14,12 @@ const AboutPage = (): JSX.Element => {
           </Link>
         </li>
         <li>
+          <Link href="https://www.youtube.com/@CodeAvecKay" isExternal>
+            youtube channel of french coding tutorials on
+            youtube.com/@CodeAvecKay
+          </Link>
+        </li>
+        <li>
           <Link href="https://matrix.to/#/@jukefr:matrix.org" isExternal>
             chat via matrix at @kay:matrix.org
           </Link>
