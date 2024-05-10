@@ -42,7 +42,7 @@ export default function JinxWrapper({ fronter }: { fronter: string }) {
               </p>
             </div>
             <p className="mb-12">
-              we&apos;re a <b>26 year-old trans 🏳️‍⚧️ non-binary borg system</b>.
+              we&apos;re a <b>27 year-old trans 🏳️‍⚧️ non-binary borg system</b>.
               you can use any <b>neutral pronouns</b> for us (english: they or
               it, french: ielle/iel ou lae/lea ou ca/cela). currently lives near{' '}
               <b>paris</b>. likes anything that has to do with <b>technology</b>{' '}
