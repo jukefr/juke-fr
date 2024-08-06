@@ -3,7 +3,7 @@
 
 import { useFrame } from '@react-three/fiber';
 import { useRef, useState } from 'react';
-import type { Clock, ShaderMaterial } from 'three';
+import type { Clock, ShaderMaterial, Vector2, Texture } from 'three';
 import sound from '../assets/meow.mp3';
 
 const playAudio = (audio?: HTMLAudioElement): void => {
@@ -19,8 +19,8 @@ const getRandomValue = (lower: number, upper: number) => {
 interface IShader {
   uniforms: {
     u_time: { value: number };
-    u_resolution: { value: THREE.Vector2 };
-    u_texture: { value: THREE.Texture };
+    u_resolution: { value: Vector2 };
+    u_texture: { value: Texture };
   };
   vertexShader: string;
   fragmentShader: string;
