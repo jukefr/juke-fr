@@ -21,22 +21,23 @@ const NavbarButtons = () => {
 
 	return (
 		<div className="contents">
-			{showJinx === 'true' && (
-				<div className="contents">
-					<div>
-						<ToggleEditor />
-					</div>
-					<div>
-						<ToggleReducedMotion />
-					</div>
-				</div>
-			)}
-			<div>
-				<ToggleJinx />
-			</div>
-			<div>
+			<div className='mb-4 order-1 md:order-4'>
 				<ToggleColorMode />
 			</div>
+			<div className='mb-4 order-2 md:order-3'>
+				<ToggleJinx />
+			</div>
+			{showJinx === 'true' && (
+				<>
+					<div className='mb-4 order-3 md:order-1'>
+						<ToggleEditor />
+					</div>
+					<div className='mb-4 order-4 md:order-2'>
+						<ToggleReducedMotion />
+					</div>
+				</>
+			)}
+
 		</div>
 	);
 };
@@ -44,8 +45,8 @@ const NavbarButtons = () => {
 const Navbar = ({ }) => {
 	return (
 		<nav>
-			<div className="flex flex-wrap justify-between items-center mb-4 mt-4">
-				<div className="flex flex-col md:flex-row md:items-center">
+			<div className="flex flex-row justify-between items-start md:items-center mt-4">
+				<div className="flex flex-col md:flex-row md:items-center w-full md:w-auto mb-4 md:mb-0">
 					<div className='mb-4 md:mb-0'>
 						<NavLink href="/">
 							<h1>juke</h1>
@@ -58,8 +59,8 @@ const Navbar = ({ }) => {
 						<NavLink href="/about">about</NavLink>
 					</div>
 				</div>
-				<div className="grow" />
-				<div className="flex flex-wrap w-full md:w-auto justify-end">
+				{/* <div className="grow" /> */}
+				<div className="flex flex-col md:flex-row w-auto justify-end items-start md:items-center">
 					<NavbarButtons />
 				</div>
 			</div>
