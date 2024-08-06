@@ -46,11 +46,17 @@ const Navbar = ({ }) => {
 		<nav>
 			<div className="flex flex-wrap justify-between items-center mb-4 mt-4">
 				<div className="flex flex-col md:flex-row md:items-center">
-					<NavLink href="/">
-						<h1>{'juke'}</h1>
-					</NavLink>
-					<NavLink href="/boops">boops</NavLink>
-					<NavLink href="/about">about</NavLink>
+					<div className='mb-4 md:mb-0'>
+						<NavLink href="/">
+							<h1>juke</h1>
+						</NavLink>
+					</div>
+					<div className='mb-4 md:mb-0'>
+						<NavLink href="/boops">boops</NavLink>
+					</div>
+					<div className='mb-4 md:mb-0'>
+						<NavLink href="/about">about</NavLink>
+					</div>
 				</div>
 				<div className="grow" />
 				<div className="flex flex-wrap w-full md:w-auto justify-end">
