@@ -23,7 +23,7 @@ export default function JinxWrapper({ fronter }: { fronter: string }) {
   return (
     <>
       {showJinx === 'true' && (
-        <div className="p-8 md:container md:mx-auto md:w-6/12 flex justify-center flex-col">
+        <div className="p-8 md:container md:mx-auto md:w-6/12 flex justify-center flex-col overflow-x-hidden">
           <div className="min-h-[420px] w-full">
 			{/* TODO: Causes hydration error */}
             <Jinx />

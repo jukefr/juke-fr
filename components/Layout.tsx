@@ -10,7 +10,7 @@ export default function Layout({ fronter }: { fronter: string }) {
 			<div className="px-4 md:container md:mx-auto">
 				<Navbar />
 			</div>
-			<main className='overflow-x-hidden'>
+			<main>
 				<JinxWrapper fronter={fronter} />
 			</main>
 		</A11yUserPreferences>
