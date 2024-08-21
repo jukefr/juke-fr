@@ -1,9 +1,13 @@
 import Link from '../../components/Links';
 
 import {
-  title as scrTitle,
-  id as scrId,
+  title as screenReaderTitle,
+  id as screenReaderId,
 } from './natural-screen-reader-voice-on-linux/meta';
+import {
+  title as headscaleTitle,
+  id as headscaleId,
+} from './headscale-on-nixos/meta'
 // } from './boops/better-privacy-when-browsing-online.html';
 // } from './boops/in-place-encryption-raspberry-pi-yunohost.html';
 
@@ -17,8 +21,11 @@ const BoopsPage = (): JSX.Element => {
       </p>
       <hr className="mb-6" />
       <ul className="space-y-3 list-disc">
-        <li key={scrId}>
-          <Link href={`/boops/${scrId}`}>{scrTitle}</Link>
+        <li key={screenReaderId}>
+          <Link href={`/boops/${screenReaderId}`}>{screenReaderTitle}</Link>
+        </li>
+        <li key={headscaleId}>
+          <Link href={`/boops/${headscaleId}`}>{headscaleTitle}</Link>
         </li>
       </ul>
     </div>
