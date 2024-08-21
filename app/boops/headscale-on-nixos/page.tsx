@@ -175,7 +175,7 @@ in
             `}
         </TerminalCodePreview>
         <p>rebuild nixos and now to join the headscale instance we can use</p>
-        <TerminalCodePreview language="language-bash">
+        <TerminalCodePreview lang="language-bash">
           sudo tailscale up --login-server https://headscale.juke.fr/
         </TerminalCodePreview>
         <p>this will direct you to a login page that will generate a command you should type on the headscale server replacing <code>$USER</code> with the namespace we created earlier, don't forget to add sudo also</p>
